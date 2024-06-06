@@ -1,0 +1,52 @@
+.splash-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    background-color: #ffffff; /* Fondo blanco */
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .splash-image-small {
+    max-width: 200px; /* Tamaño de la imagen pequeña */
+    margin-top: 20px;
+    padding: 20px;
+  }
+  
+  .splash-comment-highlight {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 80px 0;
+    color: #333333; /* Color del comentario resaltado */
+  }
+  
+  .splash-comment {
+    font-size: 1rem;
+    color: #666666; /* Color del comentario menos resaltado */
+    margin-bottom: 20px;
+    margin: 80px 0;
+  }
+  
+  
+  .splash-button {
+    --background: #f39c12; /* Color de fondo del botón */
+    --color: #fff; /* Color del texto del botón */
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 25px;
+    margin-bottom: 20px;
+  }
+  
+  .custom-parent {
+    color: #000000;
+    max-width: 130px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 25px;
+    margin-bottom: 20px;
+    background: #f39c12;
+    margin: auto;
+  }
+  

@@ -1,0 +1,77 @@
+<ion-content class="registration-screen">
+  
+  <div class="registration-container">
+    <img src="https://neocities.org/site_thumbnails/26/08/mateogutierrez/Logo%20ChefCode.png.210x158.webp" alt="Logo pequeño" class="splash-image-small">
+
+  <div>
+    <p class="splash-comment-highlight">Registrate</p>
+    
+  </div>
+    <form class="registration-form" (ngSubmit)="register()">
+      <ion-item>
+        <ion-label position="floating">Nombre(s)</ion-label>
+        <ion-input
+          id="custom-input"
+          type="text"
+          labelPlacement="floating"
+          [counter]="true" 
+          maxlength="10"
+          [counterFormatter]="customCounterFormatter"
+          required
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input
+          type="email"
+          fill="solid"
+          label="Email"
+          labelPlacement="floating"
+          helperText="Enter a valid email"
+          errorText="Invalid email"
+          ngModel
+          name="email"
+          required
+          email
+        ></ion-input>
+      </ion-item>
+
+      <ion-item [ngClass]="{ 'ion-invalid': phoneNumberError }">
+        <ion-label position="floating">Número de teléfono</ion-label>
+        <ion-input
+          type="tel"
+          required
+          pattern="^[0-9]{10}$"
+          (input)="validatePhoneNumber($event)"
+          name="phone"
+        ></ion-input>
+        <ion-icon name="alert-circle-outline" *ngIf="phoneNumberError" slot="end"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input
+          type="password"
+          value="NeverGonnaGiveYouUp"
+          required
+          minlength="8"
+        >
+          <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+        </ion-input>
+      </ion-item>
+
+      <ion-button type="submit" class="registration-button">Registrar</ion-button>
+      <ion-button class="registration-button" fill="outline" color="medium">Iniciar sesión</ion-button>
+    </form>
+
+    <div class="social-login">
+      <ion-button class="social-button">
+        <img src="https://cdn-icons-png.flaticon.com/512/300/300221.png" alt="Google"> Google
+      </ion-button>
+      <ion-button class="social-button">
+        <img src="https://cdn-icons-png.flaticon.com/256/124/124010.png" alt="Facebook"> Facebook
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

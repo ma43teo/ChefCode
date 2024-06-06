@@ -1,0 +1,40 @@
+.splash-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Alinea verticalmente los elementos */
+  align-items: center;
+  height: 100vh;
+  background-color: #ffffff; /* Fondo blanco */
+  text-align: center;
+ padding:20px;
+}
+
+.splash-image-small {
+  max-width: 200px; /* Tamaño de la imagen pequeña */
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.splash-comment {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 20px 0; /* Ajusta el margen superior e inferior */
+  color: #333333; /* Color del comentario resaltado */
+}
+
+.splash-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px; /* Espaciado entre botones */
+}
+
+.splash-button {
+  --background: #f39c12; /* Color de fondo del botón */
+  --color: #fff; /* Color del texto del botón */
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 25px;
+  width: 200px; /* Ancho de los botones */
+}
+
