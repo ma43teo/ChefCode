@@ -1,0 +1,53 @@
+ 
+  .splash-image-small {
+    max-width: 200px; /* Tamaño de la imagen pequeña */
+    margin-top: 20px;
+    padding: 10px;
+    position:relative;
+    top:25%;
+    left:25%;
+  }
+  
+  .splash-comment-highlight {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333333; /* Color del comentario resaltado */
+    text-align: center;
+  }
+
+.recover-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ffffff; /* Fondo blanco */
+  }
+  
+  .recover-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px; /* Espaciado interno */
+    margin: auto;
+  }
+  
+  .recuperar-contraseña {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaciado entre los campos */
+  }
+  
+  .custom-button {
+    --background: #f35212; /* Color de fondo del botón */
+    --color: #fff; /* Color del texto del botón */
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 25px;
+    width: 100%; /* Ancho del botón */
+    margin-top: 10px; /* Espacio superior */
+  }
+  
+
+  .ion-invalid {
+    --ion-color-base: #f53d3d; /* Color de error para ion-item */
+  }
+  

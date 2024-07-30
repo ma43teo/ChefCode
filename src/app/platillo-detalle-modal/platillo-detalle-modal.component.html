@@ -1,0 +1,12 @@
+<ion-content>
+  <ion-card>
+    <img [src]="platillo.imagen">
+    <ion-card-header>
+      <ion-card-title>{{ platillo.nombre }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{ platillo.descripcion }}
+    </ion-card-content>
+  </ion-card>
+  <ion-button expand="full" (click)="dismiss()">Cerrar</ion-button>
+</ion-content>

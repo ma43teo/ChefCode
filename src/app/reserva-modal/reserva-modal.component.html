@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Completa la información</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Completa la información siguiente para terminar de hacer la reserva.</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Nombre(s)</ion-label>
+        <ion-input
+          id="custom-input"
+          type="text"
+          labelPlacement="floating"
+          [counter]="true" 
+          maxlength="10"
+          [counterFormatter]="customCounterFormatter"
+          [(ngModel)]="nombre"
+          required
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Apellido(s)</ion-label>
+        <ion-input
+          id="custom-input"
+          type="text"
+          labelPlacement="floating"
+          [counter]="true" 
+          maxlength="10"
+          [counterFormatter]="customCounterFormatter"
+          [(ngModel)]="apellidos"
+          required
+        ></ion-input>
+      </ion-item>
+
+      <ion-item [ngClass]="{ 'ion-invalid': phoneNumberError }">
+        <ion-label position="floating">Número de teléfono</ion-label>
+        <ion-input
+          type="tel"
+          inputmode="numeric"
+          pattern="[0-9]*"
+          maxlength="10"
+          (input)="validatePhoneNumber($event)"
+          required
+        ></ion-input>
+        <ion-icon name="alert-circle-outline" *ngIf="phoneNumberError" slot="end"></ion-icon>
+      </ion-item>
+
+      <ion-button expand="block" color="danger" (click)="confirmarReserva()">Reservar</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

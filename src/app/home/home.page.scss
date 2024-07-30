@@ -1,27 +1,77 @@
-#container {
-  text-align: center;
+.searchbar-custom {
+  --background: #fdf4b5; /* Color de fondo personalizado */
+  margin: 16px;
+}
 
+.swiper-container {
+  width: 100%;
+  height: 300px; /* Altura del carrusel */
+  margin-top: 16px; /* Espacio superior */
+  position: relative; /* Posición relativa para los botones de navegación */
+}
+
+.swiper-wrapper {
+  display: flex;
+}
+
+.swiper-slide {
+  width: 100%; /* Ocupa todo el ancho del contenedor */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f0f0f0; /* Color de fondo de los slides */
+  border-radius: 8px; /* Bordes redondeados */
+}
+
+.swiper-slide img {
+  max-width: 100%; /* Ajusta la imagen al ancho máximo del slide */
+  max-height: 100%; /* Ajusta la altura máxima de la imagen */
+  object-fit: cover; /* Ajusta la imagen dentro del contenedor manteniendo la relación de aspecto */
+  border-radius: 8px; /* Bordes redondeados para la imagen */
+}
+
+.swiper-button-prev,
+.swiper-button-next {
   position: absolute;
-  left: 0;
-  right: 0;
   top: 50%;
   transform: translateY(-50%);
-}
-
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
-
-#container p {
+  width: 40px;
+  height: 40px;
+  background-color: #001c30; /* Color de fondo de los botones de navegación */
+  border-radius: 50%;
+  border: 1px solid #45cfdd; /* Borde del botón */
+  color: #fff;
   font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color 0.3s ease; /* Animación de color de fondo */
 }
 
-#container a {
-  text-decoration: none;
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background-color: #45cfdd; /* Color de fondo al pasar el mouse */
+}
+
+.swiper-button-prev {
+  left: 10px;
+}
+
+.swiper-button-next {
+  right: 10px;
+}
+
+ion-button {
+  margin: 20px;
+  --background: #f35b04; /* Color de fondo personalizado para el botón */
+}
+
+ion-tab-bar {
+  background-color: #fff; /* Color de fondo de la barra de pestañas */
+  border-top: 1px solid #ccc; /* Borde superior */
+}
+
+ion-tab-button {
+  --color-selected: #f35b04; /* Color seleccionado */
 }

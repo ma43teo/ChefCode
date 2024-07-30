@@ -1,0 +1,56 @@
+<ion-content class="login-screen">
+  
+  <div class="login-container">
+    <img src="https://neocities.org/site_thumbnails/26/08/mateogutierrez/Logo%20ChefCode.png.210x158.webp" alt="Logo pequeño" class="splash-image-small">
+
+  <div>
+    <p class="splash-comment-highlight">Iniciar Sesion</p>
+    
+  </div>
+    <form class="login-form" (ngSubmit)="loginm()">
+
+
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input
+          type="email"
+          fill="solid"
+          label="Email"
+          labelPlacement="floating"
+          helperText="Enter a valid email"
+          errorText="Invalid email"
+          ngModel
+          name="email"
+          required
+          email
+        ></ion-input>
+      </ion-item>
+
+      
+
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input
+          type="password"
+          value="NeverGonnaGiveYouUp"
+          required
+          minlength="8"
+        >
+          <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+        </ion-input>
+      </ion-item>
+
+      <ion-button expand="block" class="custom-button">Entrar</ion-button>
+        <ion-button fill="clear" color="medium" routerLink="/forgot-password">¿Olvidaste tu contraseña?</ion-button>
+    </form>
+
+    <div class="social-login">
+      <ion-button class="social-button">
+        <img src="https://cdn-icons-png.flaticon.com/512/300/300221.png" alt="Google"> Google
+      </ion-button>
+      <ion-button class="social-button">
+        <img src="https://cdn-icons-png.flaticon.com/256/124/124010.png" alt="Facebook"> Facebook
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

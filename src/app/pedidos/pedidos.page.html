@@ -1,0 +1,196 @@
+<ion-header>
+  <div class="burger-icon">
+    <label class="burger" for="burger">
+      <input class="line" type="checkbox" id="burger" />
+      <nav class="sidebar" >
+        <ul>
+          <input class="line2" type="checkbox" id="burger" />
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#">Pedidos</a></li>
+          <li><a href="#">Reservaciones</a></li>
+          <li><a href="#">Inventario</a></li>
+          <li><a href="#">Perfil</a></li>
+        </ul>
+      </nav>
+    </label>
+    <h1>Pedidos</h1>
+  </div>
+</ion-header>
+
+
+<!-- background de la taza -->
+<ion-content>
+    <div class="container">
+        <div class="plato"></div>
+        <div class="cup">
+            <div class="top">
+                <div class="circle">
+                    <div class="fod"></div>
+                </div>
+            </div>
+            <div class="vapour">
+                <span style="--i:1"></span>
+                <span style="--i:3"></span>
+                <span style="--i:16"></span>
+                <span style="--i:5"></span>
+                <span style="--i:13"></span>
+                <span style="--i:20"></span>
+                <span style="--i:6"></span>
+                <span style="--i:7"></span>
+                <span style="--i:10"></span>
+                <span style="--i:8"></span>
+                <span style="--i:17"></span>
+                <span style="--i:11"></span>
+                <span style="--i:12"></span>
+                <span style="--i:14"></span>
+                <span style="--i:2"></span>
+                <span style="--i:9"></span>
+                <span style="--i:15"></span>
+                <span style="--i:4"></span>
+                <span style="--i:19"></span>
+                <span style="--i:20"></span>
+            </div>
+        </div>
+        <div class="handle1"></div>
+        <div class="handle2"></div>
+    </div>
+</ion-content>
+<!-- fin de la taza -->
+
+<div class="table-container">
+    <div class="BlurTable"></div>
+    <table class="blurred-table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Productos</th>
+                <th>Categoria</th>
+                <th>Cantidad</th>
+                <th>Costo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><b>1</b></td>
+                <td><b>Coca</b></td>
+                <td>
+                    <select name="select">
+                        <option value="value1">Comida</option>
+                        <option value="value2">Refresco</option>
+                        <option value="value3">Postre</option>
+                    </select>
+                </td>
+                <td>
+                    <select name="select">
+                        <option value="value1">5</option>
+                        <option value="value2">10</option>
+                        <option value="value3">20</option>
+                        <option value="value4">30</option>
+                    </select>
+                </td>
+                <td><b>20.00 mxn</b></td>
+            </tr>
+            <tr>
+                <td><b>2</b></td>
+                <td><b>Flan</b></td>
+                <td>
+                    <select name="select">
+                        <option value="value1">Comida</option>
+                        <option value="value2">Refresco</option>
+                        <option value="value3">Postre</option>
+                    </select>
+                </td>
+                <td>
+                    <select name="select">
+                        <option value="value1">5</option>
+                        <option value="value2">10</option>
+                        <option value="value3">20</option>
+                        <option value="value4">30</option>
+                    </select>
+                </td>
+                <td><b>20.00 mxn</b></td>
+            </tr>
+            <tr>
+                <td><b>3</b></td>
+                <td><b>Pozole</b></td>
+                <td>
+                    <select name="select">
+                        <option value="value1">Comida</option>
+                        <option value="value2">Refresco</option>
+                        <option value="value3">Postre</option>
+                    </select>
+                </td>
+                <td>
+                    <select name="select">
+                        <option value="value1">5</option>
+                        <option value="value2">10</option>
+                        <option value="value3">20</option>
+                        <option value="value4">30</option>
+                    </select>
+                </td>
+                <td><b>20.00 mxn</b></td>
+            </tr>
+            <tr>
+                <td><b>4</b></td>
+                <td><b>Tacos</b></td>
+                <td>
+                    <select name="select">
+                        <option value="value1">Comida</option>
+                        <option value="value2">Refresco</option>
+                        <option value="value3">Postre</option>
+                    </select>
+                </td>
+                <td>
+                    <select name="select">
+                        <option value="value1">5</option>
+                        <option value="value2">10</option>
+                        <option value="value3">20</option>
+                        <option value="value4">30</option>
+                    </select>
+                </td>
+                <td><b>20.00 mxn</b></td>
+            </tr>
+            <tr>
+                <td><b>5</b></td>
+                <td><b>Enchiladas</b></td>
+                <td>
+                    <select name="select">
+                        <option value="value1">Comida</option>
+                        <option value="value2">Refresco</option>
+                        <option value="value3">Postre</option>
+                    </select>
+                </td>
+                <td>
+                    <select name="select">
+                        <option value="value1">5</option>
+                        <option value="value2">10</option>
+                        <option value="value3">20</option>
+                        <option value="value4">30</option>
+                    </select>
+                </td>
+                <td><b>20.00 mxn</b></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const burgerIcon = document.querySelector('.burger-icon');
+    const sidebar = document.querySelector('.sidebar');
+    const burgerCheckbox = document.getElementById('burger');
+
+    burgerIcon.addEventListener('click', function() {
+      sidebar.classList.toggle('menu-open');
+    });
+
+    // Ocultar sidebar al hacer clic fuera de él
+    document.addEventListener('click', function(event) {
+      if (!burgerIcon.contains(event.target) && !sidebar.contains(event.target)) {
+        sidebar.classList.remove('menu-open');
+        burgerCheckbox.checked = false; // Desmarcar el checkbox
+      }
+    });
+  });
+</script>
+

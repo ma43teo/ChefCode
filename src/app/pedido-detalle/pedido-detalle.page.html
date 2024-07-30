@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Detalle del Pedido</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="pedido">
+  <ion-card>
+    <img [src]="pedido.imagen">
+    <ion-card-header>
+      <ion-card-title>{{ pedido.nombre }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{ pedido.descripcion }}
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -31,8 +31,9 @@
                 "output": "./svg"
               }
             ],
-            "styles": ["src/global.scss", "src/theme/variables.scss"],
-            "scripts": []
+            "styles": ["src/theme/variables.scss", "src/global.scss",
+            "node_modules/swiper/swiper-bundle.min.css"],
+            "scripts": ["node_modules/swiper/swiper-bundle.min.js"]
           },
           "configurations": {
             "production": {
@@ -111,8 +112,9 @@
                 "output": "./svg"
               }
             ],
-            "styles": ["src/global.scss", "src/theme/variables.scss"],
-            "scripts": []
+            "styles": ["src/theme/variables.scss", "src/global.scss",
+            "node_modules/swiper/swiper-bundle.min.css"],
+            "scripts": ["node_modules/swiper/swiper-bundle.min.js"]
           },
           "configurations": {
             "ci": {

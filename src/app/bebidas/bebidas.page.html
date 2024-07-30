@@ -1,0 +1,15 @@
+<app-header></app-header>
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let bebida of bebidas" (click)="presentModal(bebida)">
+      <ion-thumbnail slot="start">
+        <img [src]="bebida.imagen" />
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ bebida.nombre }}</h2>
+        <p>{{ bebida.descripcion }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<app-footer></app-footer>

@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <img src="https://mateogutierrez.neocities.org/Logo%20ChefCode.png" alt="Logo" class="logo">
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="menu-header">
+    <h2>¡Hola, Nombre!</h2>
+  </div>
+  <ion-list>
+    <ion-item button routerLink="/datos-personales">
+      <ion-icon name="person-circle-outline" slot="start"></ion-icon>
+      <ion-label>Datos personales</ion-label>
+      <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+    </ion-item>
+    <ion-item button routerLink="/pedidos-anteriores">
+      <ion-icon name="receipt-outline" slot="start"></ion-icon>
+      <ion-label>Pedidos anteriores</ion-label>
+      <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+    </ion-item>
+    <ion-item button routerLink="/cerrar-sesion">
+      <ion-icon name="log-out-outline" slot="start"></ion-icon>
+      <ion-label>Cerrar sesión</ion-label>
+      <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+    </ion-item>
+  </ion-list>
+</ion-content>

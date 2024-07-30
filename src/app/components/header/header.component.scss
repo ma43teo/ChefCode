@@ -1,0 +1,43 @@
+ion-header {
+    --background: #fff;
+    --border-width: 0; /* Remove the border line */
+  }
+  
+  .logo {
+    height: 40px;
+  }
+  ion-header {
+    --background: #fff;
+  }
+  
+  .menu-header {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #f35b04;
+    color: #fff;
+  }
+  
+  .menu-header h2 {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  ion-item {
+    --border-style: none;
+    --min-height: 50px;
+    padding: 10px;
+  }
+  
+  ion-item:hover {
+    --background: #f0f0f0;
+  }
+  
+  ion-item ion-icon {
+    font-size: 24px;
+    color: #f35b04;
+  }
+  
+  ion-label {
+    font-size: 18px;
+  }
+  

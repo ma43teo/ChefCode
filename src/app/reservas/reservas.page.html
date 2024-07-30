@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Reservas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>¿Para qué hora quieres reservar la mesa?</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label>Fecha</ion-label>
+        <ion-datetime
+          display-format="DD/MM/YYYY"
+          picker-format="DD/MM/YYYY"
+          [(ngModel)]="fecha"
+          placeholder="Selecciona la fecha"
+          presentation="date">
+        </ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Hora</ion-label>
+        <ion-select placeholder="Selecciona la hora" [(ngModel)]="hora">
+          <ion-select-option *ngFor="let h of horas" [value]="h">{{ h }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Número de personas</ion-label>
+        <ion-select placeholder="Selecciona el número de personas" [(ngModel)]="personas">
+          <ion-select-option value="1">1 cliente</ion-select-option>
+          <ion-select-option value="2">2 clientes</ion-select-option>
+          <ion-select-option value="3">3 clientes</ion-select-option>
+          <ion-select-option value="4">4 clientes</ion-select-option>
+          <ion-select-option value="5">5 clientes</ion-select-option>
+          <ion-select-option value="6">6 clientes</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-button expand="block" color="danger" (click)="reservar()">
+        Reservar
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+
+<ion-footer>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="inicio">
+      <ion-icon name="home-outline"></ion-icon>
+      <ion-label>Inicio</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="pedido">
+      <ion-icon name="fast-food-outline"></ion-icon>
+      <ion-label>Pedido</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="reservar">
+      <ion-icon name="calendar-outline"></ion-icon>
+      <ion-label>Reservar</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="perfil">
+      <ion-icon name="person-outline"></ion-icon>
+      <ion-label>Perfil</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-footer>

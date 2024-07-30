@@ -1,0 +1,24 @@
+ion-card {
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  ion-card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  ion-button {
+    margin-top: 20px;
+  }
+  
+  ion-tab-bar {
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+  }
+  
+  ion-tab-button {
+    --color-selected: #f35b04;
+  }
+  

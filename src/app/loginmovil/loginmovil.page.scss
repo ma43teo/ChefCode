@@ -1,0 +1,75 @@
+ 
+  .splash-image-small {
+    max-width: 200px; /* Tamaño de la imagen pequeña */
+    margin-top: 20px;
+    padding: 10px;
+    position:relative;
+    top:25%;
+    left:25%;
+  }
+  
+  .splash-comment-highlight {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333333; /* Color del comentario resaltado */
+    text-align: center;
+  }
+
+.login-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ffffff; /* Fondo blanco */
+  }
+  
+  .login-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px; /* Espaciado interno */
+    margin: auto;
+  }
+  
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaciado entre los campos */
+  }
+  
+  .custom-button {
+    --background: #f35212; /* Color de fondo del botón */
+    --color: #fff; /* Color del texto del botón */
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 25px;
+    width: 100%; /* Ancho del botón */
+    margin-top: 10px; /* Espacio superior */
+  }
+  
+  .social-login {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px; /* Espacio superior */
+  }
+  
+  .social-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    --background: #fff; /* Fondo blanco */
+    --color: #333; /* Color del texto */
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 25px;
+    width: 48%; /* Ancho de los botones de redes sociales */
+  }
+  
+  .social-button img {
+    width: 20px; /* Tamaño del icono */
+    margin-right: 10px; /* Espaciado entre icono y texto */
+  }
+  
+  .ion-invalid {
+    --ion-color-base: #f53d3d; /* Color de error para ion-item */
+  }
+  
