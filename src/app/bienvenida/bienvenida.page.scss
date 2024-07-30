@@ -1,40 +1,144 @@
-.splash-screen {
+.bienvenida-container {
   display: flex;
-  flex-direction: column;
-  justify-content: center; /* Alinea verticalmente los elementos */
+  justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: #ffffff; /* Fondo blanco */
+  height: 100%;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
   text-align: center;
- padding:20px;
 }
 
-.splash-image-small {
-  max-width: 200px; /* Tamaño de la imagen pequeña */
+.logo {
+  margin: 0 auto 20px;
+  display: block;
+  width: 100px;
+  height: 100px;
+  background-color: #f0f0f0;
+  border-radius: 50%;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+ion-item {
+  margin: 10px 0;
+}
+
+.input-field {
+  --background: #f9f3cf;
+}
+
+
+.login-button {
+  --background: #ff5a1e;
   margin-top: 20px;
-  padding: 20px;
 }
 
-.splash-comment {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin: 20px 0; /* Ajusta el margen superior e inferior */
-  color: #333333; /* Color del comentario resaltado */
+
+ion-content {
+  --ion-background-color: #ffffff;
 }
 
-.splash-buttons {
+.container {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: 40px; /* Espaciado entre botones */
+  height: 100%;
+  padding: 16px;
 }
 
-.splash-button {
-  --background: #f35212; /* Color de fondo del botón */
-  --color: #fff; /* Color del texto del botón */
+
+.profile-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+}
+
+.login-title {
+  font-size: 24px;
   font-weight: bold;
-  padding: 10px 20px;
-  border-radius: 25px;
-  width: 200px; /* Ancho de los botones */
+  margin-bottom: 20px;
 }
 
+.input-item {
+  --background: #E3D556; /* Fondo amarillo */
+  margin-bottom: 10px;
+  border-radius: 10px;
+  text-transform: none; /* Para texto en su formato original */
+  color: #000000;
+  --padding-start: 10px; /* Aumenta el padding interno para una mejor apariencia */
+}
+
+
+.login-button {
+  --background: #ff5722;
+  --background-activated: #e64a19;
+  --background-focused: #ff5722;
+  margin-bottom: 30px;
+  --border-radius: 50px;
+  text-transform: none; /* Para texto en su formato original */
+  color: #fbfeff;
+}
+
+
+
+/* Media Queries */
+@media (min-width: 576px) {
+  .login-card {
+    padding: 30px;
+  }
+
+  .profile-img {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 30px;
+  }
+
+  .login-title {
+    font-size: 28px;
+  }
+
+
+}
+
+@media (min-width: 768px) {
+  .login-card {
+    padding: 40px;
+  }
+
+  .profile-img {
+    width: 140px;
+    height: 140px;
+    margin-bottom: 40px;
+  }
+
+  .login-title {
+    font-size: 32px;
+  }
+
+ 
+
+@media (min-width: 992px) {
+  .login-card {
+    padding: 50px;
+  }
+
+  .profile-img {
+    width: 160px;
+    height: 160px;
+    margin-bottom: 50px;
+  }
+
+  .login-title {
+    font-size: 36px;
+  }
+}
+}
+ 
