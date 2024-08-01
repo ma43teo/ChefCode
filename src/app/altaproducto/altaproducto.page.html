@@ -1,0 +1,48 @@
+
+
+<ion-content class="ion-padding" fullscreen>
+  <div class="container">
+    <h2>Alta de Productos</h2>
+    
+    <div class="form-group">
+      <label>Nombre del Producto</label>
+      <ion-item class="rounded-item">
+        <ion-input type="text"></ion-input>
+      </ion-item>
+    </div>
+    
+    <div class="form-group">
+      <label>Descripción</label>
+      <ion-item class="rounded-item">
+        <ion-textarea rows="6"></ion-textarea>
+      </ion-item>
+    </div>
+    
+    <div class="form-group">
+      <label>Precio</label>
+      <ion-item class="rounded-item">
+        <ion-input type="number"></ion-input>
+      </ion-item>
+    </div>
+    
+    <div class="form-group">
+      <label>Categoría</label>
+      <ion-item class="rounded-item">
+        <ion-select placeholder="Selecciona una categoría" interface="popover">
+          <ion-select-option value="categoria1">Categoría 1</ion-select-option>
+          <ion-select-option value="categoria2">Categoría 2</ion-select-option>
+          <ion-select-option value="categoria3">Categoría 3</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </div>
+    
+    <div class="form-group">
+      <label>Subir Imagen</label>
+      <ion-item class="rounded-item">
+        <input type="file" />
+      </ion-item>
+    </div>
+    
+    <ion-button expand="block" class="orange-button">Crear Producto</ion-button>
+  </div>
+</ion-content>

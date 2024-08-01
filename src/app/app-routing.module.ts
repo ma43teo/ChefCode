@@ -86,6 +86,10 @@ const routes: Routes = [
     path: 'bebidas',
     loadChildren: () => import('./bebidas/bebidas.module').then( m => m.BebidasPageModule)
   },
+  {
+    path: 'altaproducto',
+    loadChildren: () => import('./altaproducto/altaproducto.module').then( m => m.AltaproductoPageModule)
+  },
 
 
 ];

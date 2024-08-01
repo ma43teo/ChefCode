@@ -1,0 +1,118 @@
+ion-content {
+    --background: #f6571d; /* Color de fondo */
+  }
+  
+  .container {
+    background: linear-gradient(to bottom, #f67b4e, #f6acae);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  h2 {
+    text-align: center;
+    color: #000000;
+    margin-bottom: 20px;
+    font-weight: bold;
+
+  }
+  
+  .form-group {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    color: #2b2323;
+  }
+  
+  ion-item {
+    --background: #fff;
+    margin: 0;
+    padding: 10px;
+    border-radius: 15px; /* Bordes redondeados */
+    width: 100%;
+  }
+  
+  ion-item.rounded-item {
+    --border-radius: 15px;
+    --background: #fff;
+    border: 2px solid transparent;
+    transition: border-color 0.3s;
+  }
+  
+  ion-item.rounded-item.ion-focused {
+    border-color: #ff6f3c;
+  }
+  
+  ion-select {
+    width: 100%;
+    color: #000; /* Color del texto */
+  }
+  
+  ion-input, ion-textarea {
+    color: #000; /* Color del texto */
+  }
+  
+  .orange-button {
+    margin-top: 20px;
+    --background: #ff6f3c;
+    border-radius: 35px; /* Bordes redondeados */
+  }
+  
+  input[type="file"] {
+    border: 1px solid #ccc;
+    border-radius: 15px; /* Bordes redondeados */
+    padding: 6px;
+    width: 100%;
+    color: #000; /* Color del texto */
+  }
+  
+
+
+
+
+
+  /* Media queries for responsiveness */
+  @media (max-width: 600px) {
+    .container {
+      max-width: 100%;
+      padding: 10px;
+    }
+  
+    ion-item, ion-button, input[type="file"] {
+      width: 100%;
+    }
+  }
+  
+  @media (min-width: 600px) {
+    .container {
+      max-width: 80%;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .container {
+      max-width: 70%;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .container {
+      max-width: 60%;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .container {
+      max-width: 50%;
+    }
+  }
+  
