@@ -1,32 +1,28 @@
-<ion-content class="recover-screen">
-  
-  <div class="recover-container">
-    <img src="https://neocities.org/site_thumbnails/26/08/mateogutierrez/Logo%20ChefCode.png.210x158.webp" alt="Logo pequeño" class="splash-image-small">
+<ion-content>
+  <div class="container">
+    <ion-card class="login-card">
+      <div class="logo-container">
+        <img src="https://neocities.org/site_thumbnails/26/08/mateogutierrez/Logo%20ChefCode.png.210x158.webp" alt="Logo pequeño" class="splash-image-small">
+      </div>
+      <h1 class="login-title">Recuperar contraseña</h1>
 
-  <div>
-    <p class="splash-comment-highlight">Recuperar contraseña</p>
-    
-  </div>
-    <form class="recuperar-contraseña" (ngSubmit)="recover()">
-
-
-      <ion-item>
-        <ion-label position="floating">Email</ion-label>
-        <ion-input
-          type="email"
-          fill="solid"
-          label="Email"
-          labelPlacement="floating"
-          helperText="Enter a valid email"
-          errorText="Invalid email"
-          ngModel
-          name="email"
-          required
-          email
-        ></ion-input>
+      <ion-item class="input-item">
+        <ion-input placeholder="Correo electronico"></ion-input>
       </ion-item>
-    </form>
-      <ion-button expand="block" class="custom-button">Entrar</ion-button>
-      
-    </div>
+
+      <ion-item class="input-item">
+        <ion-input placeholder="Contraseña anterior" type="password"></ion-input>
+      </ion-item>
+
+      <ion-item class="input-item">
+        <ion-input placeholder="Nueva contraseña" type="password"></ion-input>
+      </ion-item>
+
+      <ion-item class="input-item">
+        <ion-input placeholder="Confirmar contraseña" type="password"></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" class="recuperar-button">Guardar</ion-button>
+    </ion-card>
+  </div>
 </ion-content>

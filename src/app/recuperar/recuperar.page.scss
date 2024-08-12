@@ -1,53 +1,82 @@
- 
-  .splash-image-small {
-    max-width: 200px; /* Tamaño de la imagen pequeña */
-    margin-top: 20px;
-    padding: 10px;
-    position:relative;
-    top:25%;
-    left:25%;
-  }
-  
-  .splash-comment-highlight {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #333333; /* Color del comentario resaltado */
-    text-align: center;
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 16px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.logo-container {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 20px;
+  background-color: #D9D9D9;
+  border-radius: 8px;
+}
+
+.login-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-transform: none; /* Mantiene el formato de texto */
+}
+
+.input-item {
+  --background: #E3D556;
+  text-transform: none; /* Para texto en su formato original */
+  color: #000000;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  --padding-start: 10px;
+  text-transform: none; /* Mantiene el formato de texto */
+}
+
+.recuperar-button {
+  --background: #ff5722;
+  --background-activated: #e64a19;
+  --background-focused: #ff5722;
+  margin-top: 20px;
+  --border-radius: 50px;
+  color: #fbfeff;
+  text-transform: none; /* Mantiene el formato de texto */
+}
+
+/* Media Queries para Responsividad */
+@media (min-width: 576px) {
+  .login-card {
+    padding: 30px;
   }
 
-.recover-screen {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #ffffff; /* Fondo blanco */
+  .login-title {
+    font-size: 28px;
   }
-  
-  .recover-container {
-    width: 100%;
-    max-width: 400px;
-    padding: 20px; /* Espaciado interno */
-    margin: auto;
-  }
-  
-  .recuperar-contraseña {
-    display: flex;
-    flex-direction: column;
-    gap: 15px; /* Espaciado entre los campos */
-  }
-  
-  .custom-button {
-    --background: #f35212; /* Color de fondo del botón */
-    --color: #fff; /* Color del texto del botón */
-    font-weight: bold;
-    padding: 10px 20px;
-    border-radius: 25px;
-    width: 100%; /* Ancho del botón */
-    margin-top: 10px; /* Espacio superior */
-  }
-  
+}
 
-  .ion-invalid {
-    --ion-color-base: #f53d3d; /* Color de error para ion-item */
+@media (min-width: 768px) {
+  .login-card {
+    padding: 40px;
   }
-  
+
+  .login-title {
+    font-size: 32px;
+  }
+}
+
+@media (min-width: 992px) {
+  .login-card {
+    padding: 50px;
+  }
+
+  .login-title {
+    font-size: 36px;
+  }
+}
