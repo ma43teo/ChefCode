@@ -17,19 +17,19 @@ export class BebidasPage implements OnInit {
 
   bebidas: Bebida[] = [
     {
-      imagen: 'assets/img/bebida1.jpg',
-      nombre: 'Nombre de bebida 1',
-      descripcion: 'Descripción de bebida 1'
+      imagen: 'https://imgs.search.brave.com/M-2vDwpqd6yb6FSazOhbCYU9MDe_3ZC8XOM0ciOYd2k/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hc3Nl/dHMuc3RpY2twbmcu/Y29tL2ltYWdlcy81/ODdlMzM3Zjk2ODYx/OTRhNTVhZGFiN2Mu/cG5n',
+      nombre: 'Mojito',
+      descripcion: 'Solo mencionar esta deliciosa bebida preparada evoca imágenes de noches embriagadoras en La Habana y te transporta a las soleadas costas del Caribe.'
     },
     {
-      imagen: 'assets/img/bebida2.jpg',
-      nombre: 'Nombre de bebida 2',
-      descripcion: 'Descripción de bebida 2'
+      imagen: 'https://imgs.search.brave.com/fIM3AbxcYhu8kHv-DvJLy_OH8mOLdQB3igxlaVrjcqk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wbHVz/cG5nLmNvbS9pbWct/cG5nL3BuZy1jb3Nt/b3BvbGl0YW4tc2t5/eS1jb3Ntby04NDcu/cG5n',
+      nombre: 'Cosmopolitan',
+      descripcion: 'Cosmopolitan ha experimentado diversas presentaciones, pero su combinación clásica de arándanos, cítricos y vodka ha mantenido su popularidad como uno de los cocteles más queridos.'
     },
     {
-      imagen: 'assets/img/bebida3.jpg',
-      nombre: 'Nombre de bebida 3',
-      descripcion: 'Descripción de bebida 3'
+      imagen: 'https://imgs.search.brave.com/oUk5Wgzq_5VX1YRHITzrUYktRPESeVAj_rKQY4zVafk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hc3Nl/dHMuc3RpY2twbmcu/Y29tL2ltYWdlcy81/ODdlMzM5NTk2ODYx/OTRhNTVhZGFiN2Yu/cG5n',
+      nombre: 'Margarita',
+      descripcion: 'La Margarita es una de las bebidas preparadas más populares en América del Norte por una buena razón. '
     }
   ];
 
