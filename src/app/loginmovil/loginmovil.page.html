@@ -1,26 +1,36 @@
 <ion-content>
   <div class="container">
     <ion-card class="login-card">
-    <img src="https://neocities.org/site_thumbnails/26/08/mateogutierrez/Logo%20ChefCode.png.210x158.webp" alt="Logo pequeño" class="splash-image-small">
-      <ion-title class="login-title">Iniciar sesion</ion-title>
+      <!-- Logo -->
+      <img src="https://neocities.org/site_thumbnails/26/08/mateogutierrez/Logo%20ChefCode.png.210x158.webp" alt="Logo pequeño" class="splash-image-small">
       
+      <!-- Título del formulario -->
+      <ion-title class="login-title">Iniciar sesión</ion-title>
+
+      <!-- Campo de correo electrónico -->
       <ion-item class="input-item">
-        <ion-input placeholder="Correo electronico"></ion-input>
+        <ion-input [(ngModel)]="email" type="email" placeholder="Correo electrónico"></ion-input>
       </ion-item>
-      
+
+      <!-- Campo de contraseña -->
       <ion-item class="input-item">
-        <ion-input type="password" placeholder="Contraseña"></ion-input>
+        <ion-input [(ngModel)]="contrasena" type="password" placeholder="Contraseña"></ion-input>
       </ion-item>
-      
-      <ion-text class="forgot-password" color="medium">¿Olvidaste tu contraseña?</ion-text>
-      
-      <ion-button expand="block" class="login-button">Iniciar sesion</ion-button>
-      
+
+      <!-- Enlace para recuperar contraseña -->
+      <ion-text  (click)="Recuperar()" class="forgot-password" color="medium">¿Olvidaste tu contraseña?</ion-text>
+
+      <!-- Botón de iniciar sesión -->
+      <ion-button expand="block" class="login-button" (click)="loginm()">Iniciar sesión</ion-button>
+
+      <!-- Opciones de inicio de sesión social -->
       <div class="social-login">
-        <ion-icon name="logo-facebook" class="social-icon"></ion-icon>
-        <ion-icon name="logo-google" class="social-icon"></ion-icon>
+        <ion-button expand="block" (click)="signInWithGoogle()">
+          <ion-icon name="logo-google" class="social-icon" slot="start"></ion-icon>
+          Iniciar sesión con Google
+        </ion-button>
+       
       </div>
     </ion-card>
   </div>
 </ion-content>
-

@@ -1,30 +1,40 @@
 <ion-content>
   <div class="container">
     <ion-card class="login-card">
+      <!-- Logo -->
       <img src="https://neocities.org/site_thumbnails/26/08/mateogutierrez/Logo%20ChefCode.png.210x158.webp" alt="Logo pequeño" class="splash-image-small">
+      
+      <!-- Título del formulario -->
       <ion-title class="login-title">Regístrate</ion-title>
 
-      <ion-item class="input-item">
-        <ion-input placeholder="Nombre"></ion-input>
-      </ion-item>
+      <!-- Formulario de registro -->
+      <form [formGroup]="registrationForm" (ngSubmit)="register()">
+        <!-- Campo de nombre -->
+        <ion-item class="input-item">
+          <ion-input formControlName="nombre" placeholder="Nombre"></ion-input>
+        </ion-item>
 
-      <ion-item class="input-item">
-        <ion-input placeholder="Correo electrónico"></ion-input>
-      </ion-item>
+        <!-- Campo de correo electrónico -->
+        <ion-item class="input-item">
+          <ion-input formControlName="email" type="email" placeholder="Correo electrónico"></ion-input>
+        </ion-item>
 
-      <ion-item class="input-item">
-        <ion-input placeholder="Teléfono"></ion-input>
-      </ion-item>
+        <!-- Campo de contraseña -->
+        <ion-item class="input-item">
+          <ion-input formControlName="contrasena" type="password" placeholder="Contraseña"></ion-input>
+        </ion-item>
 
-      <ion-item class="input-item">
-        <ion-input type="password" placeholder="Contraseña"></ion-input>
-      </ion-item>
+        <!-- Botón de enviar -->
+        <ion-button expand="block" class="login-button" type="submit">Crear cuenta</ion-button>
+      </form>
 
-      <ion-button expand="block" class="login-button">Crear cuenta</ion-button>
-
+      <!-- Opciones de inicio de sesión social -->
       <div class="social-login">
-        <ion-icon name="logo-facebook" class="social-icon"></ion-icon>
-        <ion-icon name="logo-google" class="social-icon"></ion-icon>
+        <ion-button expand="block"  (click)="signInWithGoogle()">
+          <ion-icon name="logo-google" class="social-icon" slot="start"></ion-icon>
+          Iniciar sesión con Google
+        </ion-button>
+       
       </div>
     </ion-card>
   </div>

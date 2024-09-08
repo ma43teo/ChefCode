@@ -46,10 +46,11 @@
   color: #fbfeff;
 }
 
-.social-login {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
+.social-login ion-button {
+  --background: transparent; /* Quita el fondo del botón */
+  --background-activated: transparent; /* Quita el fondo cuando el botón es activado */
+  --box-shadow: none; /* Elimina cualquier sombra del botón */
+  color: inherit; /* Asegura que el color del texto sea adecuado */
 }
 
 .social-icon {

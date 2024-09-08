@@ -1,28 +1,20 @@
+
 <ion-content>
   <div class="container">
     <ion-card class="login-card">
       <div class="logo-container">
         <img src="https://neocities.org/site_thumbnails/26/08/mateogutierrez/Logo%20ChefCode.png.210x158.webp" alt="Logo pequeño" class="splash-image-small">
       </div>
+      
       <h1 class="login-title">Recuperar contraseña</h1>
-
-      <ion-item class="input-item">
-        <ion-input placeholder="Correo electronico"></ion-input>
-      </ion-item>
-
-      <ion-item class="input-item">
-        <ion-input placeholder="Contraseña anterior" type="password"></ion-input>
-      </ion-item>
-
-      <ion-item class="input-item">
-        <ion-input placeholder="Nueva contraseña" type="password"></ion-input>
-      </ion-item>
-
-      <ion-item class="input-item">
-        <ion-input placeholder="Confirmar contraseña" type="password"></ion-input>
-      </ion-item>
-
-      <ion-button expand="block" class="recuperar-button">Guardar</ion-button>
-    </ion-card>
+  
+  <div *ngIf="!codeSent">
+    <ion-item class="input-item">
+      <ion-input placeholder="Correo electrónico" [(ngModel)]="email"></ion-input>
+    </ion-item>
+    <ion-button expand="block" class="recuperar-button" (click)="sendVerificationEmail()">Enviar enlace</ion-button>
   </div>
+  <ion-button  (click)="volverlogin()" fill="outline">Volver</ion-button>
+</ion-card>
+</div>
 </ion-content>
