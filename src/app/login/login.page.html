@@ -1,7 +1,10 @@
 <ion-header></ion-header>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <ion-content fullscreen class="ion-padding">
+  <!-- Fondo animado -->
   <div class="background-image"></div>
+
+  <!-- Tarjeta de inicio de sesión centrada -->
   <div class="login-card">
     <ion-card class="ion-activated">
       <ion-card-header>
@@ -9,19 +12,38 @@
       </ion-card-header>
 
       <ion-card-content class="ion-text-center">
+        <!-- Campo de correo -->
         <div class="input-field">
           <ion-label position="floating" class="custom-label">Correo</ion-label>
           <ion-input type="email" required></ion-input>
         </div>
 
+        <!-- Campo de contraseña -->
         <div class="input-field">
           <ion-label position="floating" class="custom-label">Contraseña</ion-label>
           <ion-input type="password" required></ion-input>
         </div>
 
+        <!-- Botón de entrada -->
         <ion-button expand="block" class="custom-button">Entrar</ion-button>
-        <ion-button fill="clear" color="medium" routerLink="/forgot-password">¿Olvidaste tu contraseña?</ion-button>
+
+        <!-- Enlace para restablecer contraseña -->
+        <ion-button fill="clear" class="custom-font" routerLink="/forgot-password">¿Olvidaste tu contraseña?</ion-button>
       </ion-card-content>
     </ion-card>
+  </div>
+
+  <!-- Animación de burbujas -->
+  <div class="bottom-particles">
+    <div class="bubble" style="left: 5%; animation-delay: 0s;"></div>
+    <div class="bubble" style="left: 15%; animation-delay: 1s;"></div>
+    <div class="bubble" style="left: 25%; animation-delay: 2s;"></div>
+    <div class="bubble" style="left: 35%; animation-delay: 3s;"></div>
+    <div class="bubble" style="left: 45%; animation-delay: 4s;"></div>
+    <div class="bubble" style="left: 55%; animation-delay: 5s;"></div>
+    <div class="bubble" style="left: 65%; animation-delay: 6s;"></div>
+    <div class="bubble" style="left: 75%; animation-delay: 7s;"></div>
+    <div class="bubble" style="left: 85%; animation-delay: 8s;"></div>
+    <div class="bubble" style="left: 95%; animation-delay: 9s;"></div>
   </div>
 </ion-content>

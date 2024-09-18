@@ -90,6 +90,14 @@ const routes: Routes = [
     path: 'altaproducto',
     loadChildren: () => import('./altaproducto/altaproducto.module').then( m => m.AltaproductoPageModule)
   },
+  {
+    path: 'home-web',
+    loadChildren: () => import('./home-web/home-web.module').then( m => m.HomeWebPageModule)
+  },
+  {
+    path: 'pedidos-aceptar',
+    loadChildren: () => import('./pedidos-aceptar/pedidos-aceptar.module').then( m => m.PedidosAceptarPageModule)
+  },
 
 
 ];

@@ -1,23 +1,16 @@
-.background-image {
-  position: fixed; /* Mantener fija al hacer scroll */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('https://s3-alpha-sig.figma.com/img/f265/76c6/ab78115d32640cbea71ec8fbba682a86?Expires=1717977600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=pf4q5T7vKAGjSpjyaz4YwuQ~4VBEE2iARx28tUMmr-YfyBc9Ej7m0SymLS1cGntaeGd8kYF5Bgre5wqXs7YYM8UhDui47~cvBkoLry3cF524Mz4jOq1O62eK3AyriO6HgObXG1wqofV0iq9gZSBlVpTj-G5boFRXk8gRd4lFMk2Qw5m-KqgirqjwTuLbAHNd7OE4Miu4l0tU21qZx2LxTzii~JikIeu9xDR1i8Y7Bq~esSe4KZbHWLiY5c9JkcgSM7zCLdFEQqs6G1NIa3pkdfqHX9mxgn7H8lYli4IUWneQy9nYqUdhCdwOrkLS89x2WM6pX8rCvK4Jzxf2zQVcSg_');
-  background-size: cover; /* Cambiado a cover para ajustarse completamente al fondo */
-  background-position: center;
-  filter: brightness(0.7);
-  z-index: -1;
-  transition: filter 0.10s ease;
-}
-
-.background-image:hover {
-  filter: brightness(1);
+/* Fondo animado con gradiente */
+ion-content {
+  margin: auto;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow: auto;
+  --background: linear-gradient(315deg, #ff8c42 3%, #f38014 68%, #f73f01 98%);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  background-attachment: fixed;
 }
 
 .custom-font {
-  color: #fcfafa;
+  color: #000000;
 }
 
 .login-card {
@@ -26,26 +19,29 @@
   margin-top: 10%;
   padding: 20px;
   border-radius: 50px;
-  background-color: rgba(236, 232, 232, 0); /* Carta transparente */
+  background-color: #9b420b4b; /* Carta más oscura para mayor contraste */
   backdrop-filter: blur(5px); /* Efecto de desenfoque */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.411);
+  box-shadow: 0 0 50px rgba(255, 255, 255, 0.411);
+  border: solid rgb(10, 9, 9) 1px;
 }
 
 .ion-activated {
-  background-color: rgba(236, 232, 232, 0); /* Carta transparente */
+  background-color: rgba(177, 177, 177, 0); /* Carta transparente */
   backdrop-filter: blur(5px); /* Efecto de desenfoque */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.411);
+  box-shadow: 0 0 10px rgba(252, 252, 252, 0.411);
+  border: solid rgb(10, 9, 9) 1px;
+  border-radius: 10px;
 }
 
 .input-field {
   padding: 0px;
   max-height: 60px;
   border-radius: 50px;
-  background-color: rgba(236, 232, 232, 0.342); /* Carta transparente */
+  background-color: rgba(255, 255, 255, 0.342); /* Carta transparente */
   backdrop-filter: blur(5px); /* Efecto de desenfoque */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.411);
   margin-bottom: 30px; /* Añadir espacio entre los campos de entrada */
-  color: #000; /* Color del texto en los inputs */
+  color: #000000; /* Color del texto en los inputs */
 }
 
 .custom-label {
@@ -71,4 +67,52 @@ ion-card-header {
   max-width: 200px;
   margin: auto; /* Centrando el botón */
   display: block;
+}
+
+/* Burbujas */
+.bottom-particles {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.bottom-particles .bubble {
+  position: absolute;
+  bottom: -50px;
+  width: 20px;
+  height: 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  animation: bubbleAnimation 10s infinite;
+}
+
+.bottom-particles .bubble:nth-child(2n) {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.bottom-particles .bubble:nth-child(3n) {
+  width: 30px;
+  height: 30px;
+  animation-duration: 12s;
+}
+
+.bottom-particles .bubble:nth-child(4n) {
+  width: 15px;
+  height: 15px;
+  animation-duration: 8s;
+}
+
+@keyframes bubbleAnimation {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-500px) scale(1.5);
+    opacity: 0;
+  }
 }
