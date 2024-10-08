@@ -1,61 +1,18 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>
-      Postres <!-- O el título que desees -->
-    </ion-title>
-    <!-- Imagen del logo en el lado derecho -->
-    <ion-buttons slot="end">
-      <img src="https://neocities.org/site_thumbnails/26/08/mateogutierrez/Logo%20ChefCode.png.210x158.webp" alt="Logo" class="logo-img" />
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
+<app-header></app-header>
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let postre of postres" (click)="presentModal(postre)">
+    <ion-item *ngFor="let postre of postres$ | async" (click)="presentModal(postre)">
       <ion-thumbnail slot="start">
-        <img [src]="postre.imagen" />
+        <img [src]="postre.imagenUrl" />
       </ion-thumbnail>
       <ion-label>
         <h2>{{ postre.nombre }}</h2>
         <p>{{ postre.descripcion }}</p>
+        <h3>Precio: {{ postre.precio | currency:'USD':true }}</h3>
       </ion-label>
     </ion-item>
   </ion-list>
 </ion-content>
 
-<ion-footer class="custom-footer">
-  <ion-toolbar>
-    <ion-grid>
-      <ion-row>
-        <ion-col size="3" class="footer-item">
-          <ion-button fill="clear" routerLink="/inicio" class="footer-button">
-            <ion-icon name="home-outline" class="footer-icon"></ion-icon>
-            <span class="footer-label">Inicio</span>
-          </ion-button>
-        </ion-col>
-        <ion-col size="3" class="footer-item">
-          <ion-button fill="clear" routerLink="/pedido" class="footer-button">
-            <ion-icon name="fast-food-outline" class="footer-icon"></ion-icon>
-            <span class="footer-label">Pedido</span>
-          </ion-button>
-        </ion-col>
-        <ion-col size="3" class="footer-item">
-          <ion-button fill="clear" routerLink="/reservar" class="footer-button">
-            <ion-icon name="calendar-outline" class="footer-icon"></ion-icon>
-            <span class="footer-label">Reservar</span>
-          </ion-button>
-        </ion-col>
-        <ion-col size="3" class="footer-item">
-          <ion-button fill="clear" routerLink="/perfil" class="footer-button">
-            <ion-icon name="person-outline" class="footer-icon"></ion-icon>
-            <span class="footer-label">Perfil</span>
-          </ion-button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-toolbar>
-</ion-footer>
+<app-footer></app-footer>

@@ -5,13 +5,15 @@ import { IonicModule } from '@ionic/angular';
 
 import { ReservasPageRoutingModule } from './reservas-routing.module';
 import { ReservasPage } from './reservas.page';
+import { SharedModule } from '../shared/shared.module'; 
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ReservasPageRoutingModule
+    ReservasPageRoutingModule,
+    SharedModule
   ],
   declarations: [ReservasPage]
 })

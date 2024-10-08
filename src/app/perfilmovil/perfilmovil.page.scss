@@ -1,40 +1,57 @@
+.profile-image-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.avatar-circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+  color: #333;
+}
+
 .profile-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; 
-  }
-  
-  .profile-form {
-    width: 80%;
-    max-width: 400px; 
-    margin: 20px;
-    padding: 15px;
-    background-color: #f0f0f0;
-    border-radius: 15px;
-    text-align: center; 
-  }
-  
-  .profile-image-container {
-    margin-bottom: 10px;
-  }
-  
-  .profile-image {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #ccc;
-  }
-  
-  .choose-photo-button, .save-button {
-    margin-top: 10px;
-    border-radius: 10px;
-    background-color: #f35b04;
-    color: #fff;
-  }
-  
-  .save-button {
-    margin-top: 20px;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+}
+
+.profile-form {
+  width: 80%;
+  max-width: 400px; 
+  margin: 20px;
+  padding: 15px;
+  background-color: #f0f0f0;
+  border-radius: 15px;
+  text-align: center; 
+}
+
+.profile-image-container {
+  margin-bottom: 10px;
+}
+
+.profile-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ccc;
+}
+
+.save-button {
+  margin-top: 10px;
+  border-radius: 10px;
+  background-color: #f35b04;
+  color: #fff;
+}
+
+.save-button {
+  margin-top: 20px;
+}

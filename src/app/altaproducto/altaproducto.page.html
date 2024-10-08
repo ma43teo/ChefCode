@@ -1,48 +1,60 @@
-
-
 <ion-content class="ion-padding" fullscreen>
   <div class="container">
     <h2>Alta de Productos</h2>
-    
+
+    <!-- Campo: Nombre del producto -->
     <div class="form-group">
       <label>Nombre del Producto</label>
       <ion-item class="rounded-item">
-        <ion-input type="text"></ion-input>
+        <ion-input [(ngModel)]="producto.nombre" type="text"></ion-input>
       </ion-item>
     </div>
-    
+
+    <!-- Campo: Descripción -->
     <div class="form-group">
       <label>Descripción</label>
       <ion-item class="rounded-item">
-        <ion-textarea rows="6"></ion-textarea>
+        <ion-textarea [(ngModel)]="producto.descripcion" rows="6"></ion-textarea>
       </ion-item>
     </div>
-    
+
+    <!-- Campo: Precio -->
     <div class="form-group">
       <label>Precio</label>
       <ion-item class="rounded-item">
-        <ion-input type="number"></ion-input>
+        <ion-input [(ngModel)]="producto.precio" type="number"></ion-input>
       </ion-item>
     </div>
-    
+
+    <!-- Campo: Cantidad -->
+    <div class="form-group">
+      <label>Cantidad</label>
+      <ion-item class="rounded-item">
+        <ion-input [(ngModel)]="producto.cantidad" type="number"></ion-input>
+      </ion-item>
+    </div>
+
+    <!-- Campo: Categoría -->
     <div class="form-group">
       <label>Categoría</label>
       <ion-item class="rounded-item">
-        <ion-select placeholder="Selecciona una categoría" interface="popover">
-          <ion-select-option value="categoria1">Categoría 1</ion-select-option>
-          <ion-select-option value="categoria2">Categoría 2</ion-select-option>
-          <ion-select-option value="categoria3">Categoría 3</ion-select-option>
+        <ion-select [(ngModel)]="producto.categoria" placeholder="Selecciona una categoría" interface="popover">
+          <ion-select-option value="platosprincipales">Platos Principales</ion-select-option>
+          <ion-select-option value="bebidas">Bebidas</ion-select-option>
+          <ion-select-option value="postres">Postres</ion-select-option>
         </ion-select>
       </ion-item>
     </div>
-    
+
+    <!-- Campo: Subir imagen -->
     <div class="form-group">
       <label>Subir Imagen</label>
       <ion-item class="rounded-item">
-        <input type="file" />
+        <input type="file" (change)="onImageChange($event)" />
       </ion-item>
     </div>
-    
-    <ion-button expand="block" class="orange-button">Crear Producto</ion-button>
+
+    <!-- Botón: Crear Producto -->
+    <ion-button expand="block" class="orange-button" (click)="crearProducto()">Crear Producto</ion-button>
   </div>
 </ion-content>
