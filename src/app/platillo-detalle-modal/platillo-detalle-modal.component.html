@@ -1,12 +1,31 @@
 <ion-content>
-  <ion-card>
-    <img [src]="platillo.imagen">
+  <ion-card class="platillo-card">
+    <!-- Verifica las diferentes propiedades de imagen y muestra la que esté disponible -->
+    <img *ngIf="platillo.imagen || platillo.imagenUrl" 
+         [src]="platillo.imagen || platillo.imagenUrl" 
+         alt="{{ platillo.nombre }}" 
+         class="platillo-imagen" />
+    <img *ngIf="!platillo.imagen && !platillo.imagenUrl" 
+         src="assets/placeholder.png" 
+         alt="Imagen no disponible" 
+         class="platillo-imagen" />
+
     <ion-card-header>
       <ion-card-title>{{ platillo.nombre }}</ion-card-title>
     </ion-card-header>
+
     <ion-card-content>
-      {{ platillo.descripcion }}
+      <p class="descripcion">{{ platillo.descripcion }}</p>
+      <div class="detalle-item">
+        <ion-icon name="pricetag-outline"></ion-icon>
+        <span><strong>Precio:</strong> {{ platillo.precio | currency:'USD':true }}</span>
+      </div>
+      <div class="detalle-item">
+        <ion-icon name="checkmark-circle-outline"></ion-icon>
+        <span><strong>Disponible:</strong> {{ platillo.disponible ? 'Sí' : 'No' }}</span>
+      </div>
     </ion-card-content>
   </ion-card>
-  <ion-button expand="full" (click)="dismiss()">Cerrar</ion-button>
+
+  <ion-button expand="full" color="primary" (click)="dismiss()">Cerrar</ion-button>
 </ion-content>

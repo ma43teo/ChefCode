@@ -11,7 +11,9 @@ import { ToastController } from '@ionic/angular';
 })
 export class LoginPage implements OnInit {
   uid: string = ''; // UID que se ingresa manualmente
+  phoneNumber: string = ''; // Número de teléfono que se ingresa
   isUIDValid: boolean = false; // Variable para verificar si el UID es válido
+  showUID: boolean = false; // Variable para controlar si el UID es visible
 
   constructor(
     private auth: Auth,
@@ -25,7 +27,6 @@ export class LoginPage implements OnInit {
   // Método para validar el UID en Firestore
   async validateUID() {
     try {
-      // Verifica si el UID existe en la colección de administradores
       const docRef = doc(this.firestore, `admins/${this.uid}`);
       const docSnap = await getDoc(docRef);
 
@@ -44,37 +45,67 @@ export class LoginPage implements OnInit {
 
   // Método para iniciar sesión con Google
   async loginWithGoogle() {
-    if (!this.isUIDValid) {
-      this.presentToast('Por favor, valida tu UID primero.');
+    if (!this.uid) {
+      this.presentToast('Por favor, ingresa tu UID.');
       return;
     }
 
-    const provider = new GoogleAuthProvider();
+    await this.validateUID(); // Validar UID primero
 
-    try {
-      const result = await signInWithPopup(this.auth, provider);
-      const user = result.user;
+    if (this.isUIDValid) {
+      const provider = new GoogleAuthProvider();
 
-      // Guarda los datos del usuario en el mismo UID que se validó
-      this.saveAdminData(this.uid, user.displayName ?? 'Sin nombre', user.email ?? 'Sin email');
+      try {
+        const docRef = doc(this.firestore, `admins/${this.uid}`);
+        const docSnap = await getDoc(docRef);
 
-      // Redirecciona a la página principal
-      this.router.navigate(['/home-web']);
-    } catch (error) {
-      console.error('Error de autenticación:', error);
-      this.presentToast('Error al iniciar sesión con Google.');
+        if (docSnap.exists()) {
+          const adminData = docSnap.data();
+
+          // Verificar si ya existe una cuenta de Google asociada al UID
+          if (adminData['id']) {
+            // Si ya hay una cuenta de Google, verificar que sea la misma
+            const result = await signInWithPopup(this.auth, provider);
+            const user = result.user;
+
+            if (adminData['id'] === user.uid) {
+              this.router.navigate(['/home-web']);
+              this.presentToast('Inicio de sesión exitoso.');
+            } else {
+              this.presentToast('Este UID ya está asociado a otra cuenta de Google.');
+            }
+          } else {
+            // No hay cuenta de Google asociada, proceder a registrar
+            const result = await signInWithPopup(this.auth, provider);
+            const user = result.user;
+
+            // Guarda los datos del usuario en la colección admins
+            await this.saveAdminData(user.uid, user.displayName ?? 'Sin nombre', user.email ?? 'Sin email');
+            this.router.navigate(['/home-web']);
+          }
+        } else {
+          this.presentToast('El UID no es válido, por favor, verifica.');
+        }
+      } catch (error) {
+        console.error('Error de autenticación:', error);
+        this.presentToast('Error al iniciar sesión con Google.');
+      }
+    } else {
+      this.presentToast('El UID no es válido, por favor, verifica.');
     }
   }
 
-  // Método para guardar los datos del usuario en Firestore
-  async saveAdminData(adminUID: string, nombre: string, email: string) {
-    // Asegúrate de que estás usando el mismo UID validado
-    const adminRef = doc(this.firestore, `admins/${adminUID}`);
+  // Método para guardar o actualizar los datos del administrador en Firestore
+  async saveAdminData(authUID: string, nombre: string, email: string) {
+    const adminRef = doc(this.firestore, `admins/${this.uid}`);
 
     const adminData = {
-      id: adminUID,
+      // Guardar el UID de autenticación como ID principal
+      id: authUID, // UID generado por Firebase Authentication
+      adminUID: this.uid, // UID proporcionado por el administrador
       nombre: nombre,
       correo: email,
+      telefono: this.phoneNumber, // Guardar el número de teléfono
     };
 
     try {
@@ -84,6 +115,11 @@ export class LoginPage implements OnInit {
       console.error('Error al guardar los datos:', error);
       this.presentToast('Error al guardar los datos del administrador.');
     }
+  }
+
+  // Método para alternar la visibilidad del UID
+  toggleUIDVisibility() {
+    this.showUID = !this.showUID;
   }
 
   // Método para mostrar mensajes de toast

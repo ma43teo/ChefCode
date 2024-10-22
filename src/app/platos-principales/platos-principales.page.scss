@@ -1,18 +1,17 @@
-/* Estilos para el encabezado */
-.logo-img {
-  height: 55px; /* tamaño de la imagen del logo */
-  object-fit: contain; /*  */
-  margin-right: 8px; /*  */
-}
-
-
-
-/* Estilos para el contenido principal */
 ion-item {
   --background: #fff;
   border-radius: 10px;
   margin-bottom: 15px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Aplicar el color de fondo según la disponibilidad usando la variable --background */
+ion-item.disponible {
+  --background: rgba(144, 238, 144, 0.3); /* Verde suave */
+}
+
+ion-item.no-disponible {
+  --background: rgba(255, 99, 71, 0.3); /* Rojo suave */
 }
 
 ion-thumbnail img {
@@ -35,40 +34,7 @@ ion-label p {
   text-transform: none;
 }
 
-/* Estilos para la barra de navegación inferior */
-.custom-footer {
-  --background: #fff;
-  border-top: 1px solid #ddd;
-  padding: 0;
-}
-
-.footer-item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.footer-button {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #ff7f00;
-  width: 100%;
-  text-transform: none;
-}
-
-.footer-icon {
-  font-size: 26px;
-  margin-bottom: 3px;
-  color: #ff7f00;
-}
-
-.footer-label {
-  font-size: 12px;
-  color: #ff7f00;
-  text-transform: none;
-}
-
+/* Estilos responsivos */
 @media (min-width: 768px) {
   .footer-icon {
     font-size: 28px;

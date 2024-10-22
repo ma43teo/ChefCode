@@ -1,6 +1,5 @@
 <ion-header></ion-header>
 <ion-content fullscreen class="ion-padding">
-  <!-- Fondo animado -->
   <div class="background-image"></div>
 
   <!-- Tarjeta de inicio de sesión centrada -->
@@ -11,23 +10,31 @@
       </ion-card-header>
 
       <ion-card-content class="ion-text-center">
-        <!-- Campo para el UID personalizado -->
+        <!-- Campo para el UID personalizado con botón de mostrar/ocultar -->
         <div class="input-field">
           <ion-label position="floating" class="custom-label">UID Administrador</ion-label>
-          <ion-input [(ngModel)]="uid" required></ion-input>
+          <ion-input
+            [(ngModel)]="uid"
+            [type]="showUID ? 'text' : 'password'"
+            required
+          ></ion-input>
+          <ion-icon
+            name="{{ showUID ? 'eye-off' : 'eye' }}"
+            slot="end"
+            (click)="toggleUIDVisibility()"
+          ></ion-icon>
         </div>
 
         <!-- Botón para validar UID -->
         <ion-button expand="block" class="custom-button" (click)="validateUID()">Validar UID</ion-button>
 
-        <!-- Campo de correo, activado solo después de validar el UID -->
-        <ion-button expand="block" class="custom-button" (click)="loginWithGoogle()" *ngIf="isUIDValid">
+        <!-- Botón para iniciar sesión con Google (siempre visible) -->
+        <ion-button expand="block" class="custom-button" (click)="loginWithGoogle()">
           Iniciar sesión con Google
         </ion-button>
       </ion-card-content>
     </ion-card>
   </div>
 
-  <!-- Animación de burbujas -->
   <div class="bottom-particles"></div>
 </ion-content>

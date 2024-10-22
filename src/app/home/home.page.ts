@@ -1,5 +1,6 @@
 import { Component, ViewChild, AfterViewInit, ElementRef } from '@angular/core';
 import Swiper, { Navigation, Autoplay } from 'swiper';
+import { Router } from '@angular/router';
 
 // Instala los módulos de Swiper necesarios
 Swiper.use([Navigation, Autoplay]);
@@ -13,7 +14,7 @@ export class HomePage implements AfterViewInit {
   @ViewChild('swiper') swiperElement!: ElementRef;
   swiper: Swiper | undefined;
 
-  constructor() {}
+  constructor(  private router: Router) {}
 
   ngAfterViewInit() {
     if (this.swiperElement && this.swiperElement.nativeElement) {
@@ -28,5 +29,9 @@ export class HomePage implements AfterViewInit {
         },
       });
     }
+  }
+
+  Mirarmenu(){
+    this.router.navigate(['/ordenar'])
   }
 }

@@ -1,0 +1,94 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    height: 100%; /* Asegura que el contenedor ocupe toda la altura */
+}
+
+.sidebar {
+    background-color: #d67c2d;
+    width: 80px;
+    display: flex;
+    flex-direction: column;
+    padding: 28px;
+}
+
+.sidebar ion-icon {
+    margin-bottom: 55px;
+    color: #ffffff;
+    font-size: 32px;
+    cursor: pointer;
+}
+
+.main-content {
+    flex: 1; /* Permite que el contenido principal ocupe el espacio restante */
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /* Asegura que los elementos se apilen verticalmente */
+}
+
+.header {
+    background-color: #d67c2d;
+    padding: 20px; /* Ajusta el padding según sea necesario */
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex; /* Permite que los elementos se alineen en fila */
+    align-items: center; /* Centra verticalmente los elementos */
+}
+
+
+.welcome-image {
+    width: 410px; /* Ajusta el tamaño de la imagen */
+    height: 375px; /* Mantiene la proporción de la imagen */
+    border-radius: 10px; /* Opcional: para bordes redondeados */
+    margin-right: 20px; /* Espacio entre la imagen y el texto */
+}
+
+.welcome-text {
+    color: #333; /* Color del texto */
+}
+
+
+
+.header h2 {
+    margin: 0;
+    font-size: 44px;
+    color: #ffffff;
+}
+
+
+
+.report {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.report-item {
+    background-color: #f0f0f0;
+    flex: 1;
+    margin: 0 10px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.report-icon {
+    width: 250px; /* Ajusta el tamaño según sea necesario */
+    height: 250px;
+    margin-bottom: 10px;
+}
+
+/* Nuevas clases para el color del texto en los reportes */
+.report-text {
+    color: #5f4bb6; /* Cambia este valor al color que desees */
+    font-weight: bold; /* Opcional: para hacer el texto más destacado */
+}
+
+.report-count {
+    color: #ff5733; /* Cambia este valor para el color del conteo */
+}

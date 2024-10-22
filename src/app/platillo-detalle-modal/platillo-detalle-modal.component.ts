@@ -14,4 +14,5 @@ export class PlatilloDetalleModalComponent {
   dismiss() {
     this.modalController.dismiss();
   }
+  
 }

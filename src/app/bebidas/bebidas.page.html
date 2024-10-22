@@ -2,15 +2,16 @@
 
 <ion-content>
   <ion-list>
-    <!-- Iterar sobre cada bebida y mostrar sus datos -->
-    <ion-item *ngFor="let bebida of bebidas$ | async" (click)="presentModal(bebida)">
+    <ion-item 
+      *ngFor="let bebida of bebidas$ | async" 
+      (click)="presentModal(bebida)"
+      [ngClass]="{'disponible': bebida.disponible, 'no-disponible': !bebida.disponible}">
       <ion-thumbnail slot="start">
-        <img [src]="bebida.imagenUrl" />
+        <img [src]="bebida.imagenUrl" alt="{{ bebida.nombre }}" />
       </ion-thumbnail>
       <ion-label>
         <h2>{{ bebida.nombre }}</h2>
-        <p>{{ bebida.descripcion }}</p>
-        <h3>Precio: {{ bebida.precio | currency:'USD':true }}</h3> <!-- Mostrar el precio -->
+        <h3>Precio: {{ bebida.precio | currency:'USD':true }}</h3>
       </ion-label>
     </ion-item>
   </ion-list>

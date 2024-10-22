@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Firestore, collection, collectionData } from '@angular/fire/firestore';
 import { ModalController } from '@ionic/angular';
-import { PlatilloDetalleModalComponent } from '../platillo-detalle-modal/platillo-detalle-modal.component'; // Ajusta la ruta según la ubicación del modal
-import { Observable, of } from 'rxjs'; // Importamos "of" para inicializar el observable
+import { PlatilloDetalleModalComponent } from '../platillo-detalle-modal/platillo-detalle-modal.component';
+import { Observable, of } from 'rxjs';
 
 interface Bebida {
   imagenUrl: string;
   nombre: string;
-  descripcion: string;
-  precio: number; // Asegúrate de tener el campo precio en Firestore
+  precio: number;
+  disponible: boolean;
 }
 
 @Component({
@@ -22,16 +22,22 @@ export class BebidasPage implements OnInit {
   constructor(private firestore: Firestore, private modalController: ModalController) {}
 
   ngOnInit() {
-    // Conectar a la colección de bebidas en Firestore
     const bebidasRef = collection(this.firestore, 'productos', 'bebidas', 'items');
     this.bebidas$ = collectionData(bebidasRef, { idField: 'id' }) as Observable<Bebida[]>;
   }
 
-  async presentModal(bebida: Bebida) {
+  async presentModal(item: any) {
+    // Asignamos una propiedad común 'imagen' al abrir el modal
+    const modalItem = {
+      ...item,
+      imagen: item.imagenUrl || item.imagen || '' // Dependiendo de si es postre, bebida o plato
+    };
+  
     const modal = await this.modalController.create({
       component: PlatilloDetalleModalComponent,
-      componentProps: { platillo: bebida } // Puedes usar un nombre diferente si lo prefieres
+      componentProps: { platillo: modalItem }
     });
     return await modal.present();
   }
+  
 }

@@ -2,13 +2,15 @@
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let postre of postres$ | async" (click)="presentModal(postre)">
+    <ion-item 
+      *ngFor="let postre of postres$ | async" 
+      (click)="presentModal(postre)"
+      [ngClass]="{'disponible': postre.disponible, 'no-disponible': !postre.disponible}">
       <ion-thumbnail slot="start">
-        <img [src]="postre.imagenUrl" />
+        <img [src]="postre.imagenUrl" alt="{{ postre.nombre }}" />
       </ion-thumbnail>
       <ion-label>
         <h2>{{ postre.nombre }}</h2>
-        <p>{{ postre.descripcion }}</p>
         <h3>Precio: {{ postre.precio | currency:'USD':true }}</h3>
       </ion-label>
     </ion-item>

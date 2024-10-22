@@ -5,10 +5,10 @@ import { PlatilloDetalleModalComponent } from '../platillo-detalle-modal/platill
 import { Observable, of } from 'rxjs';
 
 interface Plato {
-  imagenUrl: string;  // Asegúrate de que el nombre de esta propiedad coincida con tu base de datos
+  imagenUrl: string;
   nombre: string;
-  descripcion: string;
   precio: number;
+  disponible: boolean; // Nuevo campo de disponibilidad
 }
 
 @Component({
@@ -26,11 +26,17 @@ export class PlatosPrincipalesPage implements OnInit {
     this.platos$ = collectionData(platosRef, { idField: 'id' }) as Observable<Plato[]>;
   }
 
-  async presentModal(plato: Plato) {
+  async presentModal(item: any) {
+    // Asignamos una propiedad común 'imagen' al abrir el modal
+    const modalItem = {
+      ...item,
+      imagen: item.imagenUrl || item.imagen || '' // Dependiendo de si es postre, bebida o plato
+    };
+  
     const modal = await this.modalController.create({
       component: PlatilloDetalleModalComponent,
-      componentProps: { platillo: plato }
+      componentProps: { platillo: modalItem }
     });
     return await modal.present();
-  }
+  }  
 }

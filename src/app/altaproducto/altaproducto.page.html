@@ -1,4 +1,4 @@
-<ion-content class="ion-padding" fullscreen>
+<<ion-content class="ion-padding" fullscreen>
   <div class="container">
     <h2>Alta de Productos</h2>
 
@@ -18,21 +18,25 @@
       </ion-item>
     </div>
 
-    <!-- Campo: Precio -->
+    <!-- Campo: Precio (números con decimales) -->
     <div class="form-group">
       <label>Precio</label>
       <ion-item class="rounded-item">
-        <ion-input [(ngModel)]="producto.precio" type="number"></ion-input>
+        <ion-input [(ngModel)]="producto.precio" type="number" step="0.01" min="0"></ion-input>
       </ion-item>
     </div>
 
-    <!-- Campo: Cantidad -->
+    <!-- Campo: Disponible (Sí o No) -->
     <div class="form-group">
-      <label>Cantidad</label>
+      <label>Disponible</label>
       <ion-item class="rounded-item">
-        <ion-input [(ngModel)]="producto.cantidad" type="number"></ion-input>
+        <ion-select [(ngModel)]="producto.disponible" placeholder="Selecciona una opción" interface="popover">
+          <ion-select-option value="true">Sí</ion-select-option>
+          <ion-select-option value="false">No</ion-select-option>
+        </ion-select>
       </ion-item>
     </div>
+
 
     <!-- Campo: Categoría -->
     <div class="form-group">

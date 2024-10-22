@@ -12,16 +12,16 @@ export class AltaproductoPage implements OnInit {
   producto = {
     nombre: '',
     descripcion: '',
-    precio: null,
+    precio: null, // Ahora acepta decimales
     categoria: '',
-    cantidad: null,
+    disponible: '', // Nuevo campo disponible (Sí o No)
     imagenUrl: ''
   };
   imagenFile: File | null = null;
 
   constructor(
     private firestore: Firestore,
-    private toastController: ToastController // Inyección del ToastController
+    private toastController: ToastController
   ) {}
 
   ngOnInit() {}
@@ -39,7 +39,7 @@ export class AltaproductoPage implements OnInit {
       // Subir la imagen a Firebase Storage
       const filePath = `productos/${new Date().getTime()}_${this.imagenFile.name}`;
       const fileRef = ref(storage, filePath);
-      
+
       // Subir la imagen
       await uploadBytes(fileRef, this.imagenFile);
 
@@ -101,7 +101,7 @@ export class AltaproductoPage implements OnInit {
       descripcion: '',
       precio: null,
       categoria: '',
-      cantidad: null,
+      disponible: '', // Limpiar campo disponible
       imagenUrl: ''
     };
     this.imagenFile = null;

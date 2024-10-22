@@ -2,13 +2,14 @@
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let plato of platos$ | async" (click)="presentModal(plato)">
+    <ion-item *ngFor="let plato of platos$ | async" (click)="presentModal(plato)"
+              [ngClass]="{'disponible': plato.disponible, 'no-disponible': !plato.disponible}">
       <ion-thumbnail slot="start">
         <img [src]="plato.imagenUrl" alt="{{ plato.nombre }}" /> <!-- Cambia plato.imagen por plato.imagenUrl -->
       </ion-thumbnail>
       <ion-label>
         <h2>{{ plato.nombre }}</h2>
-        <p>{{ plato.descripcion }}</p>
+        <!-- Quitamos la descripción y agregamos el campo disponible -->
         <h3>Precio: {{ plato.precio | currency:'USD':true }}</h3>
       </ion-label>
     </ion-item>

@@ -5,10 +5,10 @@ import { PlatilloDetalleModalComponent } from '../platillo-detalle-modal/platill
 import { Observable, of } from 'rxjs';
 
 interface Postre {
-  imagenUrl: string;
+  imagenUrl: string;  // Aquí es donde los postres guardan la imagen
   nombre: string;
-  descripcion: string;
   precio: number;
+  disponible: boolean;
 }
 
 @Component({
@@ -17,7 +17,7 @@ interface Postre {
   styleUrls: ['./postres.page.scss'],
 })
 export class PostresPage implements OnInit {
-  postres$: Observable<Postre[]> = of([]); // Inicializamos como un observable vacío
+  postres$: Observable<Postre[]> = of([]);
 
   constructor(private firestore: Firestore, private modalController: ModalController) {}
 
@@ -26,11 +26,17 @@ export class PostresPage implements OnInit {
     this.postres$ = collectionData(postresRef, { idField: 'id' }) as Observable<Postre[]>;
   }
 
-  async presentModal(postre: Postre) {
+  async presentModal(item: any) {
+    // Asignamos una propiedad común 'imagen' al abrir el modal
+    const modalItem = {
+      ...item,
+      imagen: item.imagenUrl || item.imagen || '' // Dependiendo de si es postre, bebida o plato
+    };
+  
     const modal = await this.modalController.create({
       component: PlatilloDetalleModalComponent,
-      componentProps: { platillo: postre }
+      componentProps: { platillo: modalItem }
     });
     return await modal.present();
   }
-}
+}  

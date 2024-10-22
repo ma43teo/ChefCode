@@ -1,13 +1,43 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>HomeWeb</ion-title>
-  </ion-toolbar>
-</ion-header>
+<div class="container">
+  <div class="sidebar">
+    <ion-icon name="home"></ion-icon>
+    <ion-icon name="person"></ion-icon>
+    <ion-icon name="settings"></ion-icon>
+    <br>
+  </div>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">HomeWeb</ion-title>
-    </ion-toolbar>
-  </ion-header>
-</ion-content>
+  <div class="main-content">
+    <div class="header">
+      <img src="https://cdn.icon-icons.com/icons2/2774/PNG/512/welcome_people_icon_176891.png" alt="Welcome" class="welcome-image">
+      <div class="welcome-text">
+        <h2>Bienvenido, <strong>Juanito Perez</strong></h2>
+      </div>
+    </div>
+    
+
+
+
+    <div class="report">
+      <div class="report-item" (click)="viewDetails('patients')">
+        <img src="https://cdni.iconscout.com/illustration/premium/thumb/pedido-realizado-6990577-5814831.png?f=webp" alt="Patient" class="report-icon">
+        <p class="report-text">Pedidos</p>
+        <span class="report-count">1032</span>
+      </div>
+      <div class="report-item" (click)="viewDetails('consultations')">
+        <img src="https://png.pngtree.com/png-clipart/20211116/original/pngtree-hotel-online-booking-concept-illustration-map-positioning-png-image_6939850.png" alt="Consultation" class="report-icon">
+        <p class="report-text">Reservaciones</p>
+        <span class="report-count">207</span>
+      </div>
+      <div class="report-item" (click)="viewDetails('injects')">
+        <img src="https://png.pngtree.com/png-clipart/20230811/original/pngtree-product-quality-control-abstract-concept-vector-illustration-picture-image_7856241.png" alt="Inject" class="report-icon">
+        <p class="report-text">Alta de productos</p>
+        <span class="report-count">128</span>
+      </div>
+      <div class="report-item" (click)="viewDetails('surgeries')">
+        <img src="https://images.vexels.com/media/users/3/147087/isolated/preview/b76706b9814f347e841ff15b89a5d170-instagram-descubrir-icono-de-personas.png" alt="Surgery" class="report-icon">
+        <p class="report-text">Perfil </p>
+        <span class="report-count">48</span>
+      </div>
+    </div>
+  </div>
+</div>
