@@ -1,0 +1,78 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-title>Pedidos</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content [fullscreen]="true">
+    <div class="container">
+      <div class="sidebar">
+        <ion-icon name="home"></ion-icon>
+        <ion-icon name="list"></ion-icon>
+        <ion-icon name="document-text"></ion-icon>
+        <ion-icon name="alert"></ion-icon>
+        <ion-icon name="settings"></ion-icon>
+        <ion-icon name="person"></ion-icon>
+      </div>
+  
+      <div class="main-content">
+        <div class="dashboard-container">
+          <div class="segment-container">
+            <ion-segment value="on-process" class="segment-button-custom">
+              <ion-segment-button class="segment-button-custom" value="on-process">
+                En proceso
+              </ion-segment-button>
+              <ion-segment-button class="segment-button-custom" value="completed">
+                Completadas
+              </ion-segment-button>
+            </ion-segment>
+          </div>
+  
+  
+  
+          <div class="order-cards">
+            <!-- Itera sobre las órdenes y añade un evento de clic -->
+            <div class="order-card" *ngFor="let order of orders" (click)="selectOrder(order)">
+              <div class="order-header">
+                <span class="order-number">Orden: #{{ order.id }}</span>
+                <span class="order-time">{{ order.time }}</span>
+              </div>
+              <div class="order-details">
+                <span>Mesa: {{ order.mesa }}</span>
+                <span>Cantidad: {{ order.Cantidad }}</span>
+                <span class="order-amount">${{ order.amount.toFixed(2) }}</span>
+                <span class="order-type">{{ order.type }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        
+        <!-- Información del pedido seleccionado -->
+        <div class="order-info" *ngIf="selectedOrder">
+          <h2>Orden #{{ selectedOrder.id }}</h2>
+          <div *ngFor="let item of selectedOrder.items">
+            <div class="item-row">
+              <span>{{ item.name }}</span>
+              <span>${{ item.price.toFixed(2) }}</span>
+            </div>
+          </div>
+          <div class="total-info">
+            <span>Items: ${{ selectedOrder.subtotal.toFixed(2) }}</span>
+            <span>Tax (10%): ${{ selectedOrder.tax.toFixed(2) }}</span>
+            <span>Total: ${{ selectedOrder.total.toFixed(2) }}</span>
+          </div>
+  
+  
+          <!-- Botones de pago -->
+          <div class="payment-methods">
+            <button class="payment-method">Cash</button>
+            <button class="payment-method">Tarjeta debito</button>
+            <button class="payment-method">E-Wallet</button>
+          </div>
+  
+          <button class="pay-button">Aceptar</button>
+        </div>
+      </div>
+    </div>
+  </ion-content>

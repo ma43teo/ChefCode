@@ -1,18 +1,30 @@
 <app-header></app-header>
 
 <ion-content>
+  <!-- Botón para abrir el carrito, visible en el contenido -->
+  <ion-button expand="full" (click)="openCart()" style="margin-bottom: 16px;">
+    <ion-icon slot="start" name="cart"></ion-icon>
+    Ver Carrito
+  </ion-button>
+
   <ion-list>
-    <ion-item 
-      *ngFor="let bebida of bebidas$ | async" 
-      (click)="presentModal(bebida)"
-      [ngClass]="{'disponible': bebida.disponible, 'no-disponible': !bebida.disponible}">
+    <!-- Recorre la lista de platos y muestra cada uno -->
+    <ion-item *ngFor="let item of bebidas$ | async"
+              [ngClass]="{'disponible': item.bebida.disponible, 'no-disponible': !item.bebida.disponible}"
+              (click)="presentModal(item)">
+      
       <ion-thumbnail slot="start">
-        <img [src]="bebida.imagenUrl" alt="{{ bebida.nombre }}" />
+        <img [src]="item.bebida.imagenUrl" alt="{{ item.bebida.nombre }}" />
       </ion-thumbnail>
+
       <ion-label>
-        <h2>{{ bebida.nombre }}</h2>
-        <h3>Precio: {{ bebida.precio | currency:'USD':true }}</h3>
+        <h2>{{ item.bebida.nombre }}</h2>
+        <h3>Precio: {{ item.bebida.precio | currency:'USD':true }}</h3>
       </ion-label>
+
+      <!-- Botón para agregar al carrito, detiene la propagación del evento para que no abra el modal -->
+      <ion-button fill="outline" (click)="addToCart(item); $event.stopPropagation()">Agregar al Carrito</ion-button>
+
     </ion-item>
   </ion-list>
 </ion-content>

@@ -1,0 +1,185 @@
+.container {
+    display: flex;
+    height: 100%; /* Asegura que el contenedor ocupe toda la altura */
+  }
+  
+  .sidebar {
+    background-color: #d67c2d; /* Color de la barra lateral */
+    width: 80px;
+    display: flex;
+    flex-direction: column;
+    padding: 28px;
+  }
+  
+  .sidebar ion-icon {
+    margin-bottom: 35px;
+    color: #ffffff;
+    font-size: 32px;
+    cursor: pointer;
+  }
+  
+  .main-content {
+    flex: 1; /* Permite que el contenido principal ocupe el espacio restante */
+    padding: 20px;
+    display: flex;
+    flex-direction: row; /* Coloca las columnas de pedidos y detalles lado a lado */
+    justify-content: space-between;
+  }
+  
+
+
+  
+  .dashboard-container {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    background-color: #f7f7f8;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .segment-container {
+    margin-bottom: 20px;
+  }
+  
+  ion-segment-button.segment-button-custom {
+    --color: #f56b2a;
+    --background: #fff7f0;
+    border-radius: 20px;
+    padding: 5px 15px;
+    font-weight: bold;
+  }
+  
+  ion-segment-button.segment-button-custom:checked {
+    --color: #fff;
+    --background: #f56b2a;
+  }
+  
+
+  
+  .order-cards {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .order-card {
+    background-color: #ffffff;
+    border-radius: 15px;
+    border: 2px solid #f56b2a;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  
+  .order-card:hover {
+    transform: scale(1.02);
+  }
+  
+  .order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .order-number {
+    color: #0151a7;
+    font-weight: bold;
+  }
+  
+  .order-time {
+    font-size: 14px;
+    color: #f56b2a;
+  }
+  
+  .order-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .order-amount {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .order-type {
+    background-color: #def9ec;
+    color: #0d7c3e;
+    padding: 5px;
+    border-radius: 10px;
+  }
+  
+  .order-info {
+    flex: 1;
+    margin-left: 20px;
+    background-color: #FA4F10;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .item-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .total-info {
+    margin-top: 20px;
+    font-weight: bold;
+  }
+  
+
+  
+  .payment-methods {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .payment-method {
+    background-color: #f7f7f8;
+    border: 1px solid #b29277;
+    border-radius: 10px;
+    padding: 10px 15px;
+    color: #d67c2d;
+    cursor: pointer;
+  }
+  
+  .pay-button {
+    background-color: #d67c2d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .pay-button:hover {
+    background-color: #b65a25;
+  }
+  
+
+
+  
+  /* Responsiveness */
+  @media (max-width: 768px) {
+    .main-content {
+      flex-direction: column;
+    }
+  
+    .sidebar {
+      width: 60px;
+    }
+  }

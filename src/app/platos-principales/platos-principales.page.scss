@@ -33,6 +33,10 @@ ion-label p {
   color: #666;
   text-transform: none;
 }
+ion-buttons {
+  display: flex;
+}
+
 
 /* Estilos responsivos */
 @media (min-width: 768px) {

@@ -36,10 +36,6 @@ const routes: Routes = [
     loadChildren: () => import('./reservaciones/reservaciones.module').then( m => m.ReservacionesPageModule)
   },
   {
-    path: 'perfil',
-    loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
-  },
-  {
     path: 'loginmovil',
     loadChildren: () => import('./loginmovil/loginmovil.module').then( m => m.LoginmovilPageModule)
   },
@@ -54,7 +50,8 @@ const routes: Routes = [
   {
     path: 'reservas',
     loadChildren: () => import('./reservas/reservas.module').then( m => m.ReservasPageModule)
-  },  {
+  },
+  {
     path: 'perfilmovil',
     loadChildren: () => import('./perfilmovil/perfilmovil.module').then( m => m.PerfilmovilPageModule)
   },
@@ -98,6 +95,11 @@ const routes: Routes = [
     path: 'pedidos-aceptar',
     loadChildren: () => import('./pedidos-aceptar/pedidos-aceptar.module').then( m => m.PedidosAceptarPageModule)
   },
+  {
+    path: 'perfil-web',
+    loadChildren: () => import('./perfil-web/perfil-web.module').then( m => m.PerfilWebPageModule)
+  },
+
 
 
 ];

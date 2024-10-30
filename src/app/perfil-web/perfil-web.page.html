@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="centered-toolbar">
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">perfil-web</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- Contenedor principal que contiene la introducción y la tarjeta de perfil -->
+  <div class="main-container">
+    <!-- Sección de introducción -->
+    <div class="intro-section">
+      <p class="hello-text">¡Bienvenido!</p>
+      <h1>Maras Faron!</h1>
+
+      <ion-button expand="block" color="danger">
+        <ion-icon slot="start" name="download-outline"></ion-icon>
+        Cerrar sesión
+      </ion-button>
+    </div>
+
+    <!-- Sección de perfil -->
+    <div class="card-container">
+      <!-- Imagen del perfil -->
+      <img src="https://cdn-icons-png.flaticon.com/512/11507/11507579.png" alt="Avatar" class="profile-avatar">
+
+      <!-- Nombre y descripción -->
+      <h2 class="profile-name">Juanito Perez</h2>
+      <p class="profile-desc">(Gerente general)</p>
+
+      <!-- Botones de enlaces -->
+      <div class="button-container">
+        <button class="custom-button white-button">Juanito</button>
+        <button class="custom-button yellow-button">Perez</button>
+        <button class="custom-button black-button">Gerente general</button>
+      </div>
+    </div>
+  </div>
+</ion-content>

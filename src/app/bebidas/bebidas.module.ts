@@ -8,6 +8,9 @@ import { BebidasPageRoutingModule } from './bebidas-routing.module';
 
 import { BebidasPage } from './bebidas.page';
 import { SharedModule } from '../shared/shared.module'; 
+import { CartModule } from '../cart.module'; 
+
+
 
 @NgModule({
   imports: [
@@ -15,7 +18,8 @@ import { SharedModule } from '../shared/shared.module';
     FormsModule,
     IonicModule,
     BebidasPageRoutingModule,
-    SharedModule
+    SharedModule,
+    CartModule // Importa el CartModule aquí
   ],
   declarations: [BebidasPage]
 })

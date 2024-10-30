@@ -1,0 +1,62 @@
+ion-menu {
+    --background: #D9793D; /* Color naranja */
+  }
+  
+  ion-header ion-toolbar {
+    --background: #D9793D;
+    color: white;
+  }
+  
+  ion-card {
+    margin: 10px;
+  }
+  
+  ion-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  ion-icon {
+    font-size: 24px;
+    color: white;
+  }
+  
+  ion-button {
+    margin: 5px;
+  }
+  
+  /* Estilo para las notificaciones */
+  .notificacion {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    z-index: 1000;
+    width: 80%; /* Aumentar ancho */
+  }
+  
+  .success {
+    color: green;
+    font-weight: bold; /* Negrita */
+  }
+  
+  .error {
+    color: red;
+    font-weight: bold; /* Negrita */
+  }
+  
+  .notificacion p {
+    margin: 0 0 10px; /* Margen para el texto */
+    font-size: 20px; /* Aumentar tamaño de fuente */
+  }
+  
+  ion-button {
+    --background: transparent; /* Fondo transparente */
+    color: #D9793D; /* Color del texto del botón */
+  }

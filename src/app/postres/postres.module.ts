@@ -10,13 +10,19 @@ import { PostresPage } from './postres.page';
 
 import { SharedModule } from '../shared/shared.module'; 
 
+import { CartModule } from '../cart.module'; 
+
+
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     PostresPageRoutingModule,
-    SharedModule 
+    SharedModule,
+    CartModule // Importa el CartModule aquí
+
   ],
   declarations: [PostresPage]
 })

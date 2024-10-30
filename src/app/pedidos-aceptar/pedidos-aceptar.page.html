@@ -1,13 +1,86 @@
+<ion-menu side="start" menuId="first" contentId="main-content">
+  <ion-header>
+    <ion-toolbar color="warning">
+      <ion-title></ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <ion-item lines="none" button>
+        <ion-icon name="home-outline" slot="start" style="color: white; font-size: 24px;"></ion-icon>
+      </ion-item>
+      <ion-item lines="none" button>
+        <ion-icon name="list-outline" slot="start" style="color: white; font-size: 24px;"></ion-icon>
+      </ion-item>
+      <ion-item lines="none" button>
+        <ion-icon name="receipt-outline" slot="start" style="color: white; font-size: 24px;"></ion-icon>
+      </ion-item>
+      <ion-item lines="none" button>
+        <ion-icon name="alert-outline" slot="start" style="color: white; font-size: 24px;"></ion-icon>
+      </ion-item>
+      <ion-item lines="none" button>
+        <ion-icon name="settings-outline" slot="start" style="color: white; font-size: 24px;"></ion-icon>
+      </ion-item>
+      <ion-item lines="none" button>
+        <ion-icon name="person-outline" slot="start" style="color: white; font-size: 24px;"></ion-icon>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<!-- Contenido principal -->
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Pedidos_Aceptar</ion-title>
+  <ion-toolbar color="warning">
+    <ion-title>Pedidos entrantes</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Pedidos_Aceptar</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content id="main-content" [fullscreen]="true">
+  <ng-container *ngFor="let pedido of pedidos">
+    <ion-card *ngIf="!pedido.rechazado">
+      <ion-item lines="none">
+        <ion-icon name="checkmark-circle" color="success" slot="start"></ion-icon>
+        <ion-label>
+          <h2>Pedido #{{pedido.id}}</h2>
+          <p>{{pedido.estado}}</p>
+          <ion-note>Hace {{pedido.tiempo}} minutos</ion-note>
+        </ion-label>
+        <ion-text color="primary" slot="end">{{pedido.precio | currency}}</ion-text>
+      </ion-item>
+
+      <!-- Detalle del pedido -->
+      <ion-list>
+        <ng-container *ngFor="let producto of pedido.productos">
+          <ion-item>
+            <ion-avatar slot="start">
+              <img [src]="producto.imagen" />
+            </ion-avatar>
+            <ion-label>
+              <h3>{{producto.nombre}}</h3>
+              <p>{{producto.notas}}</p>
+            </ion-label>
+            <ion-text slot="end">{{producto.precio | currency}}</ion-text>
+          </ion-item>
+        </ng-container>
+      </ion-list>
+
+      <!-- Botones de aceptar y rechazar -->
+      <ion-item>
+        <ion-row class="ion-justify-content-around ion-padding-top">
+          <ion-button color="success" expand="block" (click)="aceptarPedido(pedido)">Aceptar</ion-button>
+          <ion-button color="danger" expand="block" (click)="rechazarPedido(pedido)">Rechazar</ion-button>
+        </ion-row>
+      </ion-item>
+    </ion-card>
+  </ng-container>
+
+  <!-- Notificación -->
+  <div *ngIf="mostrarNotificacion" class="notificacion" [ngClass]="tipo">
+    <p [ngClass]="{'success': tipo === 'success', 'error': tipo === 'error'}">{{ mensaje }}</p>
+    <ion-button (click)="cerrarNotificacion()" fill="clear">Cerrar</ion-button>
+  </div>
 </ion-content>

@@ -4,6 +4,7 @@ import { RouteReuseStrategy } from '@angular/router';
 import { FormsModule } from '@angular/forms'; 
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { IonicStorageModule } from '@ionic/storage-angular'; // Importar Ionic Storage
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -25,15 +26,18 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent, 
-    ReservaModalComponent, PlatilloDetalleModalComponent,
+    ReservaModalComponent, PlatilloDetalleModalComponent
   ],
   
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, MenuPageModule, SharedModule, FormsModule, ReactiveFormsModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, MenuPageModule, SharedModule, FormsModule, ReactiveFormsModule,  IonicStorageModule.forRoot(),],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, provideFirebaseApp(() => initializeApp(environment.firebase)),
      provideAuth(() => getAuth()), provideAnalytics(() => getAnalytics()), ScreenTrackingService, UserTrackingService, provideFirestore(() => getFirestore()), provideDatabase(() => getDatabase()), provideMessaging(() => getMessaging()), provideStorage(() => getStorage())],
   bootstrap: [AppComponent],
+  
 })
 export class AppModule {}

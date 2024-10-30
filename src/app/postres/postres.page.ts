@@ -1,14 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { Firestore, collection, collectionData } from '@angular/fire/firestore';
 import { ModalController } from '@ionic/angular';
-import { PlatilloDetalleModalComponent } from '../platillo-detalle-modal/platillo-detalle-modal.component';
 import { Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { PlatilloDetalleModalComponent } from '../platillo-detalle-modal/platillo-detalle-modal.component';
+
+import { CartService } from '../services/cart.service'; 
+import { CartModalComponent } from '../cart-modal/cart-modal.component'; // Asegúrate de que esta ruta sea correcta
 
 interface Postre {
-  imagenUrl: string;  // Aquí es donde los postres guardan la imagen
+  imagenUrl: string; // Aquí es donde los postres guardan la imagen
   nombre: string;
   precio: number;
-  disponible: boolean;
+  disponible: boolean; // Campo de disponibilidad
 }
 
 @Component({
@@ -17,20 +21,33 @@ interface Postre {
   styleUrls: ['./postres.page.scss'],
 })
 export class PostresPage implements OnInit {
-  postres$: Observable<Postre[]> = of([]);
+  postres$: Observable<{ id: string; postre: Postre }[]> = of([]); // Asegúrate de que cada postre tenga un ID
 
-  constructor(private firestore: Firestore, private modalController: ModalController) {}
+  constructor(private firestore: Firestore, private modalController: ModalController, private cartService: CartService) {}
 
   ngOnInit() {
     const postresRef = collection(this.firestore, 'productos', 'postres', 'items');
-    this.postres$ = collectionData(postresRef, { idField: 'id' }) as Observable<Postre[]>;
+    this.postres$ = collectionData(postresRef, { idField: 'id' }).pipe(
+      map((postres: any[]) => postres.map(postre => ({ id: postre.id, postre }))) // Proporciona el tipo adecuado
+    ) as Observable<{ id: string; postre: Postre }[]>;
   }
 
-  async presentModal(item: any) {
-    // Asignamos una propiedad común 'imagen' al abrir el modal
+  addToCart(item: { id: string; postre: Postre }) {
+    const product = {
+      id: item.id,
+      nombre: item.postre.nombre,
+      precio: item.postre.precio,
+      imagenUrl: item.postre.imagenUrl,
+      categoria: 'postre', // Categoría asignada
+      cantidad: 1 // Inicializa la cantidad en 1
+    };
+    this.cartService.addToCart(product); // Agrega el producto al carrito
+  }
+
+  async presentModal(item: { id: string; postre: Postre }) {
     const modalItem = {
-      ...item,
-      imagen: item.imagenUrl || item.imagen || '' // Dependiendo de si es postre, bebida o plato
+      ...item.postre,
+      imagen: item.postre.imagenUrl || '' // Usa el campo imagenUrl del objeto postre
     };
   
     const modal = await this.modalController.create({
@@ -39,4 +56,11 @@ export class PostresPage implements OnInit {
     });
     return await modal.present();
   }
-}  
+
+  async openCart() {
+    const modal = await this.modalController.create({
+      component: CartModalComponent,
+    });
+    return await modal.present();
+  }
+}
