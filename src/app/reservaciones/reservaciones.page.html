@@ -1,0 +1,65 @@
+<ion-grid class="main-content">
+    <ion-row>
+      <ion-col size="9">
+                    <!-- Botón para abrir el selector de fecha -->
+                    <ion-button class="select-date-button" (click)="toggleDatePicker()">
+                        <ion-icon name="calendar-outline"></ion-icon>
+                        Seleccionar Fecha
+                      </ion-button>
+                      
+        <ion-grid class="tables">
+          <ion-row>
+
+            
+            <!-- Selector de fecha -->
+            <ion-datetime *ngIf="showDatePicker" [(ngModel)]="selectedDate" (ionChange)="onDateChange($event)" displayFormat="YYYY-MM-DD"></ion-datetime>
+            
+            <!-- Mostrar la fecha seleccionada -->
+            <p *ngIf="selectedDate">Fecha seleccionada: {{ selectedDate | date: 'yyyy-MM-dd' }}</p>
+  
+            <ion-col size="4" *ngFor="let table of filteredTables()">
+              <div class="table" [ngClass]="table.status">
+                <div class="seats" *ngFor="let seat of [].constructor(table.people)"></div>
+                <p class="table-name">{{ table.name }}</p>
+                <p *ngIf="table.status === 'reserved'" class="table-info">{{ table.reservedBy }} - {{ table.reservedByPhone }} - {{ table.time }}</p>
+                <p *ngIf="table.status === 'free'" class="table-info">Libre</p>
+                <div *ngIf="table.status === 'reserved'" class="actions">
+                  <ion-button color="success" (click)="acceptReservation(table)">Aceptar</ion-button>
+                  <ion-button color="danger" (click)="rejectReservation(table)">Rechazar</ion-button>
+                </div>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+  
+        <div class="table-legend">
+          <ion-label><span class="dot free"></span> Libre</ion-label>
+          <ion-label><span class="dot reserved"></span> Reservado</ion-label>
+        </div>
+      </ion-col>
+  
+      <ion-col size="3" class="reservation-panel">
+        <ion-searchbar placeholder="Buscar" [(ngModel)]="searchQuery"></ion-searchbar>
+        <ion-segment>
+          <ion-segment-button (click)="filterStatus('reserved')">Pendiente</ion-segment-button>
+          <ion-segment-button (click)="filterStatus('checked-in')">Reservado</ion-segment-button>
+        </ion-segment>
+        <ion-list>
+          <ion-item *ngFor="let table of filteredTables()">
+            <ion-label>
+              <h2>{{ table.name }}</h2>
+              <p>{{ table.reservedBy }} - {{ table.reservedByPhone }} - {{ table.people }} personas</p>
+              <p>{{ table.time }}</p>
+            </ion-label>
+            <ion-button *ngIf="table.status === 'reserved'" color="success" (click)="acceptReservation(table)">
+              Aceptar
+            </ion-button>
+            <ion-button *ngIf="table.status === 'reserved'" color="danger" (click)="rejectReservation(table)">
+              Rechazar
+            </ion-button>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  

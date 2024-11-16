@@ -1,8 +1,8 @@
-import { Firestore, collection, addDoc, query, where, getDocs, doc, setDoc } from '@angular/fire/firestore'; // Asegúrate de incluir 'doc' aquí
+import { Component } from '@angular/core';
 import { Auth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, fetchSignInMethodsForEmail } from '@angular/fire/auth';
+import { Firestore, doc, setDoc, collection, query, where, getDocs } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
-import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -32,34 +32,36 @@ export class RegistroPage {
       const { nombre, email, contrasena } = this.registrationForm.value;
 
       try {
-        // Verifica si el correo ya está registrado en la colección usuarios
+        const adminsQuery = query(collection(this.firestore, 'admins'), where('correo', '==', email));
+        const adminDocs = await getDocs(adminsQuery);
+        if (!adminDocs.empty) {
+          await this.presentToast('Este correo está registrado como administrador. No puedes registrarte como usuario regular.', 'warning');
+          return;
+        }
+
+        // Verificar si el usuario ya está registrado
         const usersQuery = query(collection(this.firestore, 'usuarios'), where('correo', '==', email));
         const userDocs = await getDocs(usersQuery);
-
         if (!userDocs.empty) {
-          // Si ya existe un usuario con este correo
           await this.presentToast('Ya existe una cuenta asociada a este correo.', 'warning');
           return;
         }
 
-        // Verifica si el email ya está registrado en Firebase Authentication
+        // Verificar métodos de inicio de sesión
         const signInMethods = await fetchSignInMethodsForEmail(this.auth, email);
-        
         if (signInMethods.length > 0) {
-          // Si ya existe un método de inicio de sesión para este email
-          await this.presentToast('Esta cuenta ya está registrada.', 'warning');
+          await this.presentToast('Esta cuenta ya está registrada. No se puede usar el mismo correo para diferentes métodos de autenticación.', 'warning');
           return;
         }
 
-        // Crear el usuario con Firebase Authentication
+        // Registro con correo y contraseña
         const userCredential = await createUserWithEmailAndPassword(this.auth, email, contrasena);
-        
-        // Guardar los datos del usuario en Firestore
-        const userRef = doc(this.firestore, 'usuarios', userCredential.user.uid); // Cambiado a 'doc'
+        const userRef = doc(this.firestore, 'usuarios', userCredential.user.uid);
         await setDoc(userRef, {
           nombre,
-          correo: email, // Asegúrate de que este campo sea 'correo' en Firestore
+          correo: email,
           uid: userCredential.user.uid,
+          provider: 'password',  // Guarda el proveedor de autenticación
           createdAt: new Date().toISOString()
         });
 
@@ -69,7 +71,6 @@ export class RegistroPage {
         await this.presentToast('Error. El correo electrónico ingresado ya está registrado.', 'danger');
       }
     } else {
-      console.warn('Formulario no válido');
       await this.presentToast('Por favor, complete todos los campos correctamente.', 'warning');
     }
   }
@@ -80,43 +81,38 @@ export class RegistroPage {
       const userCredential = await signInWithPopup(this.auth, provider);
       const user = userCredential.user;
 
-      // Verifica si el correo electrónico ya está en la colección admins
       const adminsQuery = query(collection(this.firestore, 'admins'), where('correo', '==', user.email));
       const adminDocs = await getDocs(adminsQuery);
-
       if (!adminDocs.empty) {
-        // Si se encuentra el correo en admins, no se permite el inicio de sesión
         await this.presentToast('Ya tienes acceso como administrador. No puedes iniciar sesión con esta cuenta.', 'warning');
         return;
       }
 
-      // Verifica si el correo ya está en la colección usuarios
+      // Verificar si el usuario ya está registrado
       const usersQuery = query(collection(this.firestore, 'usuarios'), where('correo', '==', user.email));
       const userDocs = await getDocs(usersQuery);
-
       if (!userDocs.empty) {
-        // Si se encuentra el correo en usuarios, no se permite el inicio de sesión
         await this.presentToast('Ya tienes una cuenta registrada con este correo. No puedes iniciar sesión con Google.', 'warning');
         return;
       }
 
-      // Si no existe en usuarios, agrega el nuevo usuario a Firestore
+      // Registro con Google
       const userDocRef = doc(this.firestore, 'usuarios', user.uid);
       await setDoc(userDocRef, {
         nombre: user.displayName || 'Nombre no disponible',
         correo: user.email,
         uid: user.uid,
+        provider: 'google.com',  // Guarda el proveedor de autenticación
         createdAt: new Date().toISOString()
       });
 
       await this.presentToast('Inicio de sesión con Google exitoso', 'success');
       this.router.navigate(['/home']);
     } catch (error) {
-      console.error('Error durante el inicio de sesión con Google:', error);
       await this.presentToast('Error durante el inicio de sesión con Google: ' + (error as Error).message, 'danger');
     }
   }
-  
+
   async presentToast(message: string, color: string) {
     const toast = await this.toastController.create({
       message,

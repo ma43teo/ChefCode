@@ -15,44 +15,23 @@
 
     <ion-card-content>
       <ion-item>
-        <ion-label position="floating">Nombre(s)</ion-label>
+        <ion-label position="floating">Nombre completo</ion-label>
         <ion-input
-          id="custom-input"
           type="text"
-          labelPlacement="floating"
-          [counter]="true" 
-          maxlength="10"
-          [counterFormatter]="customCounterFormatter"
+          maxlength="40"
           [(ngModel)]="nombre"
-          required
-        ></ion-input>
+          required>
+        </ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label position="floating">Apellido(s)</ion-label>
-        <ion-input
-          id="custom-input"
-          type="text"
-          labelPlacement="floating"
-          [counter]="true" 
-          maxlength="10"
-          [counterFormatter]="customCounterFormatter"
-          [(ngModel)]="apellidos"
-          required
-        ></ion-input>
-      </ion-item>
-
-      <ion-item [ngClass]="{ 'ion-invalid': phoneNumberError }">
         <ion-label position="floating">Número de teléfono</ion-label>
         <ion-input
           type="tel"
-          inputmode="numeric"
-          pattern="[0-9]*"
           maxlength="10"
-          (input)="validatePhoneNumber($event)"
-          required
-        ></ion-input>
-        <ion-icon name="alert-circle-outline" *ngIf="phoneNumberError" slot="end"></ion-icon>
+          [(ngModel)]="telefono"
+          required>
+        </ion-input>
       </ion-item>
 
       <ion-button expand="block" color="danger" (click)="confirmarReserva()">Reservar</ion-button>

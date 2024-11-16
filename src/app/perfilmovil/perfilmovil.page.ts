@@ -41,7 +41,7 @@ export class PerfilmovilPage implements OnInit {
             
             this.nombreCompleto = userData['nombre'] || '';
             this.telefono = userData['telefono'] || ''; // Si no existe aún, estará vacío
-            this.correoElectronico = userData['email'] || '';
+            this.correoElectronico = userData['correo'] || '';
 
             // Generar las iniciales para el avatar
             this.avatar = this.generarAvatar(this.nombreCompleto);

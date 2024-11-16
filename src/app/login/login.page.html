@@ -1,17 +1,17 @@
 <ion-header></ion-header>
 <ion-content fullscreen class="ion-padding">
-  <div class="background-image"></div>
+  <div class="login-container">
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
 
-  <!-- Tarjeta de inicio de sesión centrada -->
-  <div class="login-card">
-    <ion-card class="ion-activated">
-      <ion-card-header>
-        <ion-card-title class="custom-font">Iniciar Sesión de Administrador</ion-card-title>
-      </ion-card-header>
-
-      <ion-card-content class="ion-text-center">
-        <!-- Campo para el UID personalizado con botón de mostrar/ocultar -->
-        <div class="input-field">
+    <div class="signin-section">
+      <h3 class="signin-title">Iniciar Sesión de Administrador</h3>
+      
+      <div class="input-field">
+        <ion-item class="input-item">
           <ion-label position="floating" class="custom-label">UID Administrador</ion-label>
           <ion-input
             [(ngModel)]="uid"
@@ -23,18 +23,13 @@
             slot="end"
             (click)="toggleUIDVisibility()"
           ></ion-icon>
-        </div>
+        </ion-item>
+      </div>
 
-        <!-- Botón para validar UID -->
-        <ion-button expand="block" class="custom-button" (click)="validateUID()">Validar UID</ion-button>
+      <button class="animated-btn" (click)="validateUID()">Validar UID</button>
+      <button class="animated-btn" (click)="loginWithGoogle()">Iniciar sesión con Google</button>
 
-        <!-- Botón para iniciar sesión con Google (siempre visible) -->
-        <ion-button expand="block" class="custom-button" (click)="loginWithGoogle()">
-          Iniciar sesión con Google
-        </ion-button>
-      </ion-card-content>
-    </ion-card>
+      <div class="bottom-particles"></div>
+    </div>
   </div>
-
-  <div class="bottom-particles"></div>
 </ion-content>

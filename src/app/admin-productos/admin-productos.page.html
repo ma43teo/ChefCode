@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Administrador de Productos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngFor="let categoria of categorias">
+    <ion-item>
+      <ion-label>
+        <h2>{{ categoria | titlecase }}</h2> <!-- Usamos titlecase para dar formato a la categoría -->
+      </ion-label>
+    </ion-item>
+    <ion-list *ngIf="(productosPorCategoria[categoria] ?? []).length > 0"> <!-- Solo muestra si hay productos -->
+      <ion-item *ngFor="let producto of productosPorCategoria[categoria] ?? []" (click)="openModal(producto)">
+        <ion-thumbnail slot="start">
+          <img [src]="producto.imagenUrl" />
+        </ion-thumbnail>
+        <ion-label>
+          <h2>{{ producto.nombre }}</h2>
+          <p>Precio: {{ producto.precio }}</p>
+          <p>Disponible: {{ producto.disponible ? 'Sí' : 'No' }}</p>
+        </ion-label>
+        <ion-button slot="end" color="primary" (click)="openModal(producto)">Editar</ion-button>
+      </ion-item>
+    </ion-list>
+    <p *ngIf="(productosPorCategoria[categoria] ?? []).length === 0">No hay productos en esta categoría.</p> <!-- Mensaje si no hay productos -->
+  </ion-list>
+</ion-content>

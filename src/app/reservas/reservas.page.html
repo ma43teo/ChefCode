@@ -13,6 +13,8 @@
           display-format="DD/MM/YYYY"
           picker-format="DD/MM/YYYY"
           [(ngModel)]="fecha"
+          [min]="minDate"
+          [max]="maxDate"
           placeholder="Selecciona la fecha"
           presentation="date">
         </ion-datetime>
@@ -42,7 +44,6 @@
       </ion-button>
     </ion-card-content>
   </ion-card>
-
 </ion-content>
 
 <app-footer></app-footer>

@@ -1,0 +1,135 @@
+.main-content {
+    padding: 1rem;
+  }
+
+  ion-button.select-date-button {
+    --background: #E3D556; /* Color de fondo similar al color primario que mencionaste */
+    --color: #fff; /* Color del texto */
+    --border-radius: 8px; /* Bordes redondeados más sutiles */
+    --padding-start: 12px; /* Menos espacio a la izquierda */
+    --padding-end: 12px; /* Menos espacio a la derecha */
+    --height: 35px; /* Altura del botón más pequeña */
+    --box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    font-size: 14px; /* Tamaño de fuente más pequeño */
+    transition: all 0.3s ease; /* Transición suave para efectos */
+  }
+  
+  ion-button.select-date-button:hover {
+    --background: #ffb74d; /* Color de fondo cuando el botón es hover */
+    --box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2); /* Sombra más intensa cuando el botón se está presionando */
+  }
+  
+  ion-button.select-date-button:focus {
+    --background: #ff9800; /* Color de fondo cuando el botón tiene foco */
+    --box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25); /* Sombra intensa cuando el botón está enfocado */
+  }
+  
+  
+  .tables {
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .table {
+    background-image: url('https://www.samoonae.com/images/menu/menu-bg-one.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 8px;
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+    margin-bottom: 1rem;
+    border: 4px solid transparent; /* Borde más grueso */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+  }
+  
+  .table-name {
+    font-weight: bold;
+    color: #333; /* Dark text for light mode */
+  }
+  
+  .table-info {
+    margin: 0.5rem 0;
+    color: #666; /* Darker text for info */
+  }
+  
+  /* Table status styles */
+  .table.free {
+    border: 4px solid #00c853; /* Borde más grueso y verde para mesas libres */
+    animation: blink 1s infinite; /* Flashing effect for free tables */
+  }
+  
+  /* Borde más grueso y amarillo para las mesas reservadas */
+  .table.reserved,
+  .table.checked-in {
+    border: 4px solid #ffcc00; /* Reserved tables - yellow border */
+  }
+  
+  /* Blinking animation for free tables */
+  @keyframes blink {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+  
+  .actions {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+  
+  /* Legend */
+  .table-legend {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .table-legend .dot {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  
+  .dot.free {
+    background-color: #00c853; /* Verde para mesas libres */
+  }
+  
+  .dot.reserved {
+    background-color: #ffcc00; /* Amarillo para mesas reservadas */
+  }
+  
+  .dot.checked-in {
+    background-color: #ff5500;
+  }
+  
+  /* Reservation panel */
+  .reservation-panel {
+    padding: 1rem;
+    background: #ffffff;
+    border-left: 2px solid #e0e0e0;
+  }
+  
+  /* Dark mode styles */
+  @media (prefers-color-scheme: dark) {
+    .reservation-panel {
+      background: #1e1e1e;
+    }
+  
+    .table {
+      color: #fff; /* Light text for dark mode */
+    }
+  
+    .table-name,
+    .table-info {
+      color: #fff; /* Adjust text color for dark mode */
+    }
+  }

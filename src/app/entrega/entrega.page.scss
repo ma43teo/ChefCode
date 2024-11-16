@@ -1,0 +1,145 @@
+/* Estilo del Logo */
+ion-header .logo {
+    height: 40px;
+}
+
+/* Estilos del Indicador de Progreso */
+.progress-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+    margin-bottom: 10px;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #999;
+}
+
+.step p {
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.circle {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: white;
+    border: 2px solid #FF6C00;
+    position: relative;
+    z-index: 1;
+}
+
+.line {
+    width: 80px;
+    height: 2px;
+    background-color: #ccc;
+    margin: 0 5px;
+    position: relative;
+    top: -12px;
+    z-index: 0;
+}
+
+/* Estado activo */
+.step.active .circle {
+    background-color: #ffffff;
+    border-color: #FF6C00;
+}
+
+.step.active p {
+    color: #333;
+    font-weight: bold;
+}
+
+/* Estado completado */
+.step.completed .circle {
+    background-color: #FF6C00;
+}
+
+.step.completed p {
+    color: #FF6C00;
+    font-weight: bold;
+}
+
+/* Sección de Información y Dirección */
+.info-section, .address-section {
+    margin: 10px;
+    border-radius: 15px;
+    background-color: #F7F7F7;
+}
+
+/* Solo aplica el recuadro alrededor del título */
+.section-title ion-card-title {
+    background-color: #e0e0e0; /* Fondo del título */
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    display: inline-block; /* Solo abarca el texto */
+
+    /* Color en modo claro */
+    color: #000;
+}
+
+/* Color de los títulos en modo oscuro */
+.dark-theme .section-title ion-card-title {
+    color: #ffffff; /* Cambia a blanco en modo oscuro */
+}
+
+/* Estilos de los Datos */
+.data-value {
+    background-color: #e3d55689; /* Fondo amarillo */
+    padding: 8px;
+    border-radius: 10px;
+    font-weight: bold;
+    color: #000;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+/* Tarjeta de Dirección */
+.address-card {
+    border: 2px solid #FF6C00;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 15px;
+}
+
+/* Estilo para el Botón "Elegir otro domicilio" */
+.choose-address {
+    text-align: right;
+    padding: 10px;
+}
+
+.choose-address button {
+    background-color: #FF6C00;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.choose-address button:hover {
+    background-color: #e65a00;
+}
+
+/* Estilos para el Footer */
+ion-tab-bar {
+    --color-selected: #FF6C00; /* Cambia color de ícono y texto al seleccionarlo */
+    --color: #333; /* Color del texto y los íconos sin seleccionar */
+}
+
+ion-tab-button {
+    color: var(--color); /* Aplica el color normal */
+}
+
+ion-tab-button[aria-selected="true"] {
+    color: var(--color-selected); /* Cambia el color cuando está seleccionado */
+}
+

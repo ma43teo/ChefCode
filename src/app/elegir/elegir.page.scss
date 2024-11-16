@@ -1,0 +1,112 @@
+ion-header .logo {
+    height: 40px;
+  }
+/* Estilo del título "Elegir un domicilio" */
+.main-title {
+    text-align: left;
+    padding: 16px;
+  }
+  
+  .main-title h1 {
+    font-size: 1.8rem; /* Tamaño más grande para "Elegir un domicilio" */
+    font-weight: bold;
+    color: #000000;
+  
+    /* Cambia a blanco en modo oscuro */
+    @media (prefers-color-scheme: dark) {
+      color: #ffffff;
+    }
+  }
+  
+
+  
+  /* Estilo del recuadro para "Principal" */
+  .subtitle {
+    font-size: 1.3rem; /* Tamaño más grande para "Principal" */
+    font-weight: bold;
+    background-color: #979086; /* Cambia el color de fondo aquí (naranja claro) */
+    color: #000000;
+  
+    /* Cambia a blanco en modo oscuro */
+    @media (prefers-color-scheme: dark) {
+      color: #ffffff;
+    }
+  }
+  
+  ion-content {
+    --padding-top: 16px;
+  }
+  
+  .custom-radio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+  }
+  
+  .radio-circle {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ff6600; /* Naranja */
+    border-radius: 50%;
+  }
+  
+  .selected .custom-radio .radio-circle {
+    display: none;
+  }
+  
+  .selected .custom-radio ion-icon {
+    font-size: 20px;
+  }
+  
+  ion-item {
+    border: 1px solid #ff6600;
+    border-radius: 10px;
+    margin: 8px;
+    padding: 8px;
+  }
+  
+  h2 {
+    font-weight: bold;
+  }
+  
+  ion-button[color="danger"] {
+    --color: #ff6600; /* Naranja */
+  }
+  
+  /* Estilo del botón "Agregar domicilio" */
+  .agregar-domicilio-btn {
+    margin: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    color: white;
+    background-color: #ff6600; /* Naranja */
+  }
+  
+
+  
+  ion-footer {
+    ion-toolbar {
+      ion-segment {
+        display: flex;
+        justify-content: space-around;
+  
+        ion-segment-button {
+          --indicator-color: transparent;
+          color: #ff6600;
+  
+          ion-icon {
+            font-size: 1.5rem;
+            color: #ff6600;
+          }
+  
+          ion-label {
+            font-size: 0.75rem;
+            color: #ff6600;
+          }
+        }
+      }
+    }
+  }
+  
+

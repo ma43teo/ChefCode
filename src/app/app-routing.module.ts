@@ -99,6 +99,23 @@ const routes: Routes = [
     path: 'perfil-web',
     loadChildren: () => import('./perfil-web/perfil-web.module').then( m => m.PerfilWebPageModule)
   },
+  {
+    path: 'admin-productos',
+    loadChildren: () => import('./admin-productos/admin-productos.module').then( m => m.AdminProductosPageModule)
+  },  {
+    path: 'elegir',
+    loadChildren: () => import('./elegir/elegir.module').then( m => m.ElegirPageModule)
+  },
+  {
+    path: 'entrega',
+    loadChildren: () => import('./entrega/entrega.module').then( m => m.EntregaPageModule)
+  },
+  {
+    path: 'editar',
+    loadChildren: () => import('./editar/editar.module').then( m => m.EditarPageModule)
+  },
+
+
 
 
 

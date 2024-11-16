@@ -1,47 +1,173 @@
-/* login.page.scss */
-
-/* Fondo animado */
-.background-image {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('/assets/background.jpg') no-repeat center center/cover;
-  z-index: -1;
+/* General Styles */
+body, ion-content {
+  --background: linear-gradient(135deg, #fa3e00, #313535e0, #ff4000);
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  overflow: hidden; /* Evita el scroll si las burbujas salen de la pantalla */
 }
 
-/* Tarjeta de inicio de sesión centrada */
-.login-card {
+/* Bubbles Animation */
+@keyframes bubble {
+  0% {
+    transform: translateY(100vh);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px); /* Movimiento hacia arriba */
+    opacity: 0; /* Desvanecer al subir */
+  }
+}
+
+/* Bubble Effect */
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  animation: bubble 6s infinite ease-in-out; /* Duración de la animación */
+  opacity: 0.5;
+}
+
+/* Generar burbujas en diferentes posiciones y tamaños */
+.bubble:nth-child(1) {
+  width: 50px;
+  height: 50px;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.bubble:nth-child(2) {
+  width: 70px;
+  height: 70px;
+  left: 25%;
+  animation-delay: 1s;
+}
+
+.bubble:nth-child(3) {
+  width: 60px;
+  height: 60px;
+  left: 50%;
+  animation-delay: 2s;
+}
+
+.bubble:nth-child(4) {
+  width: 40px;
+  height: 40px;
+  left: 70%;
+  animation-delay: 3s;
+}
+
+.bubble:nth-child(5) {
+  width: 80px;
+  height: 80px;
+  left: 90%;
+  animation-delay: 4s;
+}
+
+/* Login Container */
+.login-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
-}
-
-ion-card {
-  width: 90%;
-  max-width: 400px;
+  height: 100vh;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative; /* Necesario para las burbujas */
 }
 
-.custom-label {
-  font-size: 1.2rem;
+/* Login Card */
+.signin-section {
+  width: 110%;
+  max-width: 480px;
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+/* Title Styles */
+.signin-title {
+  font-size: 48px; /* Aumenta el tamaño de la fuente aquí */
   font-weight: bold;
+  margin-bottom: 30px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif; /* Cambiamos la fuente */
 }
 
-.custom-button {
-  margin-top: 20px;
-  background-color: #ff5722;
-  color: white;
+/* Input Field Styles */
+.input-item {
+  margin-bottom: 20px;
+  --background: rgba(255, 255, 255, 0);
+  --highlight-background: rgba(255, 255, 255, 0);
+  --color-focused: #ff6a00;
+  --border-radius: 10px;
+  --padding-start: 15px;
+  --ion-item-background: transparent; /* Evitamos la línea negra */
+  --ion-item-border-color: transparent; /* Eliminar bordes visibles */
 }
 
-.bottom-particles {
+/* Input Styles */
+ion-input {
+  --placeholder-color: rgba(0, 0, 0, 0.5);
+  color: rgb(0, 0, 0);
+  font-size: 18px;
+}
+
+/* Animated Button Styles */
+.animated-btn {
+  display: block; /* Cambiado a bloque para centrar */
+  margin: 20px auto; /* Centramos el botón */
+  background-color: #ff5722; /* Color de fondo naranja */
+  color: white; /* Color del texto del botón */
+  border: none; /* Sin borde */
+  border-radius: 25px; /* Bordes redondeados */
+  padding: 15px 30px; /* Añade padding para hacerlo más grande */
+  font-size: 18px; /* Tamaño de la fuente */
+  font-weight: bold; /* Texto en negrita */
+  position: relative; /* Para permitir animación */
+  overflow: hidden; /* Para el efecto de sombra */
+  transition: transform 0.3s ease; /* Transiciones para los efectos */
+}
+
+/* Efecto de animación */
+.animated-btn::before {
+  content: "";
   position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 100px;
-  background: transparent;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.5s ease;
+  z-index: 0; /* Coloca detrás del texto */
+}
+
+.animated-btn:hover::before {
+  transform: translate(-50%, -50%) scale(1); /* Escalar al pasar el ratón */
+}
+
+.animated-btn:hover {
+  transform: translateY(-3px); /* Efecto de elevación */
+}
+
+/* Animación de entrada */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  .signin-section {
+    width: 90%;
+  }
 }

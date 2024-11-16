@@ -1,18 +1,48 @@
-import { Component } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+// src/app/components/reserva-modal/reserva-modal.component.ts
+import { Component, Input, OnInit } from '@angular/core';
+import { ModalController, ToastController } from '@ionic/angular';
+import { Auth, User } from '@angular/fire/auth';
+import { Firestore, collection, addDoc, doc, getDoc } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-reserva-modal',
   templateUrl: './reserva-modal.component.html',
   styleUrls: ['./reserva-modal.component.scss'],
 })
-export class ReservaModalComponent {
+export class ReservaModalComponent implements OnInit {
+  @Input() fecha!: string;
+  @Input() hora!: string;
+  @Input() personas!: number;
+
+  userId: string = '';
   nombre: string = '';
-  apellidos: string = '';
   telefono: string = '';
   phoneNumberError: boolean = false;
 
-  constructor(private modalController: ModalController) { }
+  constructor(
+    private modalController: ModalController,
+    private auth: Auth,
+    private firestore: Firestore,
+    private toastController: ToastController
+  ) {}
+
+  async ngOnInit() {
+    // Obtener el usuario logueado
+    const user: User | null = this.auth.currentUser;
+    if (user) {
+      this.userId = user.uid;
+
+      // Obtener datos adicionales del usuario desde Firestore
+      const userDoc = doc(this.firestore, `usuarios/${this.userId}`);
+      const userSnap = await getDoc(userDoc);
+
+      if (userSnap.exists()) {
+        const userData = userSnap.data();
+        this.nombre = userData['nombre'] || '';
+        this.telefono = userData['telefono'] || '';
+      }
+    }
+  }
 
   dismiss() {
     this.modalController.dismiss();
@@ -25,29 +55,54 @@ export class ReservaModalComponent {
   validatePhoneNumber(event: any) {
     const input = event.target.value;
     const phoneNumberPattern = /^[0-9]{10}$/;
-    
-    // Filtrar para permitir solo números
-    const filteredInput = input.replace(/\D/g, ''); // Remover todos los caracteres que no sean dígitos
 
-    // Validar longitud y formato
-    this.phoneNumberError = !phoneNumberPattern.test(filteredInput);
+    this.phoneNumberError = !phoneNumberPattern.test(input);
 
-    // Actualizar el valor del teléfono solo si es válido
     if (!this.phoneNumberError) {
-      this.telefono = filteredInput;
+      this.telefono = input;
     }
   }
 
-  confirmarReserva() {
-    if (this.nombre && this.apellidos && !this.phoneNumberError) {
-      console.log('Reserva confirmada:', {
-        nombre: this.nombre,
-        apellidos: this.apellidos,
-        telefono: this.telefono,
-      });
-      this.dismiss();
+  async confirmarReserva() {
+    if (this.nombre && !this.phoneNumberError) {
+      try {
+        // Crear una nueva reserva en la colección "reservas" con un ID generado automáticamente
+        const reservasCollection = collection(this.firestore, 'reservas');
+        await addDoc(reservasCollection, {
+          fecha: this.fecha,
+          hora: this.hora,
+          personas: this.personas,
+          nombre: this.nombre,
+          telefono: this.telefono,
+          userId: this.userId // Agregar el ID del usuario como un campo dentro del documento
+        });
+
+        // Mostrar mensaje de éxito
+        await this.showToast('Reserva completada exitosamente.');
+        this.modalController.dismiss({
+          success: true,
+          fecha: this.fecha,
+          hora: this.hora,
+          personas: this.personas,
+          nombre: this.nombre,
+          telefono: this.telefono,
+          userId: this.userId
+        });
+      } catch (error) {
+        console.error('Error al guardar la reserva:', error);
+        await this.showToast('Error al completar la reserva. Intenta de nuevo.');
+      }
     } else {
-      console.log('Por favor, completa la información correctamente.');
+      await this.showToast('Por favor, completa todos los campos correctamente.');
     }
+  }
+
+  async showToast(message: string) {
+    const toast = await this.toastController.create({
+      message,
+      duration: 2000,
+      position: 'top',
+    });
+    await toast.present();
   }
 }

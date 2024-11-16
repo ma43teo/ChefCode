@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <img src="https://mateogutierrez.neocities.org/Logo%20ChefCode.png" alt="Logo" class="logo">
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- Título "Elegir un domicilio" en el contenido principal -->
+  <div class="main-title">
+    <h1>Elegir un domicilio</h1>
+  </div>
+
+  <!-- Título "Principal" con diseño personalizado -->
+  <ion-item-divider color="light" class="subtitle">
+    <ion-label>Principal</ion-label>
+  </ion-item-divider>
+
+  <!-- Lista de domicilios con diseño personalizado -->
+  <ion-list>
+    <ion-item lines="none" (click)="selectDomicilio('domicilio1')" [class.selected]="selectedDomicilio === 'domicilio1'">
+      <div class="custom-radio">
+        <ion-icon name="checkmark-circle" *ngIf="selectedDomicilio === 'domicilio1'" color="success"></ion-icon>
+        <div class="radio-circle" *ngIf="selectedDomicilio !== 'domicilio1'"></div>
+      </div>
+      <ion-label>
+        <h2>mateogutmar#64gmail.com</h2>
+        <p>Av. Trebol #45 San José</p>
+        <ion-button fill="clear" color="danger" size="small" (click)="editarDomicilio($event)">
+          Editar domicilio
+        </ion-button>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="block" color="warning" class="agregar-domicilio-btn">
+    Agregar domicilio
+  </ion-button>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-segment mode="md">
+      <ion-segment-button value="inicio">
+        <ion-icon name="home"></ion-icon>
+        <ion-label>Inicio</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="pedido">
+        <ion-icon name="restaurant"></ion-icon>
+        <ion-label>Pedido</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="reservar">
+        <ion-icon name="calendar"></ion-icon>
+        <ion-label>Reservar</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="perfil">
+        <ion-icon name="person"></ion-icon>
+        <ion-label>Perfil</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-footer>
