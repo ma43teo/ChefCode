@@ -22,6 +22,7 @@ import { getMessaging, provideMessaging } from '@angular/fire/messaging';
 import { getStorage, provideStorage } from '@angular/fire/storage';
 import { environment } from '../environments/environment';
 import { ReactiveFormsModule } from '@angular/forms';
+import { getFunctions, provideFunctions } from '@angular/fire/functions';
 
 
 
@@ -36,7 +37,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, MenuPageModule, SharedModule, FormsModule, ReactiveFormsModule,  IonicStorageModule.forRoot(),],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, provideFirebaseApp(() => initializeApp(environment.firebase)),
-     provideAuth(() => getAuth()), provideAnalytics(() => getAnalytics()), ScreenTrackingService, UserTrackingService, provideFirestore(() => getFirestore()), provideDatabase(() => getDatabase()), provideMessaging(() => getMessaging()), provideStorage(() => getStorage())],
+     provideAuth(() => getAuth()), provideAnalytics(() => getAnalytics()), ScreenTrackingService, UserTrackingService, provideFirestore(() => getFirestore()), provideDatabase(() => getDatabase()), provideMessaging(() => getMessaging()), provideStorage(() => getStorage()), provideFunctions(() => getFunctions())],
   bootstrap: [AppComponent],
   
 })

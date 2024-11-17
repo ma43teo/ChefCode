@@ -75,7 +75,7 @@ body, ion-content {
 
 /* Login Card */
 .signin-section {
-  width: 110%;
+  width: 90%;
   max-width: 480px;
   background-color: rgba(255, 255, 255, 0.15);
   padding: 40px;
@@ -88,11 +88,11 @@ body, ion-content {
 
 /* Title Styles */
 .signin-title {
-  font-size: 48px; /* Aumenta el tamaño de la fuente aquí */
+  font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 30px;
   text-align: center;
-  font-family: 'Montserrat', sans-serif; /* Cambiamos la fuente */
+  font-family: 'Montserrat', sans-serif;
 }
 
 /* Input Field Styles */
@@ -103,8 +103,8 @@ body, ion-content {
   --color-focused: #ff6a00;
   --border-radius: 10px;
   --padding-start: 15px;
-  --ion-item-background: transparent; /* Evitamos la línea negra */
-  --ion-item-border-color: transparent; /* Eliminar bordes visibles */
+  --ion-item-background: transparent;
+  --ion-item-border-color: transparent;
 }
 
 /* Input Styles */
@@ -116,21 +116,21 @@ ion-input {
 
 /* Animated Button Styles */
 .animated-btn {
-  display: block; /* Cambiado a bloque para centrar */
-  margin: 20px auto; /* Centramos el botón */
-  background-color: #ff5722; /* Color de fondo naranja */
-  color: white; /* Color del texto del botón */
-  border: none; /* Sin borde */
-  border-radius: 25px; /* Bordes redondeados */
-  padding: 15px 30px; /* Añade padding para hacerlo más grande */
-  font-size: 18px; /* Tamaño de la fuente */
-  font-weight: bold; /* Texto en negrita */
-  position: relative; /* Para permitir animación */
-  overflow: hidden; /* Para el efecto de sombra */
-  transition: transform 0.3s ease; /* Transiciones para los efectos */
+  display: block;
+  margin: 20px auto;
+  background-color: #ff5722;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
 }
 
-/* Efecto de animación */
+/* Button Hover Effect */
 .animated-btn::before {
   content: "";
   position: absolute;
@@ -142,15 +142,15 @@ ion-input {
   border-radius: 50%;
   transform: translate(-50%, -50%) scale(0);
   transition: transform 0.5s ease;
-  z-index: 0; /* Coloca detrás del texto */
+  z-index: 0;
 }
 
 .animated-btn:hover::before {
-  transform: translate(-50%, -50%) scale(1); /* Escalar al pasar el ratón */
+  transform: translate(-50%, -50%) scale(1);
 }
 
 .animated-btn:hover {
-  transform: translateY(-3px); /* Efecto de elevación */
+  transform: translateY(-3px);
 }
 
 /* Animación de entrada */
@@ -169,5 +169,31 @@ ion-input {
 @media screen and (max-width: 768px) {
   .signin-section {
     width: 90%;
+    padding: 20px;
+  }
+
+  .signin-title {
+    font-size: 2rem;
+  }
+
+  .animated-btn {
+    font-size: 16px;
+    padding: 12px 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .signin-section {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .signin-title {
+    font-size: 1.5rem;
+  }
+
+  .animated-btn {
+    font-size: 14px;
+    padding: 10px 15px;
   }
 }

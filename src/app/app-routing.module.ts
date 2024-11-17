@@ -114,6 +114,18 @@ const routes: Routes = [
     path: 'editar',
     loadChildren: () => import('./editar/editar.module').then( m => m.EditarPageModule)
   },
+  {
+    path: 'pago',
+    loadChildren: () => import('./pago/pago.module').then( m => m.PagoPageModule)
+  },
+  {
+    path: 'exito',
+    loadChildren: () => import('./exito/exito.module').then( m => m.ExitoPageModule)
+  },
+  {
+    path: 'fracaso',
+    loadChildren: () => import('./fracaso/fracaso.module').then( m => m.FracasoPageModule)
+  },
 
 
 

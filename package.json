@@ -1,5 +1,5 @@
 {
-  "name": "ChefCode",
+  "name": "chefcode",
   "version": "0.0.1",
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
@@ -12,6 +12,7 @@
     "lint": "ng lint"
   },
   "private": true,
+  "type": "module",
   "dependencies": {
     "@angular/animations": "^17.0.2",
     "@angular/common": "^17.0.2",
@@ -30,6 +31,9 @@
     "@ionic/angular": "^8.0.0",
     "@ionic/storage-angular": "^4.0.0",
     "@npmcli/package-json": "^5.2.0",
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
     "firebase": "^10.13.1",
     "glob": "^9.0.0",
     "ionicons": "^7.0.0",
@@ -72,5 +76,8 @@
     "karma-jasmine-html-reporter": "~2.1.0",
     "typescript": "~5.2.2"
   },
-  "description": "An Ionic project"
+  "description": "An Ionic project",
+  "main": "karma.conf.js",
+  "keywords": [],
+  "license": "ISC"
 }

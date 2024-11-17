@@ -8,12 +8,13 @@
     <div class="bubble"></div>
 
     <div class="signin-section">
-      <h3 class="signin-title">Iniciar Sesión de Administrador</h3>
+      <h3 class="signin-title">Bienvenido Administrador</h3>
       
       <div class="input-field">
         <ion-item class="input-item">
-          <ion-label position="floating" class="custom-label">UID Administrador</ion-label>
+          <ion-label position="floating" class="custom-label"></ion-label>
           <ion-input
+            placeholder="Agrega tu ID"
             [(ngModel)]="uid"
             [type]="showUID ? 'text' : 'password'"
             required
