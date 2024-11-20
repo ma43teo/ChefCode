@@ -1,0 +1,123 @@
+
+/* Logo en el encabezado */
+ion-header .logo {
+    height: 40px;
+  }
+  
+  /* Estilo del título */
+  .main-title {
+    text-align: left;
+    padding: 12px;
+  }
+  
+  /* Fondo del contenido */
+  ion-content {
+    --background: #fff;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Contenedor de formulario */
+  .form-container {
+    padding: 16px;
+    flex-grow: 1;
+  }
+  
+  /* Estilos de etiquetas y campos de entrada */
+  .input-label {
+    font-size: 17px;
+    font-weight: bold; /* Texto en negritas */
+    color: black;
+  }
+  
+  /* Estilo para los campos de entrada */
+  .input-field {
+    background-color: #faf0be; /* Fondo claro para los campos */
+    border: 2px solid #ccc; /* Borde gris claro */
+    border-radius: 8px;
+    padding: 8px;
+    
+    font-size: 16px;
+    text-align: left; /* Alineamos el texto a la izquierda */
+    color: var(--ion-text-color, black); /* Aseguramos que el color inicial sea negro */
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Transiciones suaves */
+  }
+  
+  /* Estilo cuando el campo de entrada tiene texto (cuando el campo no está vacío) */
+  .input-field:focus,
+  .input-field:not(:placeholder-shown) {
+    color: black; /* Establece el color del texto a negro */
+    background-color: #e3d55689; /* Mantiene el fondo original cuando el campo está lleno */
+    border-color: #e3d55689; /* Cambia el borde a color naranja cuando el campo está enfocado */
+  }
+  
+  /* Estilo del borde cuando el campo está en foco */
+  .input-field:focus {
+    outline: none;
+    border: 2px solid #ff5722; /* Resalta el borde con color naranja */
+  }
+  
+  .input-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  
+  ion-item {
+    --background: transparent;
+    margin-bottom: 10px;
+  }
+  
+/* Botón de guardar */
+.save-button {
+    --background: #ff5722; /* Fondo naranja */
+    --background-activated: #e64a19; /* Fondo naranja al activarse */
+    --background-focused: #ff5722; /* Fondo naranja cuando se enfoca */
+    --border-radius: 50px;
+    font-size: 18px;
+    --color: white; /* Color del texto blanco */
+    font-weight: bold; /* Texto en negritas */
+    text-transform: none; /* Evitar que el texto se transforme en mayúsculas */
+  }
+  
+  
+  
+  /* Estilos del footer */
+  ion-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    ion-toolbar {
+      ion-segment {
+        display: flex;
+        justify-content: space-around;
+  
+        ion-segment-button {
+          --indicator-color: transparent;
+          color: #ff6600;
+  
+          ion-icon {
+            font-size: 1.5rem;
+            color: #ff6600;
+          }
+  
+          ion-label {
+            font-size: 0.75rem;
+            color: #ff6600;
+          }
+        }
+      }
+    }
+  }
+  
+  .footer-toolbar {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .footer-toolbar ion-button {
+    color: #ff6600;
+    font-size: 12px;
+    flex-direction: column;
+  }
+  

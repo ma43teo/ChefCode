@@ -2,13 +2,13 @@
   <ion-toolbar>
     <ion-title>Carrito de Compras</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="close()">Cerrar</ion-button> <!-- Cambiado a close() -->
+      <ion-button (click)="close()">Cerrar</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ng-container *ngIf="cartItems.length > 0; else emptyCart"> <!-- Eliminado async -->
+  <ng-container *ngIf="cartItems.length > 0; else emptyCart">
     <ion-list>
       <ion-item *ngFor="let item of cartItems">
         <ion-thumbnail slot="start">
@@ -18,10 +18,20 @@
           <h2>{{ item.nombre }}</h2>
           <h3>Precio: {{ item.precio | currency:'USD':'symbol' }}</h3>
           <p>Cantidad: {{ item.cantidad }}</p>
+          <h4>Subtotal: {{ (item.precio * item.cantidad) | currency:'USD':'symbol' }}</h4>
         </ion-label>
-        <ion-button (click)="removeFromCart(item.id)" color="danger">Eliminar</ion-button> <!-- Cambiado a item.id -->
+        <ion-button (click)="removeFromCart(item.id)" color="danger">-</ion-button>
+        <ion-button (click)="addToCart(item)" color="primary">+</ion-button>
       </ion-item>
     </ion-list>
+    <ion-item>
+      <ion-label>
+        <h2>Total:</h2>
+      </ion-label>
+      <ion-label>
+        <h2>{{ getTotal() | currency:'USD':'symbol' }}</h2>
+      </ion-label>
+    </ion-item>
   </ng-container>
 
   <ng-template #emptyCart>

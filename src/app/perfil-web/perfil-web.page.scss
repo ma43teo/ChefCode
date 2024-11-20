@@ -1,130 +1,73 @@
-.main-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center; 
-    padding: 50px;
-    max-width: 1200px;
-    margin: 0 auto;
-    height: 100vh;
-}
-  
-.intro-section {
-    flex: 1;
-    max-width: 400px;
-    text-align: center;
+.profile-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-bottom: 50px;
-}
-  
-.hello-text {
-    color: #ff5733;
-    font-size: 4rem;
-    font-weight: bold;
-}
-  
-h1 {
-    font-size: 2.5rem;
-    color: #ffffff;
-}
-
-
-
-
-.card-container {
-    flex: 2; 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: linear-gradient(180deg, #ffffff 0%, #d4bd8a 100%);
-    border-radius: 20px;
-    padding: 40px;
-    max-width: 600px;
+    padding: 20px;
     text-align: center;
-    border: 5px solid #f17a0c; 
-}
+  }
   
-.profile-avatar {
-    width: 150px;
-    height: 150px;
+  .profile-avatar {
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 15px;
-}
-  
-.profile-name {
-    font-size: 32px;
-    font-weight: bold;
-    color: #ce5113;
-    margin: 10px 0 5px 0;
-}
-  
-.profile-desc {
-    font-size: 24px;
-    color: #020000;
-    font-weight: bold;
     margin-bottom: 20px;
-}
+  }
   
-.button-container {
-    display: flex;
-    flex-direction: column;
+  .profile-info {
+    margin-bottom: 20px;
     width: 100%;
-}
+  }
   
-.custom-button {
-    font-size: 20px;
-    padding: 12px;
+  .profile-info h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .profile-info p {
+    font-size: 18px;
+    color: #666;
+  }
+  
+  .save-changes-btn {
+    background-color: #E3D556;
+    color: #000;
+    font-size: 18px;
     border-radius: 20px;
     border: none;
-    margin: 10px 0;
+    margin-top: 20px;
     width: 100%;
-}
+  }
   
-.white-button, .yellow-button, .black-button {
-    background-color: #E3D556; 
-    color: #000;
-    border: 2px solid #ce5113; 
-}
-
-/* Responsivo */
-@media (max-width: 768px) {
-    .main-container {
-        flex-direction: column;
-        padding: 20px;
-        height: auto;
+  .upload-avatar-btn {
+    margin-bottom: 20px;
+  }
+  
+  .logout-btn {
+    background-color: #ff5722;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+    border: none;
+    margin-top: 20px;
+    width: 100%;
+  }
+  
+  @media (max-width: 768px) {
+    .profile-container {
+      padding: 10px;
     }
-  
-    .intro-section {
-        max-width: 100%;
-        text-align: center;
-        padding-bottom: 20px;
-    }
-  
-    .card-container {
-        max-width: 100%;
-        margin-top: 20px;
-    }
-}
-  
-@media (max-width: 480px) {
-    h1 {
-        font-size: 2rem;
-    }
-  
-    p {
-        font-size: 0.9rem;
-    }
-  
     .profile-avatar {
-        width: 80px;
-        height: 80px;
+      width: 100px;
+      height: 100px;
     }
+    .profile-info h2 {
+      font-size: 20px;
+    }
+    .profile-info p {
+      font-size: 16px;
+    }
+  }
   
-    .custom-button {
-        font-size: 14px;
-    }
-}

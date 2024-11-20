@@ -1,0 +1,140 @@
+/* Título principal */
+.main-title {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  /* Header */
+  ion-header {
+    --background: #fff;
+  }
+  
+  .logo {
+    height: 40px;
+  }
+  
+
+
+  
+  /* Estilos del Indicador de Progreso */
+.progress-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+    margin-bottom: 10px;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #999;
+}
+
+.step p {
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.circle {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background-color: white;
+    border: 2px solid #FF6C00;
+    position: relative;
+    z-index: 1;
+}
+
+.line {
+    width: 80px;
+    height: 2px;
+    background-color: #ccc;
+    margin: 0 5px;
+    position: relative;
+    top: -12px;
+    z-index: 0;
+}
+
+/* Estado activo */
+.step.active .circle {
+    background-color: #FF6C00;
+    border-color: #FF6C00;
+}
+
+.step.active p {
+    color: #FF6C00;
+    font-weight: bold;
+}
+
+/* Estado completado */
+.step.completed .circle {
+    background-color: #FF6C00;
+}
+
+.step.completed p {
+    color: #FF6C00;
+    font-weight: bold;
+}
+
+  
+
+
+
+  /* Resumen */
+  .summary-container {
+    padding: 20px;
+  }
+  
+  .summary-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+  }
+  
+  .total {
+    font-weight: bold;
+  }
+  
+  /* Botón de confirmación */
+  .confirm-button {
+    --background: #f35b04; /* Naranja */
+    --background-hover: #d94a03; /* Más oscuro en hover */
+    --color: #fff; /* Texto blanco */
+  }
+  
+  /* Notificación emergente */
+  .notification-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #e0e0e0;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px;
+  }
+  
+  .notification-text {
+    font-size: 18px;
+    font-weight: bold;
+    color: #4caf50;
+    text-align: center;
+  }
+  
+  .notification-icon ion-icon {
+    font-size: 40px;
+    color: #4caf50;
+    margin-top: 10px;
+  }
+  
+  /* Footer */
+  ion-tab-bar {
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+  }
+  
+  ion-tab-button {
+    --color-selected: #f35b04;
+  }

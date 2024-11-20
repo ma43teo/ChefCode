@@ -12,7 +12,7 @@ export interface Product {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CartService {
   private cartItems: Product[] = [];
@@ -24,16 +24,13 @@ export class CartService {
   }
 
   private async init() {
-    await this.storage.create(); // Inicializar el almacenamiento
-    const storedCart = await this.storage.get('cart');
-    if (storedCart) {
-      this.cartItems = storedCart;
-      this.cartItemsSubject.next(this.cartItems);
-    }
+    await this.storage.create();
+    this.cartItems = [];
+    await this.saveCart();
   }
 
   async addToCart(product: Product) {
-    const index = this.cartItems.findIndex(item => item.id === product.id);
+    const index = this.cartItems.findIndex((item) => item.id === product.id);
     if (index !== -1) {
       this.cartItems[index].cantidad += 1;
     } else {
@@ -43,7 +40,14 @@ export class CartService {
   }
 
   async removeFromCart(productId: string) {
-    this.cartItems = this.cartItems.filter(item => item.id !== productId);
+    const index = this.cartItems.findIndex((item) => item.id === productId);
+    if (index !== -1) {
+      if (this.cartItems[index].cantidad > 1) {
+        this.cartItems[index].cantidad -= 1;
+      } else {
+        this.cartItems.splice(index, 1);
+      }
+    }
     await this.saveCart();
   }
 
@@ -52,8 +56,12 @@ export class CartService {
     await this.saveCart();
   }
 
-  private async saveCart() {
+  async saveCart() {
     await this.storage.set('cart', this.cartItems);
     this.cartItemsSubject.next([...this.cartItems]);
+  }
+
+  getCartTotal() {
+    return this.cartItems.reduce((total, item) => total + item.precio * item.cantidad, 0);
   }
 }

@@ -126,6 +126,14 @@ const routes: Routes = [
     path: 'fracaso',
     loadChildren: () => import('./fracaso/fracaso.module').then( m => m.FracasoPageModule)
   },
+  {
+    path: 'agregar',
+    loadChildren: () => import('./agregar/agregar.module').then( m => m.AgregarPageModule)
+  },
+  {
+    path: 'confirmar',
+    loadChildren: () => import('./confirmar/confirmar.module').then( m => m.ConfirmarPageModule)
+  },
 
 
 

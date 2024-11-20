@@ -1,30 +1,46 @@
-import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
+declare const MercadoPago: any;
+
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-pago',
   templateUrl: './pago.page.html',
   styleUrls: ['./pago.page.scss'],
 })
-export class PagoPage {
+export class PagoPage implements OnInit {
+  ngOnInit() {
+    this.initializeMercadoPago();
+  }
 
-  constructor(private http: HttpClient, private router: Router) {}
+  initializeMercadoPago() {
+    const mp = new MercadoPago('APP_USR-77c2419f-fc05-48c5-a00c-3292c01b19a7', { locale: 'es-MX' });
 
-  // Función para realizar el pago
-  realizarPago() {
-    this.http.post<{ init_point: string }>('http://localhost:3001/create_preference', {}).subscribe({
-      next: (data) => {
-        console.log('Respuesta recibida:', data);  // Verifica el contenido de la respuesta
-        if (data && data.init_point) {
-          window.location.href = data.init_point;  // Redirigir a la página de Mercado Pago
-        } else {
-          console.log('Error: No se generó el init_point');
-        }
+    const bricksBuilder = mp.bricks();
+    const settings = {
+      initialization: {
+        amount: 5,  // Monto en pesos mexicanos
+        payer: { email: 'usuario@ejemplo.com' },  // Email del usuario
+        installments: 1,  // Cuotas de pago
       },
-      error: (error) => {
-        console.log('Error de conexión:', error);
-      }
-    });
+      callbacks: {
+        onReady: () => console.log('Brick listo'),
+        onSubmit: (cardFormData: any) => this.processPayment(cardFormData),
+        onError: (error: any) => console.error('Error en el Brick', error),
+      },
+    };
+    
+
+    bricksBuilder.create('cardPayment', 'cardPaymentBrick_container', settings);
+  }
+
+  processPayment(cardFormData: any) {
+    fetch('http://localhost:3000/process_payment', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(cardFormData),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log('Resultado del pago:', data))
+      .catch((error) => console.error('Error al procesar el pago:', error));
   }
 }

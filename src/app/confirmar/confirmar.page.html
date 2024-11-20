@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="main-title">Confirmación</ion-title>
+    <ion-buttons slot="end">
+      <img src="https://mateogutierrez.neocities.org/Logo%20ChefCode.png" alt="Logo" class="logo">
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Indicador de Progreso -->
+  <div class="progress-indicator">
+    <div class="step completed">
+      <div class="circle"></div>
+      <p>Entrega</p>
+    </div>
+    <div class="line"></div>
+    <div class="step active">
+      <div class="circle"></div>
+      <p>Confirmación</p>
+    </div>
+    <div class="line"></div>
+    <div class="step">
+      <div class="circle"></div>
+      <p>Pago</p>
+    </div>
+  </div>
+
+  
+  <!-- Resumen de la compra -->
+  <div class="summary-container">
+    <div class="summary-row">
+      <span>Subtotal (3 productos):</span>
+      <span>$393.69</span>
+    </div>
+    <div class="summary-row total">
+      <span>Total a pagar:</span>
+      <span>$393.69</span>
+    </div>
+    <div class="summary-row">
+      <span>Importe:</span>
+      <span>$393.69</span>
+    </div>
+  </div>
+
+  <!-- Botón de confirmación -->
+  <ion-button expand="block" class="confirm-button" (click)="mostrarNotificacion()">
+    Confirmar pedido
+  </ion-button>
+
+  <!-- Notificación emergente -->
+  <div *ngIf="notificacionVisible" class="notification-container">
+    <p class="notification-text">Su pedido ha sido aceptado exitosamente</p>
+    <div class="notification-icon">
+      <ion-icon name="checkmark-circle"></ion-icon>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="inicio" (click)="Home()">
+      <ion-icon name="home-outline"></ion-icon>
+      <ion-label>Inicio</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="pedido" (click)="Pedir()">
+      <ion-icon name="fast-food-outline"></ion-icon>
+      <ion-label>Pedido</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="reservar" (click)="Reserva()">
+      <ion-icon name="calendar-outline"></ion-icon>
+      <ion-label>Reservar</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="perfil" (click)="Perfil()">
+      <ion-icon name="person-outline"></ion-icon>
+      <ion-label>Perfil</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-footer>

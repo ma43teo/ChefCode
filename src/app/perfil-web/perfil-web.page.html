@@ -1,43 +1,39 @@
-<ion-header [translucent]="true">
-  <ion-toolbar class="centered-toolbar">
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Perfil</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">perfil-web</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <div class="profile-container">
+    <!-- Avatar -->
+    <img [src]="user.avatar" alt="Avatar" class="profile-avatar" />
 
-  <!-- Contenedor principal que contiene la introducción y la tarjeta de perfil -->
-  <div class="main-container">
-    <!-- Sección de introducción -->
-    <div class="intro-section">
-      <p class="hello-text">¡Bienvenido!</p>
-      <h1>Maras Faron!</h1>
+    <!-- Información del perfil -->
+    <div class="profile-info">
+      <h2>{{ user.nombre }}</h2>
+      <p>Email: {{ user.correo }}</p>
 
-      <ion-button expand="block" color="danger">
-        <ion-icon slot="start" name="download-outline"></ion-icon>
-        Cerrar sesión
-      </ion-button>
+      <!-- Campo de teléfono editable -->
+      <ion-item>
+        <ion-label position="floating">Teléfono</ion-label>
+        <ion-input [(ngModel)]="user.telefono" placeholder="Ingrese su número de teléfono"></ion-input>
+      </ion-item>
+
+      <!-- Campo de cargo editable -->
+      <ion-item>
+        <ion-label position="floating">Cargo</ion-label>
+        <ion-input [(ngModel)]="user.cargo" placeholder="Ingrese su cargo"></ion-input>
+      </ion-item>
     </div>
 
-    <!-- Sección de perfil -->
-    <div class="card-container">
-      <!-- Imagen del perfil -->
-      <img src="https://cdn-icons-png.flaticon.com/512/11507/11507579.png" alt="Avatar" class="profile-avatar">
+    <!-- Botón para guardar cambios -->
+    <ion-button expand="full" class="save-changes-btn" (click)="saveChanges()">Guardar cambios</ion-button>
 
-      <!-- Nombre y descripción -->
-      <h2 class="profile-name">Juanito Perez</h2>
-      <p class="profile-desc">(Gerente general)</p>
+    <!-- Subir avatar -->
+    <input type="file" (change)="uploadAvatar($event)" accept="image/*" class="upload-avatar-btn" />
 
-      <!-- Botones de enlaces -->
-      <div class="button-container">
-        <button class="custom-button white-button">Juanito</button>
-        <button class="custom-button yellow-button">Perez</button>
-        <button class="custom-button black-button">Gerente general</button>
-      </div>
-    </div>
+    <!-- Botón de cerrar sesión -->
+    <ion-button expand="full" class="logout-btn" (click)="logout()">Cerrar sesión</ion-button>
   </div>
 </ion-content>

@@ -13,16 +13,29 @@ export class CartModalComponent implements OnInit {
   constructor(private modalController: ModalController, private cartService: CartService) {}
 
   ngOnInit() {
-    this.cartService.cartItems$.subscribe(items => {
+    // Suscribirse a los cambios en el carrito
+    this.cartService.cartItems$.subscribe((items) => {
       this.cartItems = items;
     });
   }
 
+  // Método para cerrar el modal
+  close() {
+    this.modalController.dismiss();
+  }
+
+  // Método para agregar productos
+  addToCart(product: Product) {
+    this.cartService.addToCart(product);
+  }
+
+  // Método para eliminar productos
   removeFromCart(productId: string) {
     this.cartService.removeFromCart(productId);
   }
 
-  close() {
-    this.modalController.dismiss();
+  // Método para calcular el total
+  getTotal() {
+    return this.cartService.getCartTotal();
   }
 }
