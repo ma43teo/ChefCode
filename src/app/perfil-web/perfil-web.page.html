@@ -5,9 +5,34 @@
 </ion-header>
 
 <ion-content>
+
+  <!-- Mensaje de Bienvenida -->
+  
+
+  <!-- Botón de cerrar sesión fuera del cuadro -->
+  <div class="MensajeYboton">
+    <h1>¡Bienvenido!</h1>
+    
+  <ion-button  class="logout-btn" (click)="logout()">Cerrar sesión</ion-button>
+  </div>
+
+
+  <!-- Contenedor del perfil -->
   <div class="profile-container">
     <!-- Avatar -->
     <img [src]="user.avatar" alt="Avatar" class="profile-avatar" />
+        <!-- Subir avatar -->
+    <input 
+  type="file" 
+  (change)="uploadAvatar($event)" 
+  accept="image/*" 
+  class="upload-avatar-btn" 
+  id="file-input"
+  /> 
+    <!-- Botón personalizado que dispara el input -->
+  <label for="file-input" class="custom-upload-btn">
+    Subir archivo
+  </label> 
 
     <!-- Información del perfil -->
     <div class="profile-info">
@@ -28,12 +53,8 @@
     </div>
 
     <!-- Botón para guardar cambios -->
-    <ion-button expand="full" class="save-changes-btn" (click)="saveChanges()">Guardar cambios</ion-button>
+    <ion-button class="guardar"  class="save-changes-btn" (click)="saveChanges()">Guardar cambios</ion-button>
 
-    <!-- Subir avatar -->
-    <input type="file" (change)="uploadAvatar($event)" accept="image/*" class="upload-avatar-btn" />
 
-    <!-- Botón de cerrar sesión -->
-    <ion-button expand="full" class="logout-btn" (click)="logout()">Cerrar sesión</ion-button>
   </div>
 </ion-content>

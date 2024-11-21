@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Firestore, collection, getDocs } from '@angular/fire/firestore';
+import { Firestore, collection, getDocs, doc, getDoc } from '@angular/fire/firestore';
 import { ModalController } from '@ionic/angular';
 import { AdminProductoModalComponent } from '../admin-producto-modal/admin-producto-modal.component';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-admin-productos',

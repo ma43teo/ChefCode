@@ -72,3 +72,4 @@ export class PedidosAceptarPage {
     this.mostrarNotificacion = false;
   }
 }
+

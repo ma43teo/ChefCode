@@ -15,3 +15,4 @@ describe('PedidosPage', () => {
     expect(component).toBeTruthy();
   });
 });
+

@@ -18,3 +18,4 @@ import { PedidosAceptarPage } from './pedidos-aceptar.page';
   declarations: [PedidosAceptarPage]
 })
 export class PedidosAceptarPageModule {}
+
