@@ -26,6 +26,24 @@
   font-weight: bold;
   margin-bottom: 20px;
 }
+.back-button-container {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  color: #ff5722;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.back-button:hover {
+  text-decoration: underline;
+}
 
 .input-item {
   --background: #E3D556; /* Fondo amarillo */

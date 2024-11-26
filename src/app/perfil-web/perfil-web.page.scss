@@ -21,11 +21,6 @@ ion-content {
   color: #ff4500; /* Color naranja fuerte */
   font-weight: bold;
   margin-bottom: 20px;
-
-  /* Texto más pequeño en pantallas pequeñas */
-  @media (max-width: 768px) {
-    font-size: 28px;
-  }
 }
 
 .logout-btn {
@@ -39,15 +34,10 @@ ion-content {
   width: auto;
   max-width: 300px;
   position: relative;
-  top: 60%;
-  left: 20%;
+  top: -30%;
+  left: 15%;
   width: 60%;
-
-  @media (max-width: 768px) {
-    font-size: 12px;
-    left: 20%; /* Ajusta posición en pantallas pequeñas */
-    top: 10%;
-  }
+  text-transform: none;
 }
 
 .MensajeYboton {
@@ -56,27 +46,16 @@ ion-content {
   left: 10%;
   top: 30%;
   height: 45%;
-
-  @media (max-width: 768px) {
-    width: 80%; /* Ocupa más espacio en móviles */
-    left: 10%;
-    top: 10%;
-  }
 }
 
 .MensajeYboton h1 {
   color: orange;
-  font-size: 90px;
+  font-size: 80px;
   text-align: center;
-
-  @media (max-width: 768px) {
-    font-size: 50px;
-     /* Reduce tamaño del texto en móviles */
-  }
 }
 
 .profile-container {
-  width: 45%;
+  width: 50%;
   background: linear-gradient(to bottom, #ffffff, #f2e7ce);
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -89,57 +68,33 @@ ion-content {
   text-align: center;
   height: auto; /* Ajusta la altura automáticamente */
   margin-left: 45%;
-  margin-top: -25%;
+  margin-top: -21.9%;
   height: 100%;
-
-  @media (max-width: 1024px) {
-    width: 70%;
-    margin-left: 15%;
-    margin-top: -100px;
-  }
-
-  @media (max-width: 768px) {
-    width: 90%;
-    margin-left: 5%;
-    margin-top: 0;
-  }
 }
 
 .profile-avatar {
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   margin-bottom: 20px;
-
-  @media (max-width: 768px) {
-    width: 150px;
-    height: 150px; /* Reduce el tamaño del avatar en móviles */
-  }
 }
 
 .profile-info {
   width: 80%;
   color: #000;
   font-size: 30px;
-
-  @media (max-width: 768px) {
-    font-size: 20px; /* Reduce tamaño del texto en móviles */
-  }
 }
 
 .profile-info ion-item {
-  width: 100%;
+  width: 80%;
   color: black;
-  --background: rgb(238, 212, 20);
-  border-radius: 10px;
+  --background: #E6E05E;
+  border-radius: 15px;
   margin-top: 10%;
-  border: solid 4px rgb(253, 1, 1);
+  margin-left: 10%;
+  margin-right: 10%;
+  border: solid 2px rgb(253, 1, 1);
   margin-bottom: 20px;
-
-  @media (max-width: 768px) {
-    margin-top: 5%;
-    margin-bottom: 10px;
-  }
 }
 
 .profile-info ion-input {
@@ -159,15 +114,11 @@ ion-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  @media (max-width: 768px) {
-    margin-top: 10px;
-  }
 }
 
 .info-buttons button {
   width: 80%;
-  background-color: #fee773;
+  background-color: #f9f3cf;
   border: 1px solid orange;
   border-radius: 20px;
   padding: 10px;
@@ -175,13 +126,9 @@ ion-content {
   color: #000;
   font-size: 14px;
   font-weight: bold;
-
-  @media (max-width: 768px) {
-    font-size: 12px;
-    width: 90%; /* Botones más pequeños en móviles */
-  }
 }
-ion-button{
+
+ion-button {
   border-radius: 20px;
 }
 
@@ -202,11 +149,6 @@ ion-button{
   width: 25%;
   align-self: center;
   transition: transform 0.2s ease-in-out;
-
-  @media (max-width: 768px) {
-    font-size: 14px; /* Reduce tamaño del texto */
-    width: 90%; /* Botón más grande en móviles */
-  }
 }
 
 .save-changes-btn:hover {
@@ -214,12 +156,10 @@ ion-button{
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
 }
 
-
 .upload-avatar-btn {
   display: none; /* Oculta el input real */
 }
 
-/* Estilo del botón personalizado */
 .custom-upload-btn {
   background-color: #FA4F10; /* Fondo naranja */
   color: #ffffff; /* Color del texto */
@@ -235,9 +175,136 @@ ion-button{
   transition: all 0.2s ease-in-out; /* Animación suave */
 }
 
-/* Efecto hover */
 .custom-upload-btn:hover {
   background-color: #E0480E; /* Fondo más oscuro */
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.25); /* Sombra más fuerte */
   transform: scale(1.05); /* Ligero agrandado */
+}
+
+/* Media query específica para 851x921 */
+@media (max-width: 1020px) and (min-width: 7px) {
+  ion-content {
+    flex-direction: column; /* Acomoda los elementos en columnas */
+    align-items: center; /* Centra los elementos */
+    padding: 10px; /* Ajusta el espacio interno */
+    height: auto; /* Altura automática según contenido */
+  }
+
+  .MensajeYboton {
+    width: 70%; /* Ajusta el ancho del mensaje */
+    top: 10%; /* Baja la posición para más espacio */
+    left: 15%; /* Centra mejor */
+    height: auto; /* Ajusta la altura automáticamente */
+  }
+
+  .MensajeYboton h1 {
+    font-size: 70px; /* Reduce el tamaño del mensaje */
+  }
+
+  .profile-container {
+    width: 80%; /* Más espacio para el contenedor del perfil */
+    margin-top: 20%; /* Añade separación */
+    margin-left: 10%; /* Centrado horizontal */
+    height: auto; /* Ajuste automático de altura */
+  }
+
+  .profile-avatar {
+    width: 180px; /* Reduce el tamaño del avatar */
+    height: 180px;
+  }
+
+  .logout-btn {
+    top: 10%; /* Mejora la posición del botón */
+    width: 70%; /* Ajusta el ancho */
+    left: 30%; /* Centra mejor */
+  }
+
+  .info-buttons button {
+    width: 90%; /* Botones más grandes y cómodos */
+    font-size: 14px; /* Ajusta el tamaño del texto */
+  }
+
+  .save-changes-btn {
+    width: 50%; /* Botón más ancho */
+    font-size: 15px; /* Texto ajustado */
+  }
+}
+
+
+@media (min-width: 360px) and (max-width: 720px) {
+  ion-content {
+    flex-direction: column; /* Apila los elementos verticalmente */
+    padding: 10px;
+  }
+
+  .left-section h1 {
+    font-size: 24px; /* Reduce el tamaño del texto */
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .logout-btn {
+    font-size: 12px; /* Reduce el tamaño de la fuente */
+    padding: 4px 8px;
+    left: 15%; /* Ajusta la posición */
+    top: 10%;
+    width: 80%;
+  }
+
+  .MensajeYboton {
+    width: 90%; /* Ocupa más espacio en pantallas pequeñas */
+    left: 5%;
+    top: 5%;
+    height: auto;
+  }
+
+  .MensajeYboton h1 {
+    font-size: 50px; /* Reduce el tamaño del texto */
+    text-align: center;
+  }
+
+  .profile-container {
+    width: 90%; /* Ajusta el ancho */
+    margin-left: 5%; /* Centra horizontalmente */
+    margin-top: 0;
+    height: auto; /* Altura automática */
+    padding: 10px; /* Reduce el relleno */
+    margin-top: 20%;
+  }
+
+  .profile-avatar {
+    width: 150px; /* Reduce el tamaño del avatar */
+    height: 150px;
+  }
+
+  .profile-info {
+    font-size: 20px; /* Reduce el tamaño de la fuente */
+    width: 100%; /* Ocupa todo el ancho disponible */
+  }
+
+  .profile-info ion-item {
+    margin-top: 5%; /* Reduce el margen superior */
+    margin-bottom: 10px; /* Reduce el margen inferior */
+    border: solid 3px rgb(253, 1, 1); /* Reduce el grosor del borde */
+  }
+
+  .info-buttons {
+    margin-top: 10px; /* Reduce el margen superior */
+  }
+
+  .info-buttons button {
+    font-size: 12px; /* Reduce el tamaño del texto */
+    width: 90%; /* Botones más grandes */
+  }
+
+  .save-changes-btn {
+    font-size: 14px; /* Reduce el tamaño del texto */
+    width: 90%; /* Botón más ancho */
+  }
+
+  .custom-upload-btn {
+    font-size: 12px; /* Reduce el tamaño del texto */
+    padding: 8px 16px; /* Ajusta el relleno */
+    border-radius: 6px; /* Reduce los bordes redondeados */
+  }
 }

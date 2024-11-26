@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'splash',
     pathMatch: 'full'
   },
   {
@@ -102,7 +102,8 @@ const routes: Routes = [
   {
     path: 'admin-productos',
     loadChildren: () => import('./admin-productos/admin-productos.module').then( m => m.AdminProductosPageModule)
-  },  {
+  },
+  {
     path: 'elegir',
     loadChildren: () => import('./elegir/elegir.module').then( m => m.ElegirPageModule)
   },

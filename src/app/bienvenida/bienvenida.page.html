@@ -6,10 +6,15 @@
     <br>  
     <ion-title class="login-title">Bienvenido</ion-title>
       
+    <div class="back-button-container">
+      <button class="back-button" onclick="history.back()">&#8592; Regresar</button>
+    </div>
       
       <ion-button (click)="crear()" expand="block" class="login-button">Crear cuenta</ion-button>
 
       <ion-button (click)="loguear()" expand="block" class="login-button">Iniciar sesion</ion-button>
+
+      <ion-button (click)="admin()" expand="block" class="login-button">Iniciar sesion como administrador</ion-button>
 
       
     </ion-card>

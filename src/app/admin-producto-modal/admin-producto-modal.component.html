@@ -1,13 +1,17 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Editar Producto</ion-title>
-    <ion-buttons slot="end">
-      <ion-button (click)="close()">Cerrar</ion-button>
+    <ion-buttons slot="start">
+      <ion-button (click)="close()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
     </ion-buttons>
+    <ion-title>Editar Producto</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+
+
+<ion-content class="white-background">
   <ion-item>
     <ion-label position="stacked">Nombre</ion-label>
     <ion-input [(ngModel)]="producto.nombre"></ion-input>
@@ -20,11 +24,20 @@
     <ion-label position="stacked">Precio</ion-label>
     <ion-input [(ngModel)]="producto.precio" type="number"></ion-input>
   </ion-item>
-  <ion-item>
-    <ion-label position="stacked">Disponible</ion-label>
-    <ion-toggle [(ngModel)]="producto.disponible"></ion-toggle>
-  </ion-item>
+<ion-item>
+  <ion-label position="stacked">Disponible</ion-label>
+  <label class="switch">
+    <input type="checkbox" [(ngModel)]="producto.disponible">
+    <span class="slider"></span>
+  </label>
+</ion-item>
 
-  <ion-button expand="full" color="primary" (click)="saveChanges()">Guardar Cambios</ion-button>
-  <ion-button expand="full" color="danger" (click)="deleteProduct()">Eliminar Producto</ion-button>
+<ion-row>
+  <ion-col>
+    <ion-button expand="block" class="btn-save" (click)="saveChanges()">Guardar Cambios</ion-button>
+  </ion-col>
+  <ion-col>
+    <ion-button expand="block" class="btn-delete" (click)="deleteProduct()">Eliminar Producto</ion-button>
+  </ion-col>
+</ion-row>
 </ion-content>

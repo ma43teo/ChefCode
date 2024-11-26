@@ -1,7 +1,38 @@
+.custom-title {
+  font-size: 30px; /* Tamaño más grande */
+  font-weight: bold; /* Negrita */
+  text-align: center; /* Centrar el texto */
+  margin-bottom: 16px; /* Espaciado inferior */
+  color: #333; /* Color del texto */
+  background: none; /* Quita cualquier fondo */
+  border: none; /* Quita cualquier borde */
+  padding: 0; /* Elimina el padding */
+  box-shadow: none; /* Sin sombra */
+}
+
 
 .food-button {
-    margin: 10px 0;
-    --border-radius: 20px;
-    --background: #ff6f00;
-    --background-activated: #ff8c00;
-  }
+  --background: #FA4F10; /* Fondo transparente */
+  --border-radius: 25px; /* Borde redondeado */
+  --box-shadow: none; /* Sin sombra */
+  --color: #ffffff; /* Color del texto */
+  font-family: 'Arial', sans-serif; /* Fuente personalizada */
+  font-size: 16px; /* Tamaño de letra */
+  padding: 12px; /* Espaciado interno */
+  text-transform: none; /* Mantener el texto como está (sin convertir a mayúsculas) */
+  
+  transition: background-color 0.3s, color 0.3s; /* Transición suave */
+}
+
+
+
+.food-button:hover {
+  --background: #ff5722; /* Fondo al pasar el mouse */
+  --color: #fff; /* Color del texto al pasar el mouse */
+}
+
+.food-button:focus {
+  outline: none; /* Sin contorno al enfocar */
+  --box-shadow: 0 0 4px #ff5722; /* Sombra al enfocar */
+}
+

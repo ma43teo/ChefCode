@@ -21,6 +21,8 @@ export class BienvenidaPage implements OnInit {
   loguear(){
     this.router.navigate(['/loginmovil']);
   }
-
+  admin(){
+    this.router.navigate(['/login']);
+  }
 
 }

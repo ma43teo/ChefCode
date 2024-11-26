@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ordenar',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrdenarPage implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  plato(){
+    this.router.navigate(['/platos-principales']);
+  }
+  bebida(){
+    this.router.navigate(['/bebidas']);
+  }
+  postre(){
+    this.router.navigate(['/postres']);
   }
 
 }

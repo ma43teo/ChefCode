@@ -1,32 +1,181 @@
-ion-item {
-  --background: #fff;
-  border-radius: 10px;
-  margin-bottom: 15px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+ion-title {
+  text-align: center;
+  color: #FFA500;
+  text-transform: capitalize;
+  font-size: 32px;
+  font-weight: bold;
+  margin-top: 10px;
 }
 
-ion-item.disponible {
-  --background: rgba(144, 238, 144, 0.3); /* Verde suave */
+.category-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
 }
 
-ion-item.no-disponible {
-  --background: rgba(255, 99, 71, 0.3); /* Rojo suave */
-}
-
-ion-thumbnail img {
-  width: 60px;
-  height: 60px;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-ion-label h2 {
+.category-button {
   font-size: 16px;
   font-weight: bold;
-  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #D9D9D9;  /* Fondo blanco */
+  border: 1px solid #FFA500; /* Borde del botón de color naranja */
+  color: black;  /* Color de texto negro */
+  --background: transparent !important; /* Elimina el fondo azul predeterminado de Ionic */
+  --color: black;  /* Color del texto por defecto (negro) */
+  border-radius: 25px;  /* Bordes más curveados */
+  width: 120px;  /* Ancho ajustado */
+  height: 50px;  /* Alto ajustado */
+  text-transform: none;
 }
 
-ion-label h3 {
-  font-size: 14px;
-  color: #666;
+.category-button.selected {
+  color: #FFA500;  /* Color del texto cuando está seleccionado */
+  background-color: white;  /* Fondo blanco cuando está seleccionado */
+  border-color: #FFA500;  /* Borde naranja cuando está seleccionado */
+}
+
+.category-button .category-icon {
+  width: 25px; /* Tamaño ajustado de los íconos */
+  height: 25px; /* Tamaño ajustado de los íconos */
+  margin-right: 8px;
+  object-fit: contain;
+}
+
+.main-title {
+  text-align: center;
+  font-size: 31px;
+  color: #FFA500;
+  font-weight: bold;
+  margin-top: 21px;
+}
+
+/* Botón de carrito */
+ion-button {
+  --box-shadow: none !important; /* Elimina sombras específicas de Ionic */
+  --border-width: 0px !important; /* Elimina bordes predeterminados */
+  --background: transparent !important; /* Fondo transparente */
+}
+
+.cart-button {
+  margin: 16px 0;
+  background-color: #FFA500; /* Fondo naranja */
+  color: white; /* Texto blanco */
+  font-weight: bold;
+  border-radius: 25px; /* Bordes redondeados */
+  height: 50px;
+  width: 90%;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra */
+  --background: transparent !important; /* Elimina el fondo azul predeterminado de Ionic */
+  transition: background-color 0.3s;
+  border: none !important;     /* Elimina bordes predeterminados */
+  box-shadow: none !important; /* Elimina sombras predeterminadas */
+}
+
+.cart-button:hover {
+  background-color: #E59400; /* Fondo más oscuro al pasar el cursor */
+}
+
+
+.cart-button:active {
+  background-color: #cc6600; /* Fondo aún más oscuro al presionar */
+  transform: translateY(0); /* Elimina la elevación */
+}
+
+/* Contenedor de Tarjetas */
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  padding: 0 16px;
+}
+
+@media (min-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Tarjetas de productos */
+.product-card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.product-info {
+  padding: 16px;
+  text-align: center;
+}
+
+.product-info h2 {
+  font-size: 18px;
+  color: #333;
+  margin: 8px 0;
+}
+
+.product-info h3 {
+  font-size: 16px;
+  color: #555;
+}
+
+/* Botón Agregar */
+.add-to-cart-button {
+  display: block;
+  margin: 8px auto;
+  width: 90%;
+  background-color: #FFA500; /* Naranja */
+  color: white;
+  border-radius: 25px;
+  height: 40px;
+  font-weight: bold;
+}
+
+.add-to-cart-button:hover {
+  background-color: #E59400; /* Naranja más oscuro */
+}
+
+/* Texto para "No disponible" */
+.not-available {
+  text-align: center;
+  color: red;
+  font-weight: bold;
+  margin: 8px 0;
+}
+
+/* Estilo responsivo */
+@media (min-width: 768px) {
+  .category-button {
+    font-size: 18px;
+    width: 140px;
+    height: 60px;
+  }
+
+  .cart-button {
+    font-size: 18px;
+    height: 60px;
+  }
+
+  .add-to-cart-button {
+    font-size: 16px;
+    height: 50px;
+  }
 }

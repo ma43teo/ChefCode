@@ -1,0 +1,242 @@
+ion-content {
+    --background: #fff;
+  }
+  
+  .categorias-horizontal {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    color: black;
+  }
+  
+  ion-list {
+    flex: 1 0 30%;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  ion-item {
+    background-color: #333;
+    color: #000000;
+    margin-bottom: 10px;
+    --background: #fff;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .productos-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 16px;
+    align-items: center;
+    text-align: center;
+  }
+  
+  ion-card {
+    width: 300px;
+    max-width: 100%;
+    --background: #fff;
+    margin-bottom: 10px; /* Agregado para crear un espacio entre las tarjetas */
+  }
+  
+  ion-card-header {
+    background-color: #f4f4f4;
+    border-radius: 12px 12px 0 0;
+  }
+  
+  ion-card img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+  
+  ion-card-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+  }
+  
+  ion-card-content {
+    padding: 10px;
+  }
+  
+  ion-card-content p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: black;
+  }
+  
+  .pushable {
+    position: relative;
+    background: transparent;
+    padding: 0px;
+    border: none;
+    cursor: pointer;
+    outline-offset: 4px;
+    outline-color: deeppink;
+    transition: filter 250ms;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    margin-top: 20px;
+  }
+  
+  .shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: hsl(226, 25%, 69%);
+    border-radius: 6px;
+    filter: blur(2px);
+    will-change: transform;
+    transform: translateY(2px);
+    transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+  }
+  
+  .edge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 6px;
+    background: linear-gradient(
+      to right,
+      hsl(248, 39%, 39%) 0%,
+      hsl(248, 39%, 49%) 8%,
+      hsl(248, 39%, 39%) 92%,
+      hsl(248, 39%, 29%) 100%
+    );
+  }
+  
+  .front {
+    display: block;
+    position: relative;
+    border-radius: 6px;
+    background: hsl(248, 53%, 58%);
+    padding: 8px 16px;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 0.8rem;
+    transform: translateY(-4px);
+    transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+  }
+  
+  .pushable:hover {
+    filter: brightness(110%);
+  }
+  
+  .pushable:hover .front {
+    transform: translateY(-6px);
+    transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+  }
+  
+  .pushable:active .front {
+    transform: translateY(-2px);
+    transition: transform 34ms;
+  }
+  
+  .pushable:hover .shadow {
+    transform: translateY(4px);
+    transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+  }
+  
+  .pushable:active .shadow {
+    transform: translateY(1px);
+    transition: transform 34ms;
+  }
+  
+  .pushable:focus:not(:focus-visible) {
+    outline: none;
+  }
+  
+  /* Media Queries para hacerlo responsivo */
+  @media (max-width: 1200px) {
+    .categorias-horizontal {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  
+    ion-list {
+      flex: 1 0 45%;
+    }
+  
+    ion-card {
+      width: 250px;
+    }
+  
+    ion-card-title {
+      font-size: 16px;
+    }
+  
+    ion-card-content p {
+      font-size: 14px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .categorias-horizontal {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    ion-list {
+      flex: 1 0 100%;
+    }
+  
+    ion-card {
+      width: 90%;
+      margin: 10px 0;
+    }
+  
+    ion-card-title {
+      font-size: 14px;
+    }
+  
+    ion-card-content p {
+      font-size: 12px;
+      margin-left: 10px;
+    }
+  
+    .pushable {
+      padding: 8px;
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .categorias-horizontal {
+      flex-direction: column;
+      gap: 8px;
+    }
+  
+    ion-card {
+      width: 100%;
+      margin: 5px 0;
+    }
+  
+    ion-card-title {
+      font-size: 12px;
+    }
+  
+    ion-card-content p {
+      font-size: 10px;
+    }
+  
+    .pushable {
+      padding: 6px;
+      font-size: 0.8rem;
+    }
+  }
+  

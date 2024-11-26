@@ -1,25 +1,56 @@
+<app-header></app-header>
 <ion-content>
-  <ion-button expand="full" (click)="openCart()" style="margin-bottom: 16px;">
+  <div class="category-buttons">
+    <ion-button  (click)="showPlatos()" class="category-button">
+      <img src="assets/platillo.png" alt="Plato" class="category-icon">Platos
+    </ion-button>
+    <ion-button  (click)="showBebidas()" class="category-button">
+      <img src="assets/bebidas.png" alt="Bebida" class="category-icon">Bebidas
+    </ion-button>
+    <ion-button  (click)="showPostres()" class="category-button">
+      <img src="assets/postres.png" alt="Postres" class="category-icon">Postres
+    </ion-button>
+  </div>
+
+  <h1 class="main-title">{{ selectedCategory | titlecase }}</h1>
+
+   <!-- Botón Ver Carrito -->
+   <ion-button expand="full" class="cart-button" (click)="openCart()">
     <ion-icon slot="start" name="cart"></ion-icon>
     Ver Carrito
   </ion-button>
 
-  <ion-list>
-    <ion-item *ngFor="let item of platos$ | async"
-              [ngClass]="{'disponible': item.plato.disponible, 'no-disponible': !item.plato.disponible}"
-              [disabled]="!item.plato.disponible"
-              (click)="presentModal(item)">
-      
-      <ion-thumbnail slot="start">
-        <img [src]="item.plato.imagenUrl" alt="{{ item.plato.nombre }}" />
-      </ion-thumbnail>
+  <!-- Contenedor de Tarjetas -->
+<!-- Contenedor de Tarjetas -->
+<div class="product-grid">
+  <div
+    class="product-card"
+    *ngFor="let item of platos$ | async"
+    (click)="presentModal(item)"
+  >
+    <img
+      [src]="item.plato.imagenUrl"
+      alt="{{ item.plato.nombre }}"
+      class="product-image"
+    />
+    <div class="product-info">
+      <h2>{{ item.plato.nombre }}</h2>
+      <h3>Precio: {{ item.plato.precio | currency: 'USD': 'symbol' }}</h3>
+    </div>
+    <ion-button
+      class="add-to-cart-button"
+      *ngIf="item.plato.disponible"
+      fill="outline"
+      (click)="addToCart(item); $event.stopPropagation()"
+    >
+      Agregar
+    </ion-button>
+    <p *ngIf="!item.plato.disponible" class="not-available">
+      No disponible
+    </p>
+  </div>
+</div>
 
-      <ion-label>
-        <h2>{{ item.plato.nombre }}</h2>
-        <h3>Precio: {{ item.plato.precio | currency:'USD':'symbol' }}</h3>
-      </ion-label>
 
-      <ion-button *ngIf="item.plato.disponible" fill="outline" (click)="addToCart(item); $event.stopPropagation()">Agregar</ion-button>
-    </ion-item>
-  </ion-list>
 </ion-content>
+<app-footer></app-footer>

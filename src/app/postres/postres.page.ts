@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 import { CartService } from '../services/cart.service';
 import { PlatilloDetalleModalComponent } from '../platillo-detalle-modal/platillo-detalle-modal.component';
 import { CartModalComponent } from '../cart-modal/cart-modal.component';
+import { Router } from '@angular/router';
 
 interface Postre {
   imagenUrl: string;
@@ -21,8 +22,9 @@ interface Postre {
 })
 export class PostresPage implements OnInit {
   postres$: Observable<{ id: string; postre: Postre }[]> = of([]);
+  selectedCategory: string = 'postres';
 
-  constructor(private firestore: Firestore, private modalController: ModalController, private cartService: CartService) {}
+  constructor(private firestore: Firestore, private modalController: ModalController, private cartService: CartService, private router: Router) {}
 
   ngOnInit() {
     const postresRef = collection(this.firestore, 'productos', 'postres', 'items');
@@ -61,5 +63,16 @@ export class PostresPage implements OnInit {
       component: CartModalComponent,
     });
     return await modal.present();
+  }
+  showPlatos() {
+    this.router.navigate(['/platos-principales']);
+  }
+
+  showBebidas() {
+    this.router.navigate(['/bebidas']);
+  }
+
+  showPostres() {
+    this.router.navigate(['/postres']);
   }
 }

@@ -6,6 +6,7 @@ import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { CartService } from '../services/cart.service';
 import { CartModalComponent } from '../cart-modal/cart-modal.component';
+import { Router } from '@angular/router';
 
 
 interface Plato {
@@ -22,8 +23,11 @@ interface Plato {
 })
 export class PlatosPrincipalesPage implements OnInit {
   platos$: Observable<{ id: string; plato: Plato }[]> = of([]);
+  selectedCategory: string = 'platos';
 
-  constructor(private firestore: Firestore, private modalController: ModalController, private cartService: CartService) {}
+  constructor(private firestore: Firestore, private modalController: ModalController, private cartService: CartService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     const platosRef = collection(this.firestore, 'productos', 'platosprincipales', 'items');
@@ -67,4 +71,16 @@ export class PlatosPrincipalesPage implements OnInit {
     });
     return await modal.present();
   }
+  showPlatos() {
+    this.router.navigate(['/platos-principales']);
+  }
+
+  showBebidas() {
+    this.router.navigate(['/bebidas']);
+  }
+
+  showPostres() {
+    this.router.navigate(['/postres']);
+  }
 }
+

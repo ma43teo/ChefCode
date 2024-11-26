@@ -1,8 +1,3 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Perfil</ion-title>
-  </ion-toolbar>
-</ion-header>
 
 <ion-content>
 
@@ -12,8 +7,6 @@
   <!-- Botón de cerrar sesión fuera del cuadro -->
   <div class="MensajeYboton">
     <h1>¡Bienvenido!</h1>
-    
-  <ion-button  class="logout-btn" (click)="logout()">Cerrar sesión</ion-button>
   </div>
 
 
@@ -36,7 +29,7 @@
 
     <!-- Información del perfil -->
     <div class="profile-info">
-      <h2>{{ user.nombre }}</h2>
+      <p>Nombre:{{ user.nombre }}</p>
       <p>Email: {{ user.correo }}</p>
 
       <!-- Campo de teléfono editable -->
@@ -54,7 +47,7 @@
 
     <!-- Botón para guardar cambios -->
     <ion-button class="guardar"  class="save-changes-btn" (click)="saveChanges()">Guardar cambios</ion-button>
-
-
   </div>
+
+  <ion-button  class="logout-btn" (click)="logout()">Cerrar sesión</ion-button>
 </ion-content>

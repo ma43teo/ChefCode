@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 import { CartService } from '../services/cart.service';
 import { PlatilloDetalleModalComponent } from '../platillo-detalle-modal/platillo-detalle-modal.component';
 import { CartModalComponent } from '../cart-modal/cart-modal.component';
+import { Router } from '@angular/router';
 
 export interface Bebida {
   imagenUrl: string;
@@ -21,8 +22,9 @@ export interface Bebida {
 })
 export class BebidasPage implements OnInit {
   bebidas$: Observable<{ id: string; bebida: Bebida }[]> = of([]);
+  selectedCategory: string = 'bebidas';
 
-  constructor(private firestore: Firestore, private modalController: ModalController, private cartService: CartService) {}
+  constructor(private firestore: Firestore, private modalController: ModalController, private cartService: CartService, private router: Router) {}
 
   ngOnInit() {
     const bebidasRef = collection(this.firestore, 'productos', 'bebidas', 'items');
@@ -61,5 +63,16 @@ export class BebidasPage implements OnInit {
       component: CartModalComponent,
     });
     return await modal.present();
+  }
+  showPlatos() {
+    this.router.navigate(['/platos-principales']);
+  }
+
+  showBebidas() {
+    this.router.navigate(['/bebidas']);
+  }
+
+  showPostres() {
+    this.router.navigate(['/postres']);
   }
 }
