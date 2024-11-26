@@ -1,8 +1,11 @@
 <div class="container">
   <div class="sidebar">
-    <ion-icon name="home"></ion-icon>
-    <ion-icon name="person"></ion-icon>
-    <ion-icon name="settings"></ion-icon>
+    <ion-icon name="home" (click)="home()"></ion-icon>
+    <ion-icon name="cart" (click)="cart()"></ion-icon>
+    <ion-icon name="calendar" (click)="calendar()"></ion-icon>
+    <ion-icon name="add-circle" (click)="add()"></ion-icon>
+    <ion-icon name="create" (click)="create()"></ion-icon>
+    <ion-icon name="person" (click)="person()"></ion-icon>
     <br>
   </div>
 
@@ -13,34 +16,29 @@
         <h2>Bienvenido <p>{{ user.nombre }}</p></h2>
       </div>
     </div>
-    
-
-
 
     <div class="report">
-      <div class="report-item" (click)="viewDetails('patients')">
-        <img src="https://mateogutierrez.neocities.org/Pedidos2.jpg" alt="Patient" class="report-icon">
+      <div class="report-item" (click)="cart()">
+        <img src="https://mateogutierrez.neocities.org/Pedidos2.jpg" alt="Pedidos" class="report-icon">
         <p class="report-text">Pedidos</p>
         <span class="report-count">1032</span>
       </div>
-      <div class="report-item" (click)="viewDetails('consultations')">
-        <img src="https://mateogutierrez.neocities.org/Reservaciones2.jpg" alt="Consultation" class="report-icon">
+      <div class="report-item" (click)="calendar()">
+        <img src="https://mateogutierrez.neocities.org/Reservaciones2.jpg" alt="Reservaciones" class="report-icon">
         <p class="report-text">Reservaciones</p>
         <span class="report-count">207</span>
       </div>
-      <div class="report-item" (click)="viewDetails('injects')">
-        <img src="https://mateogutierrez.neocities.org/CrearProductos2.jpg" alt="Inject" class="report-icon">
-        <p class="report-text">Crear productos</p>
+      <div class="report-item" (click)="add()">
+        <img src="https://mateogutierrez.neocities.org/CrearProductos2.jpg" alt="Crear Producto" class="report-icon">
+        <p class="report-text">Crear Producto</p>
         <span class="report-count">128</span>
       </div>
-
-      <div class="report-item" (click)="viewDetails('injects')">
-        <img src="https://mateogutierrez.neocities.org/EditarProductos2.jpg" alt="Inject" class="report-icon">
-        <p class="report-text">Editar productos</p>
+      <div class="report-item" (click)="create()">
+        <img src="https://mateogutierrez.neocities.org/EditarProductos2.jpg" alt="Editar Producto" class="report-icon">
+        <p class="report-text">Editar Producto</p>
         <span class="report-count">128</span>
       </div>
-      
-      <div class="report-item" (click)="viewDetails('surgeries')">
+      <div class="report-item" (click)="person()">
         <img src="https://mateogutierrez.neocities.org/Perfiladmin2.jpg" alt="Surgery" class="report-icon">
         <p class="report-text">Perfil </p>
         <span class="report-count">48</span>
@@ -48,3 +46,6 @@
     </div>
   </div>
 </div>
+
+
+

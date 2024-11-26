@@ -1,13 +1,64 @@
-.searchbar-custom {
-  --background: #fdf4b5; /* Color de fondo personalizado */
-  margin: 16px;
+/* Eliminar el margen y padding por defecto de ion-content */
+ion-content {
+  --padding: 0; /* Eliminar el padding predeterminado */
+  --margin: 0;  /* Eliminar márgenes extra */
 }
 
+/* Eliminar estilos predeterminados del botón y centrarlo */
+.explore-menu-button {
+  --background: #FA4F10; /* Color de fondo */
+  --border-radius: 50px; /* Bordes muy redondeados */
+  --box-shadow: none; /* Eliminar sombra del botón */
+  --color: white; /* Color de la letra */
+  --padding-start: 20px; /* Espaciado interno al principio */
+  --padding-end: 20px; /* Espaciado interno al final */
+  --padding-top: 15px; /* Espaciado superior */
+  --padding-bottom: 10px; /* Espaciado inferior */
+  font-size: 20px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  display: block;
+  margin: 50px auto; /* Mueve el botón hacia abajo */
+  text-align: center; /* Asegura que el texto dentro esté centrado */
+  width: auto;
+  text-transform: none;
+  max-width: 90%;
+  border: none; /* Quitar borde predeterminado */
+  margin-bottom: 20px; /* Reducir espacio inferior entre el botón y el footer */
+}
+
+/* Efecto hover para el botón */
+.explore-menu-button:hover {
+  background: #f35b04; /* Fondo al pasar el mouse */
+  color: white; /* Color de la letra en hover */
+  border-color: transparent;
+}
+
+
+
+/* Slogan */
+.slogan {
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  color: #f35b04;
+  margin-bottom: 24px; /* Aumenta el margen inferior para separarlo más */
+}
+
+.slogan h1 {
+  font-size: 1.8rem; /* Ajuste de tamaño de fuente para hacerlo más grande */
+  font-weight: bold;
+  margin: 0; /* Eliminar el margen predeterminado de <h1> */
+  padding: 0; /* Eliminar relleno extra */
+  margin-top: 15px;
+}
+
+/* Slider */
 .swiper-container {
-  width: 100%;
-  height: 300px; /* Altura del carrusel */
-  margin-top: 16px; /* Espacio superior */
-  position: relative; /* Posición relativa para los botones de navegación */
+  width: 100%;  /* Asegurarse de que el slider ocupe todo el ancho */
+  height: 400px;
+  margin-top: 10px; /* Mueve el slider hacia abajo */
+  position: relative;
+  overflow: hidden; /* Evitar que se muestren bordes extra */
 }
 
 .swiper-wrapper {
@@ -15,63 +66,37 @@
 }
 
 .swiper-slide {
-  width: 100%; /* Ocupa todo el ancho del contenedor */
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #f0f0f0; /* Color de fondo de los slides */
-  border-radius: 8px; /* Bordes redondeados */
+  border-radius: 8px;
+  overflow: hidden;
+  background: transparent;
 }
 
 .swiper-slide img {
-  max-width: 100%; /* Ajusta la imagen al ancho máximo del slide */
-  max-height: 100%; /* Ajusta la altura máxima de la imagen */
-  object-fit: cover; /* Ajusta la imagen dentro del contenedor manteniendo la relación de aspecto */
-  border-radius: 8px; /* Bordes redondeados para la imagen */
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
 }
 
+/* Botones de navegación */
 .swiper-button-prev,
 .swiper-button-next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 10px;
-  height: 10px;
-  /* Color de fondo de los botones de navegación */
-  border-radius: 50%;
-  border: 1px solid #ffffff; /* Borde del botón */
-  color: #be7405;
-  font-size: 16px;
-  line-height: 40px;
-  text-align: center;
-  cursor: pointer;
+  color: #f35b04;
+  font-size: 24px;
   z-index: 10;
-  transition: background-color 0.3s ease; /* Animación de color de fondo */
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  padding: 8px;
 }
 
 .swiper-button-prev:hover,
 .swiper-button-next:hover {
-  background-color: #45cfdd; /* Color de fondo al pasar el mouse */
-}
-
-.swiper-button-prev {
-  left: 10px;
-}
-
-.swiper-button-next {
-  right: 10px;
-}
-
-ion-button {
-  margin: 20px;
-  --background: #f35b04; /* Color de fondo personalizado para el botón */
-}
-
-ion-tab-bar {
-  background-color: #fff; /* Color de fondo de la barra de pestañas */
-  border-top: 1px solid #ccc; /* Borde superior */
-}
-
-ion-tab-button {
-  --color-selected: #f35b04; /* Color seleccionado */
+  background: rgba(0, 0, 0, 0.7);
 }

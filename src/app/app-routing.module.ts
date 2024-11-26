@@ -68,10 +68,6 @@ const routes: Routes = [
     loadChildren: () => import('./ordenar/ordenar.module').then( m => m.OrdenarPageModule)
   },
   {
-    path: 'entradas',
-    loadChildren: () => import('./entradas/entradas.module').then( m => m.EntradasPageModule)
-  },
-  {
     path: 'platos-principales',
     loadChildren: () => import('./platos-principales/platos-principales.module').then( m => m.PlatosPrincipalesPageModule)
   },

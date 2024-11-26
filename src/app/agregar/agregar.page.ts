@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -13,7 +12,7 @@ export class AgregarPage implements OnInit {
   ngOnInit() {
   }
 
+  confirmarDomicilio() {
+    // Lógica para guardar domicilio
+  }
 }
-
-
-

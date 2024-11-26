@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Auth, onAuthStateChanged, User } from '@angular/fire/auth';
 import { Firestore, collection, query, where, getDocs, doc, updateDoc } from '@angular/fire/firestore';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class HomeWebPage {
 
 
   constructor( private auth: Auth,
-    private firestore: Firestore
+    private firestore: Firestore,private router: Router
     ) {
     
    }
@@ -78,5 +79,30 @@ export class HomeWebPage {
   viewDetails(section: string) {
     console.log('Ver detalles de ${section}');
     // Implementar funcionalidad aquí
+  }
+  
+  home() {
+    this.router.navigate(['/home-web']);
+  }
+  
+ 
+  cart() {
+    this.router.navigate(['/pedidos']);
+  }
+  
+  calendar() {
+    this.router.navigate(['/reservaciones']);
+  }
+  
+  add() {
+    this.router.navigate(['/altaproducto']);
+  }
+  
+  create() {
+    this.router.navigate(['/admin-productos']);
+  }
+
+  person() {
+    this.router.navigate(['/perfil-web']);
   }
 }

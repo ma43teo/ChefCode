@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Auth, onAuthStateChanged } from '@angular/fire/auth';
+import { Firestore, doc, getDoc } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,34 +8,75 @@ import { Router } from '@angular/router';
   templateUrl: './entrega.page.html',
   styleUrls: ['./entrega.page.scss'],
 })
-export class EntregaPage {
+export class EntregaPage implements OnInit {
+  nombreCompleto: string = '';
+  correoElectronico: string = '';
+  telefono: string = '';
+  domicilio: string = ''; // Para futuras expansiones
+  uid: string = ''; // UID del usuario autenticado
   currentStep = 1;
 
-  constructor(private router: Router) {}
+  constructor(
+    private auth: Auth,
+    private firestore: Firestore,
+    private router: Router
+  ) {}
+
+  ngOnInit() {
+    this.obtenerDatosUsuario();
+  }
+
+  async obtenerDatosUsuario() {
+    onAuthStateChanged(this.auth, async (user) => {
+      if (user) {
+        this.uid = user.uid;
+        console.log('Usuario autenticado con UID:', this.uid);
+
+        try {
+          const userDocRef = doc(this.firestore, `usuarios/${this.uid}`);
+          const userDoc = await getDoc(userDocRef);
+
+          if (userDoc.exists()) {
+            const data = userDoc.data();
+            this.nombreCompleto = data['nombre'] || '';
+            this.correoElectronico = data['correo'] || '';
+            this.telefono = data['telefono'] || '';
+            console.log('Datos de entrega:', data);
+          } else {
+            console.error('No se encontraron datos del usuario en Firestore.');
+          }
+        } catch (error) {
+          console.error('Error al obtener datos del usuario:', error);
+        }
+      } else {
+        console.error('No hay un usuario autenticado.');
+      }
+    });
+  }
+
+  agregarDomicilio() {
+    this.router.navigate(['/agregar']); // Redirigir a la vista para agregar domicilio
+  }
 
   Home() {
-    console.log('Navigating to Home');
+    this.router.navigate(['/home']);
   }
 
   Pedir() {
-    console.log('Navigating to Pedido');
+    this.router.navigate(['/pedido']);
   }
 
   Reserva() {
-    console.log('Navigating to Reservar');
+    this.router.navigate(['/reservar']);
   }
 
   Perfil() {
-    console.log('Navigating to Perfil');
+    this.router.navigate(['/perfil']);
   }
 
   nextStep() {
     if (this.currentStep < 3) {
       this.currentStep++;
     }
-  }
-
-  chooseOtherAddress() {
-    this.router.navigate(['/otra-vista']);  // Cambia '/otra-vista' a la ruta real de la otra vista
   }
 }

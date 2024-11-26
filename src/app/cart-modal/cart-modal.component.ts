@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { CartService, Product } from '../services/cart.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart-modal',
@@ -10,13 +11,23 @@ import { CartService, Product } from '../services/cart.service';
 export class CartModalComponent implements OnInit {
   cartItems: Product[] = [];
 
-  constructor(private modalController: ModalController, private cartService: CartService) {}
+  constructor(private modalController: ModalController, private cartService: CartService, private router: Router) {}
 
   ngOnInit() {
     // Suscribirse a los cambios en el carrito
     this.cartService.cartItems$.subscribe((items) => {
       this.cartItems = items;
     });
+  }
+
+  navigateToMenu() {
+    this.cartService.setCartData(this.cartItems); // Guarda los productos seleccionados en el servicio
+    this.modalController.dismiss(); // Cierra el modal
+    this.router.navigate(['/menu']); // Redirige a la página del menú
+  }
+
+  clearCart() {
+    this.cartService.clearCart();
   }
 
   // Método para cerrar el modal

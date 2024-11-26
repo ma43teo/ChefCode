@@ -1,20 +1,33 @@
+<app-header></app-header>
 <ion-content>
-  <ion-searchbar placeholder="Buscar" class="searchbar-custom"></ion-searchbar>
+  <br>
+  <br>
+  <br>
+  <!-- Slogan -->
+  <div class="slogan">
+    <h1>¡Delicias para todos los gustos!</h1>
+  </div>
 
+  <!-- Slider -->
   <div class="swiper-container" #swiper>
     <div class="swiper-wrapper">
+      <!-- Imagen 1 desde URL -->
       <div class="swiper-slide">
-        <img src="https://mateogutierrez.neocities.org/Imagen1Chefcode.jpg">
+        <img src="https://mateogutierrez.neocities.org/Hamburguesacar.jpg" alt="Imagen 1">
       </div>
+      <!-- Imagen 2 desde URL -->
       <div class="swiper-slide">
-        <img src="https://mateogutierrez.neocities.org/Imagen2Chefcode.jpg">
+        <img src="https://mateogutierrez.neocities.org/Vasohielos.jpg" alt="Imagen 2">
       </div>
     </div>
     <!-- Botones de navegación -->
     <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
   </div>
-  <ion-button (click)="Mirarmenu()" expand="full" color="danger">Explorar menú</ion-button>
-</ion-content>
 
+  <!-- Botón de "Explorar menú" -->
+  <ion-button class="explore-menu-button" (click)="Mirarmenu()">Explorar menú</ion-button>
+</ion-content>
 <app-footer></app-footer>
+
+
