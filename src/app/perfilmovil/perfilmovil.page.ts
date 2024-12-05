@@ -26,19 +26,16 @@ export class PerfilmovilPage implements OnInit {
     onAuthStateChanged(this.auth, async (user) => {
       if (user) {
         this.uid = user.uid;
-        
         console.log('Usuario logueado con UID:', this.uid);
 
         try {
           // Obtener los datos del usuario desde Firestore
           const userDocRef = doc(this.firestore, `usuarios/${this.uid}`);
           const userDoc = await getDoc(userDocRef);
-          
+
           if (userDoc.exists()) {
             const userData = userDoc.data();
-            
             console.log('Datos del usuario:', userData);
-            
             this.nombreCompleto = userData['nombre'] || '';
             this.telefono = userData['telefono'] || ''; // Si no existe aún, estará vacío
             this.correoElectronico = userData['correo'] || '';
@@ -60,7 +57,7 @@ export class PerfilmovilPage implements OnInit {
   // Función para generar las iniciales del nombre y apellido
   generarAvatar(nombreCompleto: string): string {
     const partes = nombreCompleto.split(' ');
-    const iniciales = partes.length > 1 
+    const iniciales = partes.length > 1
       ? partes[0].charAt(0).toUpperCase() + partes[1].charAt(0).toUpperCase()
       : nombreCompleto.charAt(0).toUpperCase();
     return iniciales;
@@ -68,13 +65,11 @@ export class PerfilmovilPage implements OnInit {
 
   async guardarCambios() {
     try {
-      // Verificar que el usuario tenga un UID
       if (!this.uid) {
         console.log('UID no encontrado, no se puede actualizar el teléfono.');
         return;
       }
 
-      // Actualizar solo el teléfono en la colección 'usuarios'
       const userDocRef = doc(this.firestore, `usuarios/${this.uid}`);
       await updateDoc(userDocRef, {
         telefono: this.telefono,
@@ -95,4 +90,9 @@ export class PerfilmovilPage implements OnInit {
     });
     toast.present();
   }
+
+  editarPerfil() {
+    // Implementar la lógica para habilitar la edición del perfil si es necesario.
+  }
 }
+

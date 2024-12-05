@@ -1,23 +1,51 @@
 <ion-content>
-  <div class="container">
+  <section class="login-container">
+    <img 
+      src="https://mateogutierrez.neocities.org/LogoApp.png" 
+      alt="Logo pequeño" 
+      class="logo" 
+    />
+
     <ion-card class="login-card">
-    <img src="https://neocities.org/site_thumbnails/26/08/mateogutierrez/Logo%20ChefCode.png.210x158.webp" alt="Logo pequeño" class="splash-image-small">
-    <br>
-    <br>  
-    <ion-title class="login-title">Bienvenido</ion-title>
-      
-    <div class="back-button-container">
-      <button class="back-button" onclick="history.back()">&#8592; Regresar</button>
-    </div>
-      
-      <ion-button (click)="crear()" expand="block" class="login-button">Crear cuenta</ion-button>
+        <div class="back-button-container">
+        <button 
+          class="back-button" 
+          onclick="history.back()" 
+          aria-label="Regresar a la página anterior"
+        >
+          &#8592; Regresar
+        </button>
+      </div>
 
-      <ion-button (click)="loguear()" expand="block" class="login-button">Iniciar sesion</ion-button>
 
-      <ion-button (click)="admin()" expand="block" class="login-button">Iniciar sesion como administrador</ion-button>
+      <ion-title class="login-title">Bienvenido</ion-title>
 
-      
+
+      <div class="button-group">
+        <ion-button 
+          (click)="crear()" 
+          expand="block" 
+          class="login-button"
+        >
+          Crear cuenta
+        </ion-button>
+        <ion-button 
+          (click)="loguear()" 
+          expand="block" 
+          class="login-button"
+        >
+          Iniciar sesión
+        </ion-button>
+        <ion-button 
+          (click)="admin()" 
+          expand="block" 
+          class="login-button"
+        >
+          Iniciar sesión como administrador
+        </ion-button>
+      </div>
     </ion-card>
-  </div>
+  </section>
 </ion-content>
+
 

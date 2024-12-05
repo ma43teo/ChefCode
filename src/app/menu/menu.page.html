@@ -1,20 +1,34 @@
 <app-header></app-header>
-<ion-content id="main-content">
-  <div class="top-section">
-    <div class="option">
-      <ion-icon name="restaurant-outline" class="option-icon"></ion-icon>
-      <p>Pedir a domicilio</p>
+
+<ion-content>
+  <!-- Contenedor de opciones -->
+  <div class="options-wrapper">
+    <div class="option" (click)="pedirDomicilio()">
+      <div class="icon-container">
+        <img src="https://mateogutierrez.neocities.org/Domicilio.png" alt="Pedir a domicilio" class="icon" />
+      </div>
+      <p class="option-title">Pedir a domicilio</p>
     </div>
-    <div class="option">
-      <ion-icon name="bag-handle-outline" class="option-icon"></ion-icon>
-      <p>Recoger en restaurante</p>
+    <div class="option" (click)="pickupConsumo()">
+      <div class="icon-container">
+        <img src="https://mateogutierrez.neocities.org/Recoger.png" alt="Pickup / consumir en restaurante" class="icon" />
+      </div>
+      <p class="option-title">Pickup / consumir en restaurante</p>
     </div>
   </div>
 
-  
+  <!-- Botón Editado -->
+  <div class="button-container">
+    <button class="custom-button" (click)="continuar()">Continuar</button>
+  </div>
 
-  <div class="large-section">
-    <div id="map" class="large-icon"></div>
+  <!-- Mapa -->
+  <div class="map-container">
+    <div id="map"></div>
   </div>
 </ion-content>
+
 <app-footer></app-footer>
+
+
+

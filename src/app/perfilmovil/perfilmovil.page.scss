@@ -1,57 +1,119 @@
-.profile-image-container {
-  display: flex;
-  justify-content: center;
-  margin: 20px 0;
-}
-
-.avatar-circle {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background-color: #f0f0f0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 36px;
-  color: #333;
-}
-
 .profile-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  height: 100vh; 
+  padding: 20px;
+
+  .profile-header {
+    text-align: center;
+    position: relative;
+    width: 100%;
+    padding: 10px;
+
+    .back-icon,
+    .settings-icon {
+      font-size: 24px;
+      position: absolute;
+      top: 10px;
+      cursor: pointer;
+    }
+
+    .back-icon {
+      left: 10px;
+    }
+
+    .settings-icon {
+      right: 10px;
+    }
+
+    .profile-title {
+      font-weight: bold;
+      margin-top: 10px;
+      font-size: 20px;
+    }
+
+    .profile-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+
+      .avatar-circle {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-color: #f5f5f5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 32px;
+        font-weight: bold;
+        color: #555;
+        margin: 10px 0;
+      }
+
+      .profile-name {
+        font-size: 32px;
+        font-weight: bold;
+        margin: 5px 0;
+      }
+
+      .profile-username {
+        font-size: 20px;
+        color: gray;
+      }
+
+      .edit-profile-button {
+        --background: #2393d8fb;
+        --border-radius: 20px;
+        color: white;
+        font-weight: bold;
+        text-transform: none; /* Evita que el texto se transforme (uppercase, lowercase, etc.) */
+        margin-top: 10px;
+      }
+    }
+  }
+
+  .profile-form {
+    width: 100%;
+    margin-top: 20px;
+
+    label {
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 10px;
+      background-color: rgba(255, 243, 176, 0.564); /* Amarillo claro */
+      font-size: 16px;
+      font-family: inherit;
+    }
+
+    input:disabled {
+      background-color: #fff3b0; /* Mismo amarillo para disabled */
+      color: #000; /* Texto negro */
+    }
+
+    .save-button {
+      --background: #fa4f10;
+      font-weight: bold;
+      border-radius: 25px;
+      font-size: 16px;
+      margin-top: 20px;
+      text-transform: none; /* Evita que el texto se transforme (uppercase, lowercase, etc.) */
+      color: white;
+      width: auto; /* No lo fuerza a tomar todo el ancho */
+      display: block;
+      margin: 10px auto; /* Centra el botón */
+    }
+  }
 }
 
-.profile-form {
-  width: 80%;
-  max-width: 400px; 
-  margin: 20px;
-  padding: 15px;
-  background-color: #f0f0f0;
-  border-radius: 15px;
-  text-align: center; 
-}
-
-.profile-image-container {
-  margin-bottom: 10px;
-}
-
-.profile-image {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #ccc;
-}
-
-.save-button {
-  margin-top: 10px;
-  border-radius: 10px;
-  background-color: #f35b04;
-  color: #fff;
-}
-
-.save-button {
-  margin-top: 20px;
-}

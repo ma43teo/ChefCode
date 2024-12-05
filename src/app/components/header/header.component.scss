@@ -1,43 +1,64 @@
+
 ion-header {
-    --background: #fff;
-    --border-width: 0; /* Remove the border line */
-  }
-  
-  .logo {
-    height: 40px;
-  }
-  ion-header {
-    --background: #fff;
-  }
-  
-  .menu-header {
-    text-align: center;
-    padding: 20px 0;
-    background-color: #f35b04;
-    color: #fff;
-  }
-  
+  --background: #fff;
+  --border-width: 0; /* Remove the border line */
+}
+
+.logo {
+  height: 40px;
+  max-width: 100%; /* Asegura que no se desborde */
+  object-fit: contain; /* Mantiene las proporciones */
+}
+
+.menu-header {
+  text-align: center;
+  padding: 20px 0;
+  background-color: #f35b04;
+  color: #fff;
+}
+
+.menu-header h2 {
+  margin: 0;
+  font-size: 5vw; /* Ajusta el tamaño en función de la pantalla */
+  line-height: 1.2;
+}
+
+ion-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+ion-item {
+  --border-style: none;
+  --min-height: 50px;
+  padding: 10px;
+}
+
+ion-item:hover {
+  --background: #f0f0f0;
+}
+
+ion-item ion-icon {
+  font-size: 24px;
+  color: #f35b04;
+}
+
+ion-label {
+  font-size: 18px;
+}
+
+@media (max-width: 768px) {
   .menu-header h2 {
-    margin: 0;
-    font-size: 24px;
+    font-size: 6vw; /* Más grande en pantallas pequeñas */
   }
-  
-  ion-item {
-    --border-style: none;
-    --min-height: 50px;
-    padding: 10px;
+
+  .logo {
+    height: 30px; /* Reduce el tamaño en pantallas pequeñas */
   }
-  
-  ion-item:hover {
-    --background: #f0f0f0;
-  }
-  
-  ion-item ion-icon {
-    font-size: 24px;
-    color: #f35b04;
-  }
-  
+
   ion-label {
-    font-size: 18px;
+    font-size: 16px; /* Texto más pequeño */
   }
-  
+}
+

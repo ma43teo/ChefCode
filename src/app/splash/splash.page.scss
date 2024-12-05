@@ -1,52 +1,206 @@
+/* Contenedor principal */
 .splash-screen {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    height: 100vh;
-    background-color: #ffffff; /* Fondo blanco */
-    text-align: center;
-    padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra verticalmente */
+  align-items: center; /* Centra horizontalmente */
+  height: 100vh; /* Ocupa toda la altura de la pantalla */
+  background-color: #ffffff; /* Fondo blanco */
+  text-align: center;
+  padding: 20px;
+  margin: 0;
+}
+
+/* Imagen pequeña */
+.splash-image-small {
+  max-width: 600px; /* Tamaño de la imagen */
+  margin-top: 20px;
+  padding: 10px; /* Reducción de padding */
+  transition: transform 0.3s ease; /* Efecto al pasar el mouse */
+  position: relative;
+  right: 25%;
+  top: 10%;
+}
+
+.splash-image-small:hover {
+  transform: scale(1.05); /* Efecto de hover: zoom */
+}
+
+/* Comentario resaltado */
+.splash-comment-highlight {
+  font-size: 50px; /* Tamaño ligeramente más grande */
+  font-weight: bold;
+  color: #ffffff; /* Color del texto */
+  margin: 40px 0 20px 0; /* Espaciado más consistente */
+  position: relative;
+  left: 13%;
+  margin-top: -15%;
+}
+
+/* Comentario normal */
+.splash-comment {
+  font-size: 25px; /* Ligeramente más grande para mejor legibilidad */
+  color: #ffffff;
+  margin: 20px 0 40px 0; /* Espaciado consistente */
+  position: relative;
+  left: 13%;
+}
+
+/* Botón */
+.splash-button {
+  background-color: #f39c12; /* Color de fondo */
+  color: #fff; /* Color del texto */
+  font-weight: bold;
+  padding: 10px 20px; /* Mantener el padding pero puedes ajustar */
+  border-radius: 25px;
+  margin-bottom: 20px;
+  font-size: 1rem; /* Fuente normal */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: auto; /* Ajusta el tamaño al contenido */
+  max-width: 200px; /* Limita el ancho máximo */
+  margin: 0 auto; /* Centra el botón */
+  display: block; /* Necesario para que el margin auto funcione */
+
+}
+
+.splash-button:hover {
+  background-color: #d87f1d; /* Cambio de color al pasar el ratón */
+}
+
+/* Botón con clase personalizada */
+.custom-parent {
+  color: #ffffff; /* Color de texto blanco */
+  font-weight: bold;
+  padding: 10px 20px; /* Espaciado interno */
+  border-radius: 25px; /* Bordes redondeados */
+  background: #f39c12; /* Fondo */
+  margin-bottom: 20px;
+  font-size: 1rem; /* Tamaño de fuente */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: auto; /* Ajusta el tamaño al contenido */
+  max-width: 200px; /* Limita el ancho máximo */
+  margin: 0 auto; /* Centra el botón */
+  display: block; /* Necesario para que el margin auto funcione */
+    position: relative;
+  left: 13%;
+  margin-top: 10%;
+}
+
+.custom-parent:hover {
+  background-color: #d87f1d; /* Color en hover */
+}
+
+/* Responsividad para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+
+  .splash-screen {
+    padding: 10px; /* Reduce el padding para pantallas más pequeñas */
   }
-  
+
   .splash-image-small {
-    max-width: 200px; /* Tamaño de la imagen pequeña */
-    margin-top: 20px;
-    padding: 20px;
+    max-width: 100%; /* Hace la imagen más pequeña y responsiva */
+    right: 0; /* Alinea la imagen a la izquierda */
+    top: 0; /* Elimina el desplazamiento vertical */
   }
-  
+
   .splash-comment-highlight {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin: 80px 0;
-    color: #333333; /* Color del comentario resaltado */
+    font-size: 30px; /* Reduce el tamaño del texto */
+    left: 0; /* Alinea el texto */
+    margin-top: 0; /* Elimina el margen superior */
   }
-  
+
   .splash-comment {
-    font-size: 1rem;
-    color: #666666; /* Color del comentario menos resaltado */
-    margin-bottom: 20px;
-    margin: 80px 0;
+    font-size: 18px; /* Reduce el tamaño del texto */
+    left: 0; /* Alinea el texto */
   }
-  
-  
+
   .splash-button {
-    --background: #f39c12; /* Color de fondo del botón */
-    --color: #fff; /* Color del texto del botón */
-    font-weight: bold;
-    padding: 10px 20px;
-    border-radius: 25px;
-    margin-bottom: 20px;
+    max-width: 150px; /* Limita el ancho del botón */
+    padding: 8px 16px; /* Ajusta el padding */
+    font-size: 0.9rem; /* Reduce el tamaño de la fuente */
   }
-  
+
   .custom-parent {
-    color: #000000;
-    max-width: 130px;
-    font-weight: bold;
-    padding: 10px 20px;
-    border-radius: 25px;
-    margin-bottom: 20px;
-    background: #f39c12;
-    margin: auto;
+    max-width: 150px; /* Limita el ancho del botón */
+    padding: 8px 16px; /* Ajusta el padding */
+    font-size: 0.9rem; /* Reduce el tamaño de la fuente */
+    left: 0; /* Alinea el botón */
+    margin-top: 10%; /* Mantiene un margen superior consistente */
   }
-  
+
+}
+
+/* Responsividad para pantallas muy pequeñas (móviles más pequeños) */
+@media (max-width: 480px) {
+
+  .splash-screen {
+    padding: 5px; /* Reduce aún más el padding */
+  }
+
+  .splash-image-small {
+    max-width: 80%; /* Hace la imagen aún más pequeña */
+  }
+
+  .splash-comment-highlight {
+    font-size: 24px; /* Reduce aún más el tamaño del texto */
+  }
+
+  .splash-comment {
+    font-size: 16px; /* Reduce el tamaño del texto */
+  }
+
+  .splash-button {
+    max-width: 120px; /* Reduce el tamaño del botón */
+    padding: 6px 12px; /* Ajusta el padding */
+    font-size: 0.8rem; /* Reduce el tamaño de la fuente */
+  }
+
+  .custom-parent {
+    max-width: 120px; /* Reduce el tamaño del botón */
+    padding: 6px 12px; /* Ajusta el padding */
+    font-size: 0.8rem; /* Reduce el tamaño de la fuente */
+    left: 0; /* Alinea el botón */
+    margin-top: 10%; /* Ajusta el margen superior */
+  }
+
+}
+
+/* Responsividad para pantallas medianas (769px a 1400px) */
+@media (min-width: 769px) and (max-width: 1400px) {
+
+  .splash-screen {
+    padding: 15px; /* Ajusta el padding para pantallas medianas */
+  }
+
+  .splash-image-small {
+    max-width: 50%; /* Reduce el tamaño de la imagen, pero aún mantiene el diseño grande */
+    margin-top: 10px; /* Mantiene un margen superior pequeño */
+  }
+
+  .splash-comment-highlight {
+    font-size: 30px; /* Ajusta el tamaño del texto */
+    left: 17%; /* Ajusta la posición para centrar más el texto */
+    margin-top: -30%;
+  }
+
+  .splash-comment {
+    font-size: 12px; /* Ajusta el tamaño del texto */
+    left: 17%; /* Ajusta la posición para centrar el texto */
+  }
+
+  .splash-button {
+    max-width: 180px; /* Limita el tamaño máximo del botón */
+    padding: 9px 18px; /* Ajusta el tamaño del padding */
+    font-size: 0.95rem; /* Ajusta el tamaño de la fuente */
+  }
+
+  .custom-parent {
+    max-width: 180px; /* Limita el tamaño máximo del botón */
+    padding: 9px 18px; /* Ajusta el padding */
+    font-size: 0.95rem; /* Ajusta el tamaño de la fuente */
+    left: 17%; /* Alinea el botón para que se vea centrado */
+  }
+
+}

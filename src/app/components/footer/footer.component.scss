@@ -1,9 +1,65 @@
+
 ion-tab-bar {
-    background-color: #fff;
-    border-top: 1px solid #ccc;
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between; /* Espacio uniforme entre los botones */
+  align-items: center; /* Centra los botones verticalmente */
+  padding: 0;
+  margin: 0;
+  width: 100%; /* Ocupa todo el ancho de la pantalla */
+  height: 60px; /* Altura fija del footer */
+  box-sizing: border-box;
+}
+
+ion-tab-button {
+  flex-grow: 1; /* Cada botón ocupa el mismo espacio disponible */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  max-width: 25%; /* Máximo 25% del ancho total para cada botón */
+}
+
+ion-tab-button ion-icon {
+  font-size: 22px; /* Tamaño consistente del ícono */
+  margin-bottom: 2px; /* Espaciado controlado */
+}
+
+ion-tab-button ion-label {
+  font-size: 14px;
+  line-height: 1;
+}
+
+/* Ajustes para pantallas grandes */
+@media (min-width: 1024px) {
+  ion-tab-bar {
+    height: 70px;
   }
-  
-  ion-tab-button {
-    --color-selected: #f35b04;
+
+  ion-tab-button ion-icon {
+    font-size: 26px;
   }
-  
+
+  ion-tab-button ion-label {
+    font-size: 16px;
+  }
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+  ion-tab-bar {
+    height: 50px;
+  }
+
+  ion-tab-button ion-icon {
+    font-size: 18px;
+  }
+
+  ion-tab-button ion-label {
+    font-size: 12px;
+  }
+}

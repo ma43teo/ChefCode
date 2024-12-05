@@ -1,162 +1,108 @@
-.bienvenida-container {
+/* General */
+.login-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100%;
+  padding: 20px;
+
 }
 
+/* Logo */
+.logo {
+  width: 500px !important; /* Tamaño de la imagen */
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+  right: 30%;
+  position: relative;
+  top: 20%;
+
+}
+
+.logo:hover {
+  transform: scale(1.1); /* Efecto de zoom */
+}
+
+/* Card */
 .login-card {
   width: 100%;
-  max-width: 400px;
+  max-width: 450px;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   text-align: center;
+  left: 15%;
+  top: -25%;
+  border: solid 1px #ff5722;;
 }
 
-.logo {
-  margin: 0 auto 20px;
-  display: block;
-  width: 100px;
-  height: 100px;
-  background-color: #f0f0f0;
-  border-radius: 50%;
+/* Títulos */
+.login-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #ffffff;
 }
+
+/* Botones */
+.login-button {
+  --background: #ff5722;
+  --background-hover: #e64a19;
+  --border-radius: 25px;
+  font-weight: bold;
+  color: #ffffff;
+  margin: 15px 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-button:hover {
+  transform: translateY(-2px); /* Efecto de elevación */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Botón de regresar */
 .back-button-container {
-  position: absolute;
-  top: 10px;
-  left: 10px;
+  margin-bottom: 20px;
+  position: relative;
+  right: 5%;
+  width: 150px;
 }
 
 .back-button {
   background: none;
-  border: none;
+  border: 1px solid #ff5722;
   color: #ff5722;
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 16px;
+  padding: 8px 15px;
+  border-radius: 8px;
   cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .back-button:hover {
-  text-decoration: underline;
-}
-
-h1 {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-ion-item {
-  margin: 10px 0;
-}
-
-.input-field {
-  --background: #f9f3cf;
-}
-
-
-.login-button {
-  --background: #ff5a1e;
-  margin-top: 20px;
-}
-
-
-ion-content {
-  --ion-background-color: #ffffff;
-}
-
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  padding: 16px;
-}
-
-
-.profile-img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  margin: 0 auto 20px;
-}
-
-.login-title {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-.input-item {
-  --background: #E3D556; /* Fondo amarillo */
-  margin-bottom: 10px;
-  border-radius: 10px;
-  text-transform: none; /* Para texto en su formato original */
-  color: #000000;
-  --padding-start: 10px; /* Aumenta el padding interno para una mejor apariencia */
-}
-
-
-.login-button {
-  --background: #ff5722;
-  --background-activated: #e64a19;
-  --background-focused: #ff5722;
-  margin-bottom: 30px;
-  --border-radius: 50px;
-  text-transform: none; /* Para texto en su formato original */
-  color: #fbfeff;
+  background-color: #ff5722;
+  color: #ffffff;
 }
 
 
 
 /* Media Queries */
-@media (min-width: 576px) {
+@media (max-width: 767px) { /* Dispositivos móviles */
+  .logo {
+    width: 100%; /* Asegura que el logo ocupe todo el ancho disponible */
+    max-width: 300px; /* Tamaño máximo en móviles */
+    position: relative; /* Aseguramos que sea relativo */
+    top: auto; /* Reseteamos posición */
+    right: auto; /* Reseteamos posición */
+    margin-bottom: 20px; /* Espaciado estándar entre logo y tarjeta */
+  }
+
   .login-card {
-    padding: 30px;
-  }
-
-  .profile-img {
-    width: 120px;
-    height: 120px;
-    margin-bottom: 30px;
-  }
-
-  .login-title {
-    font-size: 28px;
-  }
-
-
-}
-
-@media (min-width: 768px) {
-  .login-card {
-    padding: 40px;
-  }
-
-  .profile-img {
-    width: 140px;
-    height: 140px;
-    margin-bottom: 40px;
-  }
-
-  .login-title {
-    font-size: 32px;
-  }
-
- 
-
-@media (min-width: 992px) {
-  .login-card {
-    padding: 50px;
-  }
-
-  .profile-img {
-    width: 160px;
-    height: 160px;
-    margin-bottom: 50px;
-  }
-
-  .login-title {
-    font-size: 36px;
+    position: relative; /* Reseteamos posición de la tarjeta */
+    left: auto; /* Reseteamos desplazamiento horizontal */
+    top: auto; /* Reseteamos desplazamiento vertical */
+    margin-top: 0; /* Espaciado estándar */
+    width: 90%; /* Aseguramos que la tarjeta sea responsiva */
   }
 }
-}
- 

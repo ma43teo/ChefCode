@@ -130,7 +130,11 @@ const routes: Routes = [
   {
     path: 'confirmar',
     loadChildren: () => import('./confirmar/confirmar.module').then( m => m.ConfirmarPageModule)
+  },  {
+    path: 'confirmacion',
+    loadChildren: () => import('./confirmacion/confirmacion.module').then( m => m.ConfirmacionPageModule)
   },
+
 
 
 

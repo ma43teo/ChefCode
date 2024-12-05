@@ -53,7 +53,4 @@ export class RecuperarPage implements OnInit {
     await alert.present();
   }
 
-  volverlogin(){
-    this.router.navigate(['/loginmovil']);
-  }
 }

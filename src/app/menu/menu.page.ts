@@ -1,4 +1,7 @@
-import { Component, AfterViewInit } from '@angular/core';
+// menu.page.ts
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { OrderService } from '../services/order.service';
 import * as L from 'leaflet';
 
 @Component({
@@ -6,19 +9,36 @@ import * as L from 'leaflet';
   templateUrl: './menu.page.html',
   styleUrls: ['./menu.page.scss'],
 })
-export class MenuPage implements AfterViewInit {
+export class MenuPage {
   map?: L.Map;
   restaurantCoords: [number, number] = [18.8792, -97.7345]; // Coordenadas de Tecamachalco, Puebla
 
-  constructor() {}
 
+  constructor(
+    private router: Router,
+    private orderService: OrderService
+  ) {}
+
+  pedirDomicilio() {
+    this.orderService.updateDeliveryInfo({ tipoEntrega: 'domicilio' });
+    this.router.navigate(['/entrega']);
+  }
+
+  pickupConsumo() {
+    this.orderService.updateDeliveryInfo({ tipoEntrega: 'consumo' });
+    this.router.navigate(['/entrega']);
+  }
+
+  continuar() {
+    alert('Continuando con el pedido...');
+    this.router.navigate(['/entrega']);
+  }
   ngAfterViewInit() {
     this.loadMap();
     setTimeout(() => {
-      this.map?.invalidateSize();  // Llamar invalidateSize después de un ligero retardo
+      this.map?.invalidateSize(); // Llamar invalidateSize después de un ligero retardo
     }, 500);
   }
-  
 
   loadMap() {
     if (this.map) {
@@ -39,4 +59,6 @@ export class MenuPage implements AfterViewInit {
       .bindPopup('Restaurante en Tecamachalco, Puebla')
       .openPopup();
   }
+
+
 }

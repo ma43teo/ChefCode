@@ -1,94 +1,245 @@
 html, body {
     height: 100%;
     margin: 0;
-}
-
-.container {
+    overflow: hidden; /* Evita scroll innecesario en el body */
+  }
+  
+  .container {
     display: flex;
     height: 100%; /* Asegura que el contenedor ocupe toda la altura */
-}
-
-.sidebar {
+    flex-direction: column; /* Columnas por defecto para pantallas pequeñas */
+  }
+  
+  .sidebar {
     background-color: #d67c2d;
     width: 80px;
     display: flex;
     flex-direction: column;
-    padding: 28px;
-}
-
-.sidebar ion-icon {
-    margin-bottom: 55px;
-    color: #ffffff;
-    font-size: 32px;
-    cursor: pointer;
-}
-
-.main-content {
-    flex: 1; /* Permite que el contenido principal ocupe el espacio restante */
     padding: 20px;
+    position: fixed; /* Mantiene la barra lateral fija */
+    height: 100%; /* Asegura que ocupe toda la altura */
+    
+  }
+  
+  .sidebar ion-icon {
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-size: 50px;
+    margin-top: 47px;
+    cursor: pointer;
+  }
+  
+  .main-content {
+    flex: 1;
+    padding: 20px;
+    margin-left: 80px; /* Espacio para la barra lateral fija */
+    overflow-y: auto; /* Habilita el scroll vertical si el contenido es muy grande */
     display: flex;
     flex-direction: column; /* Asegura que los elementos se apilen verticalmente */
-}
-
-.header {
+  }
+  
+  .header {
     background-color: #d67c2d;
-    padding: 20px; /* Ajusta el padding según sea necesario */
-    border-radius: 10px;
-    margin-bottom: 20px;
-    display: flex; /* Permite que los elementos se alineen en fila */
-    align-items: center; /* Centra verticalmente los elementos */
-}
-
-
-.welcome-image {
-    width: 410px; /* Ajusta el tamaño de la imagen */
-    height: 375px; /* Mantiene la proporción de la imagen */
-    border-radius: 10px; /* Opcional: para bordes redondeados */
-    margin-right: 20px; /* Espacio entre la imagen y el texto */
-}
-
-.welcome-text {
-    color: #333; /* Color del texto */
-}
-
-
-
-.header h2 {
-    margin: 0;
-    font-size: 44px;
-    color: #ffffff;
-}
-
-
-
-.report {
+    padding: 20px; /* Mantén el tamaño original */
+    border-radius: 8px;
+    margin-bottom: 15px;
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
-
-.report-item {
+    flex-direction: column; /* Por defecto columnas para pantallas pequeñas */
+    align-items: center;
+    text-align: center; /* Centra los elementos en pantallas pequeñas */
+    height: 60%;
+  }
+  
+  .welcome-image {
+    width: 100%;
+    max-width: 410px; /* Mantén el tamaño original */
+    height: auto; /* Proporcional */
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+  
+  .welcome-text {
+    color: #333;
+    font-weight: bold; /* Opcional: para hacerlo más visible */
+    text-align: center; /* Centra el texto horizontalmente */
+    display: flex; /* Activar flexbox */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    height: 100%; /* Asegura que ocupe toda la altura del contenedor */
+    width: 100%; /* Asegura que ocupe toda la anchura del contenedor */
+    margin: 0; /* Evita márgenes extra */
+    padding: 0 10px; /* Espaciado interno para evitar que el texto toque los bordes */
+  }
+  
+  .header h2 {
+    margin: 0;
+    font-size: 54px !important; /* Tamaño original */
+    color: #ffffff;
+  }
+  
+  .report {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los report-items se muevan a otra fila */
+    justify-content: center; /* Centra los elementos en pantallas pequeñas */
+    gap: 10px; /* Espaciado entre elementos */
+  }
+  
+  .report-item {
     background-color: #f0f0f0;
-    flex: 1;
-    margin: 0 10px;
-    padding: 20px;
+    flex: 1 1 calc(50% - 20px); /* Ocupan la mitad del ancho disponible */
+    max-width: 200px; /* Tamaño máximo */
+    padding: 15px;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 8px;
     cursor: pointer;
-}
-
-.report-icon {
-    width: 250px; /* Ajusta el tamaño según sea necesario */
-    height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .report-icon {
+    width: 120px; /* Ajusta el tamaño para pantallas pequeñas */
+    height: 120px;
     margin-bottom: 10px;
-}
-
-/* Nuevas clases para el color del texto en los reportes */
-.report-text {
-    color: #5f4bb6; /* Cambia este valor al color que desees */
-    font-weight: bold; /* Opcional: para hacer el texto más destacado */
-}
-
-.report-count {
-    color: #ff5733; /* Cambia este valor para el color del conteo */
-}
+  }
+  
+  .report-text {
+    color: #5f4bb6;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
+  .report-count {
+    color: #ff5733;
+    font-size: 20px;
+  }
+  
+  /* Media Queries */
+  @media (min-width: 768px) {
+    .container {
+      flex-direction: row; /* Cambia a filas para pantallas medianas */
+    }
+  
+    .main-content {
+      margin-left: 80px;
+    }
+  
+    .header {
+      flex-direction: row; /* Elementos en fila */
+      justify-content: space-between; /* Separación entre imagen y texto */
+      text-align: left;
+      padding: 15px 20px;
+    }
+  
+    .welcome-image {
+      margin-bottom: 0;
+      margin-right: 20px; /* Espacio entre imagen y texto */
+      max-width: 250px; /* Tamaño más pequeño */
+    }
+  
+    .header h2 {
+      font-size: 32px; /* Tamaño moderado */
+    }
+  
+    .report {
+      justify-content: space-between; /* Espaciado uniforme */
+      gap: 15px;
+    }
+  
+    .report-item {
+      max-width: 250px;
+      padding: 20px;
+    }
+  
+    .report-icon {
+      width: 150px;
+      height: 150px;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .main-content {
+      margin-left: 100px; /* Más espacio para pantallas grandes */
+    }
+  
+    .header h2 {
+      font-size: 36px; /* Tamaño mayor */
+    }
+  
+    .report {
+      justify-content: space-around;
+    }
+  
+    .report-item {
+      max-width: 300px; /* Tamaño mayor */
+    }
+  
+    .report-icon {
+      width: 180px;
+      height: 180px;
+    }
+  
+    .report-text {
+      font-size: 18px;
+    }
+  
+    .report-count {
+      font-size: 24px;
+    }
+  }
+  
+  
+  /* Media Query para dispositivos con ancho entre 480px y 768px */
+  @media (min-width: 480px) and (max-width: 768px) {
+    .header {
+      flex-direction: column;
+      align-items: center;
+      padding: 15px;
+    }
+  
+    .header h2 {
+      font-size: 28px; /* Texto un poco más pequeño */
+      text-align: center;
+      font-size: 34px !important;
+    }
+  
+    .welcome-image {
+      width: 250px; /* Imagen más pequeña pero no tan reducida */
+      height: auto; /* Mantiene proporción */
+      margin-bottom: 15px;
+    }
+  
+    .welcome-text {
+      font-size: 18px; /* Texto ajustado */
+      text-align: center;
+      margin: 0 auto;
+      max-width: 80%; /* Limita el ancho del texto */
+    }
+  
+    .report {
+      gap: 15px; /* Espacio moderado entre botones */
+      flex-wrap: wrap; /* Los botones se envuelven si es necesario */
+      justify-content: center; /* Centra los botones */
+    }
+  
+    .report-item {
+      flex: 1 1 calc(50% - 20px); /* Ocupan la mitad del ancho con espacio entre ellos */
+      max-width: calc(50% - 20px);
+      padding: 20px; /* Ajusta padding */
+    }
+  
+    .report-icon {
+      width: 150px; /* Iconos más pequeños */
+      height: 150px;
+      margin-bottom: 10px;
+    }
+  
+    .report-text {
+      font-size: 16px; /* Tamaño del texto ajustado */
+    }
+  
+    .report-count {
+      font-size: 20px; /* Tamaño del conteo ligeramente reducido */
+    }
+  }
+  

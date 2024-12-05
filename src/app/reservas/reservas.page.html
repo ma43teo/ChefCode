@@ -7,27 +7,25 @@
     </ion-card-header>
 
     <ion-card-content>
-      <ion-item>
+      <ion-item lines="none">
         <ion-label>Fecha</ion-label>
         <ion-datetime
           display-format="DD/MM/YYYY"
           picker-format="DD/MM/YYYY"
           [(ngModel)]="fecha"
-          [min]="minDate"
-          [max]="maxDate"
           placeholder="Selecciona la fecha"
           presentation="date">
         </ion-datetime>
       </ion-item>
 
-      <ion-item>
+      <ion-item lines="none">
         <ion-label>Hora</ion-label>
         <ion-select placeholder="Selecciona la hora" [(ngModel)]="hora">
           <ion-select-option *ngFor="let h of horas" [value]="h">{{ h }}</ion-select-option>
         </ion-select>
       </ion-item>
 
-      <ion-item>
+      <ion-item lines="none">
         <ion-label>Número de personas</ion-label>
         <ion-select placeholder="Selecciona el número de personas" [(ngModel)]="personas">
           <ion-select-option value="1">1 cliente</ion-select-option>
@@ -39,7 +37,7 @@
         </ion-select>
       </ion-item>
 
-      <ion-button expand="block" color="danger" (click)="reservar()">
+      <ion-button expand="block" class="reservar-btn" (click)="reservar()">
         Reservar
       </ion-button>
     </ion-card-content>
