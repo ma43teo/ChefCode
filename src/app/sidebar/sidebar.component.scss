@@ -1,0 +1,20 @@
+.sidebar {
+    background-color: #d67c2d;
+    width: 80px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    position: fixed;
+    bottom: 0; /* Fija la barra en el footer */
+    left: 0;
+    height: 100%; /* Asegura que ocupe toda la altura */
+  }
+  
+  .sidebar ion-icon {
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-size: 50px;
+    margin-top: 47px;
+    cursor: pointer;
+  }
+  

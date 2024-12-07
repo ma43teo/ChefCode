@@ -1,4 +1,3 @@
-// order.service.ts
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Product } from './cart.service';
@@ -10,6 +9,7 @@ export class OrderService {
   private cartItemsSubject = new BehaviorSubject<Product[]>([]);
   private deliveryInfoSubject = new BehaviorSubject<any>(null);
   private userInfoSubject = new BehaviorSubject<any>(null);
+  private confirmedOrdersSubject = new BehaviorSubject<any[]>([]); // Almacena pedidos confirmados
 
   constructor() {}
 
@@ -26,7 +26,6 @@ export class OrderService {
   }
 
   updateDeliveryInfo(info: any) {
-    console.log('Actualizando información de entrega con:', info);  // Añadir este log para verificar
     this.deliveryInfoSubject.next(info);
   }
 
@@ -38,9 +37,17 @@ export class OrderService {
     this.userInfoSubject.next(info);
   }
 
+  get confirmedOrders$() {
+    return this.confirmedOrdersSubject.asObservable();
+  }
+
+  addConfirmedOrder(order: any) {
+    const currentOrders = this.confirmedOrdersSubject.value;
+    this.confirmedOrdersSubject.next([...currentOrders, order]);
+  }
+
   getCartTotal(): number {
     const items = this.cartItemsSubject.value;
     return items.reduce((total, item) => total + item.precio * item.cantidad, 0);
   }
-  
 }

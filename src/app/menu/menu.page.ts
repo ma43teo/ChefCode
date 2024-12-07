@@ -29,9 +29,8 @@ export class MenuPage {
     this.router.navigate(['/entrega']);
   }
 
-  continuar() {
-    alert('Continuando con el pedido...');
-    this.router.navigate(['/entrega']);
+  elegir() {
+    this.router.navigate(['/ordenar']);
   }
   ngAfterViewInit() {
     this.loadMap();

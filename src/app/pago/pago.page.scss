@@ -1,23 +1,22 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    max-width: 600px;
-    margin: 20px auto;
-  }
-  
-  .container input, .container select, .container button {
-    margin: 10px 0;
-    padding: 10px;
-  }
-  
-  #form-checkout {
-    display: flex;
-    flex-direction: column;
-    max-width: 600px;
-  }
-  
-  .progress-bar {
-    width: 100%;
-    margin-top: 10px;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.container input, .container select, .container button {
+  margin: 10px 0;
+  padding: 10px;
+}
+
+#form-checkout {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+}
+
+.progress-bar {
+  width: 100%;
+  margin-top: 10px;
+}

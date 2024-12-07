@@ -4,13 +4,15 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { PedidosPageRoutingModule } from './pedidos-routing.module';
 import { PedidosPage } from './pedidos.page';
+import { SharedModule } from '../shared/shared.module'; 
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PedidosPageRoutingModule
+    PedidosPageRoutingModule,
+    SharedModule
   ],
   declarations: [PedidosPage]
 })

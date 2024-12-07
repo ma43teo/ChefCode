@@ -8,12 +8,15 @@ import { AltaproductoPageRoutingModule } from './altaproducto-routing.module';
 
 import { AltaproductoPage } from './altaproducto.page';
 
+import { SharedModule } from '../shared/shared.module'; 
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AltaproductoPageRoutingModule
+    AltaproductoPageRoutingModule,
+    SharedModule
   ],
   declarations: [AltaproductoPage]
 })

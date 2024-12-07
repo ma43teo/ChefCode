@@ -10,7 +10,7 @@ import { AdminProductosPage } from './admin-productos.page';
 
 import { AdminProductoModalModule } from '../admin-producto-modal/admin-producto-modal.module'; // Ajusta la ruta según tu estructura de archivos
 
-
+import { SharedModule } from '../shared/shared.module'; 
 
 
 @NgModule({
@@ -19,7 +19,8 @@ import { AdminProductoModalModule } from '../admin-producto-modal/admin-producto
     FormsModule,
     IonicModule,
     AdminProductosPageRoutingModule,
-    AdminProductoModalModule // Importa el módulo del modal aquí
+    AdminProductoModalModule,// Importa el módulo del modal aquí
+    SharedModule
   ],
   declarations: [AdminProductosPage]
 })
